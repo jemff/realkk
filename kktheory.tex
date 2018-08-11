@@ -1,17 +1,21 @@
 \subsection{Basic properties}
 We can now proceed to consider the $K$-theory as well as its corresponding $K$-homology of real \Cstar-algebras in their joint guise of Kasparovs $KK$-theory. There are several reasons for considering unbounded real $KK$-theory. Unbounded real $KK$-theory can detect orientation, and can detect differences between algebras which are equal in the complex case, eg. $\H$ and $M_2(\R)$ which have isomorphic complexifications but are clearly different as real algebras. We start by defining $KKO$-theory. 
 \begin{definition}
-	We define the Kasparov $(A,B)$ cycles $E(A,B)$ as the triples $E=(E,\pi,F)$ satisfying the following properties
+	Let $A$ and $B$ be separable real \Cstar algebras. We define the Kasparov $(A,B)$ cycles $E(A,B)$ as the triples $E=(E,\pi,F)$, where:
 	\begin{enumerate}
 		\item
 			$E$ is a countably generated $\Z_2$ graded real Hilbert $B$ module 
 		\item
 			The map $\pi$ is a graded real $^*$-homomorphism $A\to L(E)$. 
 		\item
-			The operator $F$ satisfies that $[\pi(A)F]\subset K(E)$, as well as $\pi(A)(F^2-1)\subset K(E),~(F^2-1)\pi(A)\subset K(E)$. 
+			The operators $[\pi(A),F]$, $\pi(a)(F^2-1)$ and $(F^2-1)\pi(a)$ are in $K(E)$ for all $a$ in $A$.
 	\end{enumerate}
-	A cycle is degenerate if all commutators in the definition are identically zero. The collection $E(A,B)$ comes with a natural binary operation in the direct sum. 
+	A triple $(E,\pi,F)$ is degenerate if all three operators in the third requirement are identically zero for every $a$ in $A$. We can endow $E(A,B)$ with a binary operation through the direct sum:
+	\begin{align*}
+		(E_1,\pi_1,F_1)\osum (E_2,\pi_2,F_2)=(E_1\osum E_2,\pi_1\osum \pi_2,F_1\osum F_2)
+	\end{align*}
 \end{definition}
+In order to reduce the unwieldy collection of cycles to a group, we define an equivalence relation akin to the one used to define $K$-homology. 
 \begin{definition}
 	Two cycles $E_1=(E,\pi,F')$ and $(E,\pi,F)$ are operator homotopic if there is a strictly continuous family $F_t$ giving rise to a path of cycles $(E,\pi,F_t)$ where $F_0=F,F_1=F'$. We define the equivalence relation $\sim_{oh}$ as the equivalence relation stemming from addition of degenerate modules and operator homotopy. 
 \end{definition}
@@ -22,20 +26,21 @@ We can now proceed to consider the $K$-theory as well as its corresponding $K$-h
 		K_{p,q}K^{r,s}O(A,B)=KKO(A\tensh Cl_{p,q},B\tensh Cl_{r,s})
 	\end{align*}
 \end{definition}
-For details and proofs, see \cite{kasparov}. 
+For details and proofs, see \cite{kasparov}, where the the equivalence between formal and topological Bott periodicity is explored. 
 We summarize some of the properties of operator $KKO$ theory in the theorem below, for a proof see \cite{kasparov} or \cite{schroder}.
 \begin{theorem}
 \begin{enumerate}
 \item
-	Operator $KO_{*}$-theory is a covariant $8$-periodic functor from the category of real \Cstar algebras to the category of abelian groups. The functor $KO$ takes short exact sequences of real \Cstar-algebras to a 24-term cyclic exact sequence. 
+	Operator $KO_{*}$-theory is a covariant $8$-periodic functor from the category of real graded \Cstar algebras to the category of abelian groups. The functor $KO$ takes short exact sequences of real graded \Cstar-algebras to a 24-term cyclic exact sequence. 
 \item	Operator $KO^{*}$-homology is an $8$-periodic contravariant functor from the category of real \Cstar algebras to the category of abelian groups. If we have a short exact sequence with a completely positive splitting, $KO^{*}$ applied to the sequence gives rise to a 24-term cyclic exact sequence. 
-	\item These two are combined in the stable bifunctor $KKO$, where $KKO(A,\R)\cong KO^{0}(A)$ and $KKO(\R,A)\cong KO_0(A)$. This functor satisfies the following properties.
+	\item These two are combined in the stable bifunctor $KKO$, where $KKO(A,\R)\cong KO^{0}(A)$ and $KKO(\R,A)\cong KO_0(A)$. The functor satisfies:
 	\begin{align*}
 		&KO_n(A)\cong KO_0(A\tens Cl_{0,n}) \\
 		&KO(A)\cong KKO(\R,A) \\
 		&KKO(\R,Cl_{p,q} \tens A) \cong KKO(Cl_{q,p},A) 
 	\end{align*}
 	\end{enumerate}
+	as well as Bott periodicity for suspensions. 
 \end{theorem}
 We use the periodicity of $KKO$-theory to derive the following standard results on operator $KO$-theory of the reals, \cite[Section 1]{schroder}. 
 \begin{example}
@@ -43,13 +48,12 @@ We use the periodicity of $KKO$-theory to derive the following standard results 
 	\begin{align*}
 		&KO_*(\R)=\left \{\begin{array}{c c} 0 & \Z  \\ 1 & \Z_2 \\ 2 & \Z_2 \\  4 & \Z\end{array} \right .
 	\end{align*}
-	By the isomorphisms in $KKO$-theory, we get \begin{align*}KO^n(\R)\cong KKO(Cl_{0,n}\tens \R,\R)\cong KO_{-n}(\R), \end{align*} so we derive the following table 
-	become clear
+	By formal Bott periodicity in $KKO$-theory, we get \begin{align*}KO^n(\R)\cong KKO(Cl_{0,n}\tens \R,\R)\cong KO_{-n}(\R), \end{align*} allowing us to derive the following table:
 	\begin{align*}
-		&KO_*(\R)=\left \{ \begin{array}{c c} 0 & \Z  \\ -1 & \Z_2 \\ -2 & \Z_2 \\ -4 & \Z \end{array} \right .
+		&KO_*(\R)=\left \{ \begin{array}{c c} KO_0 & \Z  \\ KO_{-1} & \Z_2 \\ KO_{-2} & \Z_2 \\ KO_{-4} & \Z \end{array} \right .
 	\end{align*}
 \end{example}
-As described in the section on real \Cstar-algebras, we have both suspensions and anti-suspensions in real bivariant $K$-theory, the actions of which are encapsulated in the following standard result. %One should remark that the proof in \cite{kasparov} foreshadows unbounded $KK$-theory, as all cycles are bounded transforms of unbounded cycles. 
+As described in the section on real \Cstar-algebras, we have both suspensions and anti-suspensions in real bivariant $K$-theory, which are related to the Clifford algebras via. the following lemma. 
 \begin{lemma}
 	We have the isomorphisms.
 	\begin{align*}
@@ -100,7 +104,7 @@ We may immediately use these results to calculate the $K$-theory of the algebra 
 	\end{align*}
 	giving $KO_n(A\tens C(S^1,\tau))\cong  KO_{n-1}(A)\osum  KO_n(A)$ as desired. 
 \end{proof}
-The benefit of real $K$-theory over complex $K$-theory is exhibited in these two cases, where we can see a much finer structure on the $K$-theory of the real circle. %The study of classes in $KO_1,KO_2$ was one of the reasons for the interest in real $K$-theory, as they provide topological obstructions to positive scalar curvature of manifolds, which cannot be detected with complex $K$-theory. 
+The benefit of real $K$-theory over complex $K$-theory is exhibited in these two cases, where we can see a much finer structure on the $K$-theory of the real circle.
 
 In recent years real $K$-theory has been applied in the realm of topological insulators in order to, once again, explain global behaviors by the presence of these torsion classes. This has also explictly used the construction of the unbounded Kasparov product, \cite{bourne}, \todo{do} in a form which we shall recreate at a later point in the thesis. 
 \subsection{$K$-homology of $\R$}
@@ -109,17 +113,17 @@ We start by working in the bounded case, and then argue that for suitable operat
 \begin{definition}
 	Let $H$ be a real Hilbert space with the structure of a $Cl_{0,k}$-module, and let $F(H,H)$ denote the odd Fredholm operators on $H$. Define $F_k\subset F(H,H)$ as the subset of $F(H,H)$ which are $Cl_{0,k}$-linear and self-adjoint. 
 \end{definition}
-We can then define the Clifford index of operators lying in $F_k$, we refer to \Cref{abstheorem} for the notation on $\hat{A}_k$ and $\hat{\M}_k$. 
+We define the Clifford index of operators lying in $F_k$, referring to \Cref{abstheorem} for the notation on $\hat{A}_k$ and $\hat{\M}_k$. 
 \begin{definition}
-	Given an operator $T\in F_k(H,H)$, we define its Clifford index as the residue class:
+	Let $T$ be an operator in $F_k(H,H)$. Define the Clifford index of $T$ as:
 	\begin{align*}
 		\ind_k(T)=[\ker T]\in \hat{A}_k\cong KO_{k}(\R)
 	\end{align*}
 	This is well-defined due to the Atiyah-Bott-Shapiro isomorphism, \Cref{abstheorem}.
 \end{definition}
-In order to justify this definition of the index, we check that $\ind_0$ recovers the usual Fredholm index. 
+In order to justify calling this construction an index, we check that $\ind_0$ recovers the usual Fredholm index. 
 \begin{example}\label{cliffordkernel}
-	We see $Cl_0=\R$ and $Cl_{0,1}=\C$. A $\Z_2$ graded $Cl_0$-module is simply a graded $\R$-vector space, $V_0\osum V_1$. We observe that $[V\osum 0]=-[0\osum V]$ in $\hat{A}_0$ since $V\osum V\cong V\tens \C$ may be extended to a graded $Cl_{0,1}$-module. Given $T\in F_k(H,H)$ we get $\ind_0(T)=[\ker T_0\osum \ker T_1]=[\ker T_0 \osum 0]-[\ker T_1 \osum 0]$, thus recovering the Fredholm Index of $T_0$. 
+	We see $Cl_0=\R$ and $Cl_{0,1}=\C$. A $\Z_2$ graded $Cl_0$-module is simply a graded $\R$-vector space, $V_0\osum V_1$. We observe that $[V\osum 0]=-[0\osum V]$ in $\hat{A}_0$ since $V\osum V\cong V\tens \C$ may be extended to a graded $Cl_{0,1}$-module. Given $T\in F_k(H,H)$ we get $\ind_0(T)=[\ker T_0\osum \ker T_1]=[\ker T_0 \osum 0]-[\ker T_1 \osum 0]$, recovering the Fredholm Index of $T_0$. 
 \end{example}
 We wish to show that the index map is well-defined as a map from $K$-homology, so we need it to be homotopy invariant and a group homomorphism. 
 \begin{theorem}\label{welldef}
@@ -139,34 +143,29 @@ We wish to show that the index map is well-defined as a map from $K$-homology, s
 	In order to see that the class is the same, we need to give $V$ the structure of $Cl_{k+1}$ module in order to map it to $A_k$.
 	Let $S_V=S|_V$. This is a symmetric $\Z_2$ $Cl_{0,k}$-linear graded map. Thus the operator $J=(S^2_V)^{-1/2}S_V$ is as well. We see that $J^2=Id$. Decomposing $V=V_0\osum V_1$, $J=e_{21}J_0+e_{12}J_1$. The graded endomorphism $\tilde{J}=-e_{21}J_0+e_{12}J_1$ squares to $-1$, and as such makes $V$ into a $Cl_{k+1}$-module as desired. Thus $\ind_k T=\ind_k S$ as desired. 
 \end{proof}
-\begin{comment}
-To show that the Clifford index actually gives a homomorphism, ie. that two operators are homotopic if and only if they have the same index, we have the following theorem due to Atiyah and Singer. 
-\begin{theorem}
-	The Clifford index induces a bijection $\pi_0(\tilde{\F}_k) \to KO^{-k}(\{*\})$
-\end{theorem}
-\end{comment}
 We refer to the following reuslt: \cite[Page 217]{spingeom}.
 \begin{proposition}\label{unboundkernel}
-	Given an elliptic $Cl_{0,k}$-linear differential operator $\D$, $[\ker(\D)]\in \hat{A}_k=[\ker(\D/(1+\D^2)^{-1/2})]$.
+	Given self-adjoint elliptic $Cl_{0,k}$-linear (pseudo)-differential operator $\D$, $[\ker(\D)]\in \hat{A}_k=[\ker(\D/(1+\D^2)^{-1/2})]$.
 \end{proposition}
-Thus it suffices to construct unbounded elliptic operators with the appropriate kernels. 
+To construct cycles representing the generators of the real $K$-homology groups, it suffices to construct unbounded elliptic operators with the appropriate kernels. 
 \begin{theorem}
 	The following cycles are generators of the non-trivial real $K$-homology groups of the reals. 
 	\begin{enumerate}
 	\item
-	Define the operator 
-	\begin{align*}
-		&D:\ell^2(\N,\R)\to \ell^2(\N,\R) \\
-		&e_k\mapsto ke_{k+1}
-	\end{align*}
-	with formal adjoint 
-	\begin{align*}
-		D^*(e_k)=\left \{\begin{array}{c c} 0 & k=1 \\ \frac{1}{k-1}e_{k-1} &  k\geq 2 \end{array} \right .
-	\end{align*}
 	The group $KO^0(\R)$ is generated by the cycle 
 	\begin{align*}
 		E=\pa{\R, \ell^2(\N,\R)\osum \ell^2(\N,\R), \begin{pmatrix} 0 & D \\ D^* & 0\end{pmatrix}}
 	\end{align*}
+	Where the operator $D$ is defined on the core spanned by the standard basis as:
+	\begin{align*}
+		&D:\ell^2(\N,\R)\to \ell^2(\N,\R) \\
+		&e_k\mapsto ke_{k+1}
+	\end{align*}
+	The adjoint of $D$ also has the standard basis as core, where it is defined as 
+	\begin{align*}
+		D^*(e_k)=\left \{\begin{array}{c c} 0 & k=1 \\ \frac{1}{k-1}e_{k-1} &  k\geq 2 \end{array} \right .
+	\end{align*}
+
 	\item
 		The group $KO^{-1}(\R)$ is generated by 
 		\begin{align*}
@@ -186,45 +185,28 @@ Thus it suffices to construct unbounded elliptic operators with the appropriate 
 	\end{align*}
 		Where the representation of $Cl_{0,4}$ is either of the two irreducible graded representations. 
 
-	%	\begin{align*}
-	%		(Cl_4,L^2(F_4))\tensh S,\DO,\psi,\pi_{\spin_r})
-	%	\end{align*}
-	%	where $F_4$ is the Fermat quartic ie. hypersurface defined as 
-	%	\begin{align*}
-	%		\{(z_0,\dots,z_3)\in \C P^3 | \sum_{i=0}^3 z_i^4=0\}
-	%	\end{align*}
-	%	and $S$ is the canonical spin bundle, with Dirac operator $\DO$. 
+
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
-We start by noting that for every $n$ the cycles are given by self-adjoint Elliptic $Cl_{0,n}$-linear operators. 
+We start by noting that for every $n$ the cycles are given by self-adjoint elliptic $Cl_{0,n}$-linear operators. 
 To start, we wish to show that: 
 \begin{align*}
 	\ind_n(T):KO^n(\R)\to \hat{A}_k
 \end{align*}
 is a homomorphism. 
-We start by checking that it is well-defined on equivalence classes. Invariance under unitary isomorphism is clear, and by \Cref{welldef} the map $\ind_n(T)$ is invariant under operator homotopy. Thus it is well-defined as a function $KO^*(\R)\to \hat{A}_k$
+We start by checking that it is well-defined on equivalence classes. Invariance under unitary isomorphism is clear, and by \Cref{welldef} the map $\ind_n(T)$ is invariant under operator homotopy. Thus it is well-defined as a function $KO^*(\R)\to \hat{A}_*$
 To see that $\ind_n$ is a homomorphism, assume that $(\pi,F,H)$ is a degenerate cycle, so it is $Cl_{0,k}$-linear. Furthermore, degeneracy implies that $F^2=1$ and $F=F^*$. Therefore $F$ is a self-adjoint unitary and and thus has trivial kernel. Hence $\ind_n(F)=0$. 
-Additivity is clear. 
-
-We can infer that $\ind_n: KO^n\to \hat{A}_k$ is homomorphism. As we know what the left-hand side is by Bott periodicity, we only need to show that our cycles in $KO^n(\R)$ have the appropriate index. %Therefore we shall be working directly with unbounded operators, \Cref{unboundkernel}. 
+Additivity is clear, hence can infer that $\ind_n: KO^n\to \hat{A}_n$ is homomorphism. As we know what the left-hand side is by Bott periodicity, we only need to show that our cycles in $KO^n(\R)$ have the appropriate index. %Therefore we shall be working directly with unbounded operators, \Cref{unboundkernel}. 
 \begin{enumerate}
 \item
-	Consider the cycle 
-	%\begin{align*}
-	%	E=\pa{C_0((-1,1))\tensh Cl_{0,1},L^2([0,1])\tensh \C, \gamma_1 dx,(f,\gamma)g\mapsto (f(x)g\gamma)}
-	%\end{align*}
-	%which we consider as a $Cl_0$-module. If we take $\ind_0(\gamma_1 dx)$ of this operator we recover the Fredholm index of the bounded transform of the operator, which written in Fourier basis is 
-	%\begin{align*}
-	%e_k\mapsto \frac{k}{\sqrt{k^2+1}}e_k
-	%\end{align*}
-	%and the Fredholm index of this operator is 1. 
 	Define the operator 
 	\begin{align*}
 		&D:\ell^2(\N,\R)\to \ell^2(\N,\R) \\
 		&e_k\mapsto ke_{k+1}
 	\end{align*}
-	with formal adjoint 
+	The operator clearly has the standard basis as core of its minimal closure, and is thereby densely defined. 
+	The adjoint of $D$ likewise has the standard as core, where it is given by:
 	\begin{align*}
 		D^*(e_k)=\left \{\begin{array}{c c} 0 & k=1 \\ \frac{1}{k-1}e_{k-1} &  k\geq 2 \end{array} \right .
 	\end{align*}
@@ -234,11 +216,13 @@ We can infer that $\ind_n: KO^n\to \hat{A}_k$ is homomorphism. As we know what t
 	\end{align*}
 	By \Cref{cliffordkernel} $\ind_0\pa{\begin{pmatrix} 0 & D \\ D^* & 0\end{pmatrix} }$ is the Fredholm Index of $D$, which is readily seen to be 1. Thus $E$ generates $KO^{0}(\R)$. 
 \item
+	
 	Consider the operator $\D=\gamma_1\tens d_\theta$, in the Fourier basis we can write this on the basis vectors as:
 	\begin{align*}
 		&\D: \ell^2(\Z)\to \ell^2(\Z) \\
 		&e_k\mapsto ke_k
 	\end{align*}
+	Remark that the considerations above on domains can be reused for this operator. 
 	We wish to determine the Clifford index of this operator and thus we take $[\ker(\D)]\in \hat{A}_1\cong \Z_2$. The kernel consists of the constant $Cl_{0,1}$-functions, equipped with the canonical grading. Thus the kernel is $Cl_{0,1}$ viewed as a module over itself. This is is the generator of $\hat{\M}_1$, and thus its image in the quotient $\hat{\M}_1\to \hat{A}_1$ is the generator of $\hat{A}_1$.  
 	
 %	which by \Cref{spindex} is $\dim_{Cl_{0,2}}(ker(\gamma\tens d_x)) \mod 2$, consisting of the constant real-valued functions and thus is non-zero.
@@ -264,9 +248,7 @@ We can infer that $\ind_n: KO^n\to \hat{A}_k$ is homomorphism. As we know what t
 		(Cl_{0,4},(\ell^2(\N)\osum \ell^2(\N))\tens_\R (\H\osum \H),\D)
 	\end{align*}
 	generates $KO^{-4}(\R)$. 
-	
-	%Alternatively we could invoke the results of spin geometry in order to show the claim, which we have hitherto abstained from. We see by \Cref{spindex} that $\ind_4(\DO)=1/2\hat{A}(F_4)$, which by \cite[Example 2.14]{spingeom} is 1 in this case.  We do not delve further into these results and instead refer to \cite{spingeom} for further details. 
-	
+
 \end{enumerate}
 \end{proof}
 The above calculations can be seen to be a general case of the $KO^{*}$-generalization of the analytic index of Clifford-linear operators from spin geometry. 
@@ -274,6 +256,5 @@ The above calculations can be seen to be a general case of the $KO^{*}$-generali
 	Let $x\in KO^n(A)$ and $y\in KO_m(A)$. Then we may take the Kasparov product $x\tens y$ thereby ending in $KKO(Cl_{0,n},Cl_{0,m})\cong KKO(Cl_{n,m},\R)$. Here we may take the Clifford index of the resulting product product operator as a $Cl_{n,m}$-linear Fredholm operator.
 \end{definition}
 \begin{remark}
-	The result above gives a pairing between $KO^*$ and $KO_*$-theory: Let $(A\tens Cl_{*,0},F,H)$ be an element of $KO^*(A)$ and let $p\in KO_0(A)$. Then the operator $\pi(p)\tens 1_{Cl_{0,*}}(F\tens 1_n)\pi(p)\tens 1_{Cl_{0,*}}$ is a self-adjoint $Cl_{0,*}$-linear Fredholm operator on $\pi(p) H^n$.
-	For an example of this, see eg. \cite{bourne} where it is also shown this recovers the Kasparov product. 
+	The result above gives a pairing between $KO^*$ and $KO_*$-theory: Let $(A\tens Cl_{*,0},F,H)$ be an element of $KO^*(A)$ and let $p\in KO_0(A)$. Then the operator $\pi(p)\tens 1_{Cl_{0,*}}(F\tens 1_n)\pi(p)\tens 1_{Cl_{0,*}}$ is a self-adjoint $Cl_{0,*}$-linear Fredholm operator on $\pi(p) H^n$. We will express this pairing concretely, and show that it is expressed by the Kasparov product in the section on unbounded real KK-theory. 
 \end{remark}
