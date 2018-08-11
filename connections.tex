@@ -1,0 +1,588 @@
+\subsection{Connections}
+In this section we establish the differential framework needed for the construction of the unbounded Kasparov product, the essential ingredient in the construction of the unbounded Kasparov product in \cite{mesland}. The most important part of the framework is notion of a projector operator module. This allows the construction of a connection, serving to make the naive product $1\tens \D_2$ well-defined on the interior tensor product. The modification is much more direct than in the bounded case, as it is based on the idea of the covariant derivative for a vector bundle. As such it is instructive to think of the product $1\tens_{\nabla}\D_2$ exactly as a covariant derivative with $\D_2$ being the standard derivative and $\nabla$ encoding the derivative on the bundle. That is, we think of $E_B\tens_B F_C$ as the tensor product of two vector bundles, with $E_B$ serving the role of the tangent bundle.
+\begin{definition}
+%Define the set $\Zred=\Z\setminus \{0\}$, and define the graded Hilbert space $\ell^2(\Zred)$ with grading given by $\gamma(e_i)=\sign(e_i)$.
+Let $\B$ be an operator algebra with a bounded approximate unit $u_\lambda$. Then as for \Cstar modules, define the standard right $\B$-module $H_{\B}=H\optens \B$.
+\end{definition}
+\begin{assumption}
+	Let $B$ and $C$ be graded $\sigma$-unital \Cstar-algebras.
+	For the remainder of this section, we fix an unbounded essential $(B,C)$-module $(\B,F_C,\D)$ where $\B$ is assumed to have a bounded approximate unit, with $\B^+$ denoting the unitization of $\B$.
+	We define the corresponding differential representation of $\B$ as 
+	\begin{align*}
+		\pi_{\D}(b)=\begin{pmatrix} b & 0 \\ [\D,b] & \gamma(b) \end{pmatrix} \in L_C(F_C\osum F_C)
+	\end{align*}
+\end{assumption}
+We see that the grading operator $\Gamma$ on $H_{\B^+}$ can be written as $\Gamma(b_i)_{i\in \Zred}=(\sign(i)\gamma(b_i))_{i\in \Zred}$. Defining the self-adjoint unitary 
+\begin{align*}
+	&\epsilon:H_{\B^+}\to H_{\B^+} \\
+	&\epsilon((b_i)_{i\in \Zred})=(\sign(i)b_i)_{i\in \Zred}
+\end{align*}
+the grading operator on $H_{\B^+}$ may be given as $\epsilon \diag(\gamma_{\B^+})$, a factorization which we can already see simplifies our constructions as we may represent $H_{\B^+}$ as an operator $\B^+$ module via. the representation 
+\begin{align*}
+	(b_i)_{i\in \Z\setminus \{0\}}\mapsto &\begin{pmatrix} b_i & 0 \\ \sign(i)[\D,b_i]_{\B^+} & \Gamma(b_i) \end{pmatrix}_{i\in \Zred} \\
+	&=\begin{pmatrix} 1 & 0 \\ 0 & \epsilon \end{pmatrix} \begin{pmatrix} b_i & 0 \\ [\D,b_i]_{\B^+} & \gamma(b_i) \end{pmatrix}_{i\in \Zred}
+\end{align*}
+An immediate question which one must ask is then whether the inner product on $H_{\B^+}$ derived from $H_{B^+}$ is actually $\B^+$-valued. This is true as shown in \cite{mesland}, and we state it here without proof. 
+\begin{proposition}
+	The standard $B$-valued inner product on $H_{\B}$, ie. 
+	\begin{align*}
+		\ip{x}{y}=\sum_{i\in \Zred} x_i^* y_i
+	\end{align*}
+	takes values in $\B^+$.
+\end{proposition}
+As the class of a Kasparov module is invariant under compact perturbations, we need a good operator-algebraic notion of the compact operators on $H_{\B^+}$. Likewise, we would like an analogue of the adjointable operators on $H_{\B^+}$. 
+\begin{definition}
+	We define the compacts on $H_{\B^+}$ as  $\K(H_{\B^+})=\K\optens \B^+$, we define $L(H_{\B^+})$ as the subset of completely bounded maps $T:H_{\B^+}\to H_{\B^+}$ that have an adjoint with respect to the standard inner product. 
+\end{definition}
+Working only in the context of the standard module turns out to be too inflexible in applications, as shown for instance in \cite{suijlekom} where the concept of an unbounded projection was introduced in order to be able to handle a \Cstar-module stemming from the non-commutative Hopf fibration. Recalling the Serre-Swan theorem, one may be tempted to think of projective operator modules as generalized vector bundles, and it is exactly this we shall use as the base point of our intuition.  
+\begin{definition}
+	Let $\B$ be an operator $^*$-algebra. A projective operator module $\E$ over $\B$ is a $\B$-module which is completely isometrically unitarily isomorphic to $p\dom(p)$ for some even projection on $H_{\B^+}$ with the additional requirement that $(e_i)_{i\in \Zred}\subset \dom(p)$ 
+\end{definition}
+We can characterize which modules are of this form with the aid of the concept of a frame, the $^*$-module analogue of a frame in a vector bundle ie. a collection of sections giving a basis for every fiber. 
+As for vector bundles, our definition of a section is local in the sense that it is a coordinate-wise definition, but as we shall shortly show having a frame has global consequences for a module.
+\begin{definition}
+	Let $E_B$ be a \Cstar module over $B$. The sequence $(x_i)_{i\in \Zred}\subset E_B$ is a frame for $E_B$ if:
+	\begin{enumerate}
+	
+	\item  $\gamma_{E_B}(x_i)=\sign_i x_i$. 
+	\item 
+	The sequence of finite rank operators 
+	\begin{align*}
+		\chi_n=\sum_{1\leq |i|\leq n} \ket{x_i}\bra{x_i}
+	\end{align*}
+	is an approximate unit for the finite-rank operators, with $\norm{\chi_n}\leq 1$. $(x_i)_{i\in \Zred}$  
+	\end{enumerate}
+	We shall refer to $\chi_n$ as the canonical approximate identity corresponding to the frame. 
+\end{definition}
+The mental model of $\chi_n$ is the strongly convergent symmetric projection in $B(\ell^2(\Zred))$ 
+
+To illustrate the analogy with the frame of a vector bundle, we have the following theorem showing that a $\B$-module has a frame with uniformly bounded correlations if and only if the corresponding \Cstar module is the completion of a projective $\B$ module. 
+\begin{proposition}\label{columnfin}
+	Let $\B$ be a differentiable algebra with $E_B$ a graded \Cstar module over $B$. Then $E_B$ is the completion of a projective operator module $\E_{\B}$ if and only if there is a frame $(x_i)_{i\in \Zred}$ such that $(\ip{x_i}{x_j})_{i \in \Zred}$ has finite norm in $H_{\B^+}$ for each $j$. 
+\end{proposition}
+\begin{proof}
+	Start by assuming that $\E_{\B}$ is projective, then $\E_{\B}\subset H_{B^+}$ and therefore we may define the frame $x_i=pe_i$ and consider the inner product
+	\begin{align*}
+		\ip{pe_i}{\sum_{1\leq |j|\leq n} pe_n\ip{pe_n}{pe_j}}=\ip{pe_i}{\sum_{1\leq |j|\leq n} e_n\ip{e_n}{pe_j}}
+	\end{align*}
+	This converges for $n\to \infty$ since $pe_i$ and all $pe_j$ are in $H_{\B^+}$. This implies that $\ket{pe_i}\bra{pe_k}$ is a frame as $\chi_n$ is a column finite approximate unit for the finite rank operators. 
+	To show the converse, we wish to show that the operator $p$ induced on $H_{\B^+}$ by the matrix $(\ip{x_i}{x_j})_{ij\in \Zred}$ is a projection. Start by observing that $p$ has the following domain 
+	\begin{align*}
+		\dom(p)=\left \{(b_i)_{i\in \Zred} : \forall j \in \Zred \lim_{k\to \infty} \pa{\sum_{1\leq |i|\leq k} \ip{x_i}{x_j}b_j}\in \B \right \}
+	\end{align*}
+	We see that $p$ is densely defined as all $e_i$ lie in $\dom(p)$ by column finiteness. In order to see that $p$ is closed, let $q_i$ be the projection onto the submodule spanned by $e_i$. As we have assumed that $p$ is column finite, $q_ip\in L(H_{\B^+})$. Let $(z_n)_{n\in \N}$ be a sequence in $H_{\B^+}$ converging to $z$ and assume that $pz_n\to h$. Then $q_ipz_n\to q_ih$. By continuity we also get that $q_ipz_n\to q_iz$ for all $i$.
+	This implies that $q_ipz=q_ih$ and that $pz=h\in H_{\B^+}$, so $p$ is closed. 
+	We wish to show that $p$ is self-adjoint, so pick $z\in \dom (p^*)$, ie. $\ip{pw}{z}=\ip{w}{x}$ for all $w\in \dom (p)$. As the basis vectors $e_i$ are in the domain of $p$ and using the definition of the adjoint, we may compute:
+	\begin{align*}
+		\lim_{n\in \N} \sum_{1\leq |i|\leq n} q_ipzn&=\lim_{n\to \infty} \sum_{1\leq |i|\leq n} e_i \ip{e_i}{q_ipz} \\
+		&=\lim_{n\in \N} \sum_{1\leq |i|\leq n} e_i \ip{pe_i}{z} \\
+		&=\lim_{n\in \N} \sum_{1\leq |i|\leq n} e_i \ip{e_i}{x} \\
+		&=x=p^*z
+	\end{align*}
+	This implies that $pz=x$, giving the desired. 
+	Finalizing the proof, we may define $\E_\B$ by
+	\begin{align*}
+		\E_\B=\{e \in E_B : (\ip{x_i}{e})_{i\in \Zred}\in \dom (p)\}
+	\end{align*}
+	We clearly have that $x_i\in \E_\B$, and that $\E_\B$ is closed in $H_{\B^+}$ follows from the observation that a convergent net in $\E_\B$ will also be convergent in $E_B$ thus must of the form $(\ip{x_i}{e})_{i\in \Zred}$. 
+\end{proof}
+\begin{definition}
+	Let $\E_\B$ be a projective \Cstar-module. Define the canonical column-finite frame associated to $\E_\B$ as the frame in \Cref{columnfin}.
+\end{definition}
+
+We have now constructed our geometric setup, showing that our modules with frames behave as generalized vector bundles. As a next logical step, we wish to construct the analogue of the differentiable sections of our bundle. For this purpose we start by defining the set of universal 1-forms, from which we shall eventually construct our analogue of the differentiable sections.  
+\begin{definition}
+	We define the universal 1-forms $\Omega^1(B,\B)$ as the kernel of the map $B\optens \B\to B$ given by $b_1\tens b_2\mapsto \gamma(b_1)b_2$ when $B,\B$ are unital. In the non-unital case, we consider $\Omega(B^+,\B^+)$ such that the universal derivation:
+	\begin{align*}
+		&db:B\to \Omega^1(B^+,\B^+) \\
+		&b\mapsto 1\tens b+\gamma(b)\tens 1
+	\end{align*}
+	is well-defined. 
+	Associated to this we have the universal short exact sequence where $m$ is the multiplication map:
+	\begin{align*}
+	\xymatrix{
+		0 \ar[r] & \E_B \optens_{\B^+}\Omega^1(B^+,\B^+) \ar[r] & E_B\optens_{\B} \B^+ \ar[r]^m & E_B \ar[r] & 0 
+	}
+	\end{align*}
+	A split of this is a map $s:\E_\B\to E_B\optens \B^+$ such that $m(s)=\iota_{\E_\B}$, where $\iota_{\E_\B}$ is the inclusion of $\E_\B$ into $E_B$, \cite[Proposition 2.22]{suijlekom}. 
+\end{definition}
+We are interested in splittings the universal exact sequence for the universal $1$-forms, as we may use such a split to construct an analogue the covariant derivative based on the universal derivative, which we then use to construct an explicit form for a covariant derivation associated to an operator $\D$. 
+We may construct a split using our column finite frames. 
+\begin{lemma}
+	Let $(x_i)_{i\in \Zred}$ be a column finite frame defining a projective $\B$ submodule $\E_\B \subset E_B$. Then the map 
+	\begin{align*}
+		&s:\E_\B\to E\optens \B^+ \\
+		&e\mapsto \sum_{i\in \Zred} \gamma(x_i)\tens \ip{x_i}{e}, \quad \for e\in \E_\B
+	\end{align*}
+	defines a contractive $\B^+$-linear split of the universal exact sequence. 
+\end{lemma}
+\begin{proof}
+	We start by checking that $s$ is well-defined. Let $\epsilon>0$ and $e\in \E_\B$ and pick $n,m\in \N$ such that 
+	\begin{align*}
+		\norm{\sum_{n\leq |i|\leq m} \pi_{\D}(\ip{x_i}{e})^*\pi_{\D}(\ip{x_i}{e})}_{L(E_B\osum E_B)}<\epsilon
+	\end{align*}
+	which we may do as $e\in \E_\B$. 
+	We can perform the following estimate
+	\begin{align*}
+		&\norm{\sum_{n\leq \abs{i} \leq m} \gamma(x_i)\tens \ip{x_i}{e}}^2_{\optens} \\
+		&\leq \norm{\sum_{n\leq |i|\leq m} \ket{x_i}\bra{x_i}}_{\K(E_B)}\norm{\sum_{n\leq |i|\leq m}\pi_{\D}(\ip{x_i}{e})^*\pi_{\D}(\ip{x_i}{e})}_{\B^+} \\
+		&\leq \norm{\sum_{n\leq |i|\leq m} \pi_{\D}(\ip{x_i}{e})^*\pi_{\D}(\ip{x_i}{e})}_{{L(E_B\osum E_B)}}<\epsilon
+	\end{align*}
+	Thus the partial sums from the definition of $s$ give rise to a Cauchy sequence in $\optens$-norm. To show continuity, consider the following estimate
+	\begin{align*}
+		&\norm{s(e)}^2_{\optens} \\
+		&\leq \lim_{k\to\infty} \norm{\sum_{1\leq |i|\leq k} \ket{x_i}\bra{x_i}}_{\K(E_B)} \norm{\sum_{1\leq |i|\leq k} \pi_{\D}(\ip{x_i}{e})^*\pi_{\D}(\ip{x_i}{e})}_{\B} \\
+		&\leq \norm{e}_{\E_{\B}}^2
+	\end{align*}
+	This shows that our split is well-defined and contractive as desired. 
+\end{proof}
+
+We can now use this split to define our connection. 
+%The motivation for working with splits of the universal exact sequence is that these turn out to correspond to generalized connections as required to construct the unbounded Kasparov product, while at the same giving convenient maps from the universal property of the deri%vations. 
+
+\begin{definition}
+	 Let $\E_\B$ be a projective operator module, then any completely bounded linear operator $\nabla: \E_\B\to E\optens \Omega^1(B^+,\B^+)$  satisfying the Leibniz rule for the universal derivation $d$
+	\begin{align*}
+		\nabla(eb)=\nabla(e)b+\gamma(e)\tens db
+	\end{align*}
+	is a connection. 
+\end{definition}
+The motivating example for this definition is the following  
+\begin{example}
+	Given a splitting $s$ we may define a connection associated to this split.
+	\begin{align*}
+		\nabla_s(e)=s(e)-\gamma(e)\tens 1
+	\end{align*}
+	For the module $H_{\B^+}$ we may define the connection $(\epsilon d)((b_i)_{i\in \Zred})=(\epsilon((d b_i)))_{i\in \Zred}$. 
+\end{example}
+
+Before proceeding, we define an isometry $v$ implementing the stablization map $\E_\B \to H_{\B^+}$, providing a framework into which to place the split $s$. 	Given a column finite frame $(x_i)_{i\in \Zred}$ and a projective module $\E_\B$ we get an induced stabilization map, $v:\E_\B\to H_{\B^+}$ extending to $E_B$ and $H_{B^+}$. 
+\begin{definition}
+	For a projective operator module $\E_{\B}$ define the isometry $v$ implementing the stabilization $\E_{\B}\to H_{\B^+}$. 
+	\begin{align*}
+		v(e)=(\ip{e}{x_i})_{i\in \Zred}
+	\end{align*}
+	The adjoint $v^*$ of $v$ is 
+	\begin{align*}
+		v^*((b_i)_{i\in \Zred})=\sum_{i \in \Zred} x_i b_i
+	\end{align*}
+	Define the associated projection $p=vv^*$. 
+\end{definition}
+In order to understand the utility of the example given above, we have the following lemma illuminating the concrete form of the covariant derivative in terms of the frame. 
+\begin{lemma}
+	The operator $v$ is an even isometry, and the connection associated to the splitting may be characterized through $v$ as follows $\nabla_s=v^*\epsilon dv$. 
+\end{lemma}
+\begin{proof}
+	We have 
+	\begin{align*}
+		\nabla_s(e)&=s(e)-\gamma(e)\tens 1\\
+		&=\sum_{i\in \Zred} \gamma(x_i)\tens \ip{x_i}{e}-\gamma(e)\tens 1 \\
+		&=\sum_{i\in \Zred} (\gamma(x_i)\tens 1)(1\tens \ip{x_i}{e}-\gamma(\ip{x_i}{e})\tens 1) \\
+		&=\sum_{i\in \Zred} \gamma(x_i)\tens d(\ip{x_i}{e})
+	\end{align*}
+	By the calculations we have just performed, we see that $\nabla_s=v^*\circ \epsilon d \circ v$. 
+\end{proof}
+As we desired that our framework should also work for unbounded, ie. non-regular projections, we need to consider a concrete derivation constructed from $\D$ which we may use to construct a suitable connection. 
+\begin{definition}
+	Define the derivation $\delta_\D$ as $[\D,\cdot]$. We define the set of $\delta_{\D}$-1-forms as 
+	\begin{align*}
+		\Omega^1_\D=\overline{\{\pi(b_i)[\D,b_i']: b_i,b_i'\in \B \}}\subset L_C(F_C)
+	\end{align*}
+	By the universality of $\Omega^1(B^+,\B^+)$ there is a map 
+	\begin{align*}
+		&j_\D:\Omega^1(B^+,\B^+)\to \Omega^1_\D & 
+		&db\mapsto [\D,\pi(b)]
+	\end{align*}
+	Thus we get a connection $\nabla_\D=(1\tens j_\D) \circ (\nabla_s)$. 
+\end{definition}
+We might be in the situation that the space of differentiable elements in $\E_\B\optens_{\B^+} F_C$ with respect to $\nabla$ is not complete, and as such we need to enlarge our module to remedy this malady. We start by considering the free case, and use this as our reference. 
+\begin{definition}
+	We define the space 
+	\begin{align*}
+		H_{\Omega^1_\D}=H_{\B^+}\optens_{\B^+} \Omega^1_\D
+	\end{align*}
+	consisting of sequences $(\omega)_{j\in \Zred}$ such that the sum $\sum_{j \in \Zred} \omega_j^*\omega_j$ converges in $L_C(F_C)$
+\end{definition}
+This allows us to define our operator module $\E^\nabla$ which can see both the action of $\D$ on $\B$ and $F_C$.
+\begin{definition}
+	Given a column-finite frame $(x_i)_{i\in \Zred}$ for $\E_\B$ define the space $\E^\nabla_\B\subset E_B$: 
+	\begin{align*}
+		\E^\nabla_\B=\left \{e\in E_B : \lim_{n\to \infty} \pa{\sum_{1\leq |k| \leq n} \ip{x_i}{\gamma(x_k)}[\D,\ip{x_k}{e}]}_{i\in \Zred} \in H_{\Omega^1_\D}\right \}
+	\end{align*}
+	This is an operator $\B$ module in the representation: 
+	\begin{align*}
+		\pi_\nabla(e)=\begin{pmatrix} v(e) & 0 \\ vv^*\epsilon[\D,v(e)] & v(\gamma(e)) \end{pmatrix} \in \bigoplus_{i\in \Zred} L_C(F_C\osum F_C), \quad \norm{e}_{\E^\nabla_\B}=\norm{\pi_\nabla(e)}
+	\end{align*}
+	where $\gamma=\diag(\gamma_{\B^+})$. We shall use the notation $\D_\epsilon=\epsilon \diag(\D)$ on $H_{B^+}\optens_{B^+} F_C$.   
+\end{definition}
+\begin{remark}\label{remark36}
+	The two closed graded derivations defined below 
+	\begin{align*}
+		[\diag(\D),T]_\gamma&=\diag(\D)T-\gamma T \gamma \diag \D 
+		[\D_\epsilon,T]_\Gamma=\D_\epsilon T-\Gamma T\Gamma \D_\epsilon
+	\end{align*}
+	are related as $[\D_\epsilon,T]_\Gamma=[\diag \D,\epsilon T]_\gamma=\epsilon [\diag(\D),T]_\gamma$. 
+	Thus they have the same domain. One should also remark that with the gradings defined on $\E^\nabla_\B$ as before, we have the identity:
+	\begin{align*}
+		\pa{\sum_{1\leq |k| \leq n} \ip{x_i}{x_k}[\D,\ip{x_k}{e}]}^*&=\sum_{1\leq |k| \leq n} -[\D,\gamma(\ip{e}{x_k})]\ip{\gamma(x_k)}{x_i} \\
+		&=\sum_{1\leq |k| \leq n} \gamma([\D,\ip{e}{x_k}]\ip{x_k}{\gamma(x_i)})
+	\end{align*}
+	So that the sequence of row vectors
+	\begin{align}
+		\pa{\sum_{1\leq |k|\leq n}[\D,\ip{e}{x_k}]\ip{x_k}{\gamma(x_i)}}^t_{i\in \Zred} \label{310}
+	\end{align}
+	converges.
+\end{remark}
+
+As we shall see in the following lemma, the module $\E_{\B}^\nabla$ is isomorphic to $\E_{\B}$ in the case where $\E_{\B}$ is projective, reinforcing the analogy of projective $\B$-modules as being unbounded $C^1$-vector bundles in a suitable sense. We also show that $\E_{\B}$ is an inner product $\B$-module, allowing us to use our results on these. 
+\begin{theorem}
+	The operator module $\E_\B^\nabla$ has the following properties. 
+	\begin{enumerate}
+		\item
+			The inner product $\E_\B\times \E_\B \to \B$ extends to $\E_\B^\nabla\times \E_\B^\nabla\to \B$. 
+		\item
+			For every $e\in \E_\B^\nabla$ the operator $e^*:\E_\B^\nabla:\to \B$ given as $e^*(f)=\ip{e}{f}$ is completely bounded and adjointable, with adjoint given as $(e^*)^*(b)=eb$, satisfying the estimate $\norm{e^*}_{cb}\leq 2\norm{e}_{\E_\B^\nabla}$.
+		\item
+			For every projection $p:\dom (p)\to H_{\B^+}$ such $\E_\B=p\dom (p)$ is a projective module, there is a completely contractive dense inclusion $\iota:\E_\B \to \E_\B^\nabla$, if $p\in L(H_{\B^+})$, $\iota$ is a $cb$-isomorphism. 
+	\end{enumerate}
+	\begin{proof}
+	\begin{enumerate}
+	\item
+		Let $f,e\in \E^\nabla_\B$ we wish to show that $\ip{e}{f}$ lies in $\B$. Let $(x_i)_{i\in \Zred}$ be the canonical frame for $\E_\B$. Consider the series of column vectors   
+		\begin{align*}
+			\sum_{j\in \Zred} \pa{\ip{x_i}{\gamma(x_j)}[\D,\ip{x_j}{e}]}_{i\in \Zred}
+		\end{align*}
+		which for $e\in \E^\nabla$ is norm-convergent in $H_{\B^+}\optens_{\B^+} F_C$ by definition of $\E_{\B}^\nabla$. 
+		Then we may consider the partial sums 
+		\begin{align*}
+			\comm{\D,\sum_{1\leq |j|\leq n} \ip{e}{x_j}\ip{x_j}{f}}=\sum_{1\leq |j|\leq n} \gamma(\ip{e}{x_j})[\D,\ip{x_j}{f}]+[\D,\ip{e}{x_j}]\ip{x_j}{f}
+		\end{align*}
+		In order to see that both terms on the right hand side are convergent, consider the following where we use the pairing between row and column vectors, ie. the standard inner product product, we get 
+		\begin{align*}
+			\norm{\sum_{1\leq |j|\leq n} \gamma(\ip{e}{x_j})[\D,\ip{x_j}{f}]}&=\norm{\sum_{1\leq |j|\leq n}\sum_{i\in \Zred} \ip{\gamma(e)}{x_i}\ip{x_i}{\gamma(x_j)}[\D,\ip{x_j}{f}]}  \\
+			&=\norm{\sum_{1\leq |j|\leq n}(\ip{\gamma(e)}{x_i})^*_{i\in \Zred} \cdot \pa{\ip{x_i}{\gamma(x_j)}[\D,\ip{x_j}{f}]}_{i\in \Zred}} \\
+			&\leq \norm{e}_{E_B} \norm{\sum_{1\leq |j|\leq n} (\ip{x_i}{\gamma(x_j)}[\D,\ip{x_j}{f}])_{i\in \Zred}}
+		\end{align*}
+		by our initial considerations this is finite. Thus we have shown the desired since $\delta_\D$ is a closed derivation and $x_i$ is a frame for $\E_\B$, so $\sum_{i\in \Zred}(\ip{e}{x_i})\ip{x_i}{f}$ converges to $\ip{e}{f}$.
+	\item
+		We have the following equalities
+		\begin{align*}
+			\begin{pmatrix} \ip{e}{f} & 0 \\ [\D,\ip{e}{f}] & \gamma(\ip{e}{f}) \end{pmatrix}=\sum_{i\in \Zred}\begin{pmatrix} \ip{e}{x_i} & 0 \\ 0 & \ip{\gamma(e)}{x_i} \end{pmatrix}\begin{pmatrix} \ip{x_i}{f} & 0 \\ \sum_{j\in \Zred} \ip{x_i}{\gamma(x_j)} & [\D,\ip{x_i}{f}]\end{pmatrix} \\
+			+\begin{pmatrix} 0 & 0 \\ \sum_{j\in \Zred} [\D,\ip{e}{x_j}] & \ip{x_j}{\gamma(x_i)}\end{pmatrix}\begin{pmatrix} \ip{\gamma(x_i)}{f} & 0 \\ 0 & \ip{x_i}{f}\end{pmatrix}
+		\end{align*}
+		All series converge by \Cref{310} and the definition via. limits of $\E^\nabla_\B$.
+		These equalities also hold for matrices of elements in $\E^\nabla_\B$, giving rise to the estimate 
+		\begin{align*}
+			\norm{e^*(f)}_{\B}\leq \norm{e}_E\norm{f}_{\E^\nabla_\B}+\norm{e}_{\E^\nabla_\B}+\norm{f}_E\leq 2\norm{e}_{\E^\nabla_\B}\norm{f}_{\E^\nabla_\B}
+		\end{align*}
+		so we infer 
+		\begin{align*}
+			\norm{e^*}_{cb}\leq 2 \norm{e}_{\E^\nabla}
+		\end{align*}
+		Which proves the claim.
+	\item
+		To see the final point we start by using that $v$ is a partial isometry
+		\begin{align*}
+			&\norm{\begin{pmatrix}v(e) & 0 \\ vv^*\epsilon[\D,v(e)] & \gamma(v(e)) \end{pmatrix}}\\
+			&=\norm{\begin{pmatrix} p & 0 \\ 0 & p \end{pmatrix} \begin{pmatrix} v(e)& 0 \\ \epsilon[\D,v(e)] & v(\gamma(e))  \end{pmatrix}} \\
+			&\leq \norm{\begin{pmatrix} v(e)& 0 \\ \epsilon[\D,v(e)] & v(\gamma(e))  \end{pmatrix}}
+		\end{align*}
+		which shows the first of the statement. Recall that $\Gamma$ is the grading operator on $H_{\B^+}$ and that as $p$ is even, we have $\Gamma p=p\Gamma$. 
+		We may also deduce the following relations 
+		\begin{align*}
+			p\epsilon&=p\gamma \epsilon \gamma \\
+			&=p\Gamma \gamma=\Gamma p \gamma=\epsilon \gamma p \gamma \\
+			&=\epsilon \gamma(p)\\ 
+			&[\D_\epsilon,p]_\Gamma v(e)=[\diag(\D),\epsilon p]_{\gamma}v(e) \\
+			&=[\D,\epsilon v(e)]-\epsilon \gamma p \gamma [\D,v(e)]=[\D,\epsilon v(e)]-p\epsilon[\D,v(e)]
+		\end{align*}
+		These two considerations taken together allow us to write the following equality
+		\begin{align*}
+			\begin{pmatrix} v(e) & 0 \\ vv^* \epsilon [\D,v(e)] & \gamma(v(e))\end{pmatrix}=\begin{pmatrix} 1 & 0 \\ -[\D_\epsilon,p]_\Gamma & 1\end{pmatrix}\begin{pmatrix} v(e) & 0 \\ \epsilon [\D,v(e)] & v(\gamma(e))\end{pmatrix}
+		\end{align*}
+		By boundedness of the commutator in the matrix $\begin{pmatrix} 1 & 0 \\ -[\D_\epsilon,p] & 1 ] \end{pmatrix}$, it is invertible. This gives the desired inverse. 
+	\end{enumerate}
+	\end{proof}
+\end{theorem}
+In order to construct the unbounded Kasparov product, we need some analogues of the compact operators and the adjointables. Further, we need to show that these have the desired differential structure. Doing this construction and proving that the algebras have the appropriate structure for our purposes is the goal of the next couple of pages. 
+\begin{definition}
+	We may view $\E_\B$ as a proper submodule of $\E_\B^\nabla$. We consider the finite rank operators $Fin(\E_\B)$ as an algebra of operators on $\E_\B^\nabla$ via. the following representation, for $K\in Fin(\E_{\B})$. 
+	\begin{align*}
+		\pi_\nabla(K)=\begin{pmatrix} vKv^* & 0 \\ p[\D_\epsilon,vKv^*]p & vKv^* \end{pmatrix}
+	\end{align*}
+	where $P$ comes from a defining column frame, and $v$ is the isometry $\E_\B\to H_{B^+}$. 
+\end{definition}
+\begin{lemma}
+	The representation above is well-defined on the finite rank operators. 
+\end{lemma}
+\begin{proof}
+For $e,f\in \E_\B$ we consider the column and row vectors 
+\begin{align*}
+	&v\ket{e}=v(e)=(\ip{x_i}{e})_{i\in \Zred} \\
+	&\bra{f}v^*=v(f)^*=(\ip{f}{x_i})_{i\in \Zred}^t
+\end{align*}
+where $^t$ is the transpose. These are elements of $H_{B^+}$ and $H_{B^+}^t$ respectively. Therefore the rank one operator given as $\ket{e}\bra{f}$ satisfies that 
+\begin{align*}
+	[\D_\epsilon,v\ket{e} \bra{f} v^*]
+\end{align*}
+is a bounded matrix. This shows that the representation is well-defined.
+\end{proof}
+This allows us to define the compact operators $\K(\E^\nabla_\B)$ as the closure of $\pi_\nabla(Fin_{\B}(\E_\B))$ in operator space norm. We are now in a situation where we may show existence of suitable approximate units. 
+\begin{lemma}
+	Let $(\B,F_C,\D)$ be a defining Kasparov module for $\B$ and $\E_\B$ a projective operator module. Let  $(u_n)_{n\in \N}$ be the canonical approximate unit associated to the column finite frame $(x_i)_{i\in \Zred}$, and let $K\in Fin_\B(\E_\B)$. Then $[\D_\epsilon,vKv^*]$ extends to a bounded adjointable operator in $L_C(H_{B^+}\optens_{B^+} F_C)$ and 
+	\begin{align}
+		&vKv^* \dom (\D_\epsilon) \subset \dom (\D_\epsilon) \\
+		&\lim_{n\to \infty} v\chi_n v^* [\D_\epsilon,vKv^*]=vv^*[\D_\epsilon,vKv^*] \\
+		&\lim_{n\to \infty}[\D_\epsilon,vKv^*]v\chi_nv^*=[\D_\epsilon,vKv^*]vv^*
+	\end{align}
+	where all limits are in operator norm. 
+\end{lemma}
+\begin{proof}
+	By linearity and continuity it is sufficient to show this for rank one operators, ie. for $K=\ket{e}\bra{f}$. Then
+	\begin{align*}
+		vKv^*=(\ip{x_i}{e}\ip{f}{x_i})_{ij\in \Zred}\in \K\optens \B
+	\end{align*}
+	and thus lies in the domain of $[\D_\epsilon,\cdot]$. We handle only one of the limits, as the proof of the other equality is identical in form. Here we tacitly use the identities for $\D_\epsilon$ established in \Cref{remark36}.
+	\begin{align*}
+		&\lim_{n\to \infty} v\chi_nv^* [\D_\epsilon,vKv^*]=\lim_{n\to \infty} \pa{\sum_{1\leq |k|\leq n}\ip{x_i}{\gamma(x_k)}[\D,\ip{x_k}{e}\ip{f}{x_j}]}_{i,j\in \Zred} \\ 
+		&=\lim_{n\to \infty} \pa{\sum_{1\leq |k|\leq n } \ip{x_i}{\gamma(x_k)}\gamma(\ip{x_k}{e})[\D,\ip{f}{x_j}]+\ip{x_i}{\gamma(x_k)}[\D,\ip{x_k}{e}]\ip{f}{x_j}}_{i,j\in \Zred} \\		
+		&=(\ip{x_i}{\gamma(e)}[\D,\ip{f}{x_j})_{i,j \in \Zred} +\lim_{n\to \infty} \pa{\sum_{1\leq |k|\leq n} \ip{x_i}{\gamma(x_k)}[\D,\ip{x_k}{e}]\ip{f}{x_j}}_{i,j\in \Zred}
+	\end{align*}
+	The first term is well-defined as $f\in \E_\B$ and the second is well-defined as $e\in \E_\B \subset \E_\B^\nabla$
+\end{proof}
+We may now define the non-commutative notion of completeness of our non-commutative analogues of vector bundles. 
+\begin{definition}
+	As usual, we let $(\B,F_C,\D)$ be an unbounded Kasparov module and let $\E_\B$ be a projective operator module with canonical approximate unit $(\chi_n)_{n\in \N}$. 
+	If there is an approximate unit $(u_n)_{n\in \N}\subset \conv\{\chi_n: n\in \N \}$ such that for all $K\in \K(E_B)$ the sequence 
+	\begin{align*}
+		p[\D_\epsilon,vu_nv^*]p
+	\end{align*}
+	converges to zero strictly, $\E_\B$ is a complete projective operator module. 
+	Note this is a sequence of operators $H_{B^+}\optens_{B^+} F_C\to H_{B^+}\optens_{B^+} F_C$. In light of \Cref{mesrennie19} this implies that $u_n\to p$.
+\end{definition}
+\begin{lemma}
+	Let $\E_\B$ be a complete projective operator module over $\B$. Then $\K(\E^\nabla_\B)$ has a bounded approximate unit consisting of elements in $\conv(\chi_n)$. 
+\end{lemma}
+\begin{proof}
+	 Let $\chi_n=\sum_{1\leq |i|\leq n}\ket{x_i}\bra{x_i}$ be the canonical approximate unit associated to a column finite frame. Let $(u_n)_{n\in \N}$ be an approximate unit as in the assumptions. 
+	 For each $x\in H_{B^+}\optens_{B^+} F$ the sequence $p[\D,vu_nv^*]px$ converges, implying that $\sup_{n\in \N} \norm{p[\D_\epsilon,vu_nv^*]px}<\infty$ hence $\sup_{n\in \N} \norm{p[\D_\epsilon,vu_nv^*]p}<\infty$ 	 
+	 It follows from the uniform boundedness principle that $\sup_{n}\norm{\pi_\nabla(u_n)}<\infty$.
+	 Picking $K\in Fin_{\B}(\E_\B)$ and using that $vKv^*$ is domain preserving for $\D_\epsilon$, we calculate:
+	 \begin{align*}
+		p[\D_\epsilon,vu_nKv^*]p=p[\D_\epsilon,vu_nv^*]vKv^*+vu_nv^*[\D_\epsilon,vKv^*]p
+	 \end{align*}
+	 The final term converges to $p[\D_\epsilon,vKv^*]p$. By continuity and unfirom boundedness, it follows $\pi_\nabla(u_nK)\to \pi_\nabla(K)$ for all $K\in \K(\E^\nabla_\B)$. 
+\end{proof}
+\begin{proposition}
+	Let $\E_\B=p\dom (p)$ be a projective operator module with defining column finite frame $(x_i)_{i\in \Zred}$, and canonical approximate unit $\chi_n$. Then either of the conditions:
+	\begin{enumerate}
+		\item
+			There exists an approximate unit $u_n\in \conv\{\chi_n : n\in \N\}$ for $\K(E_B)$ such that $p[\D_\epsilon,u_n]p\to 0$ in norm on $H_{\B^+}\optens_{\B^+} F_C$. 
+		\item
+			The projection $p$ is a countable direct sum of finite even projections $p_k\in M_{2m_k}(\B^+)$. 
+		\item
+			The projection $p$ lies in $L(H_{\B^+})$. 
+	\end{enumerate}
+	is sufficient to infer completeness of the module.
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+	\item As norm convergence implies strict convergence, we get completeness immediately. 
+	\item As such it suffices to show that the second condition implies the first. 
+	Given a countable family of finite projections with $[\D_\epsilon,p_i]$ bounded, it holds that $p_i[\D_\epsilon,p_i]p_i=0$, and we have
+	\begin{align*}
+		p_k=\sum_{1\leq |i|\leq m_k} \ket{pe_i^k}\bra{pe_i^k}
+	\end{align*}
+	We may identify $\bigoplus_{k=0}^\infty (\B^+)^{2m_k}$ with $H_{\B^+}$ and define $p=\osum_{i=1}^\infty p_i$, thus getting the approximate unit $u_n=\osum_{i=1}^n p_i$. As $p_i$ is defined explicitly we see that $u_n$ is a subsequence of the approximate unit associated to the frame $(pe_k^i)$. Hence $u_n$ lies in the convex hull of the canonical approximate unit.  
+	To finalize the argument, observe that $p[\D,u_n]p=\sum_{i=1}^n p[\D,p_i]p=\sum_{i=1}^n p_i [\D,p_i]p_i=0$. 
+	\item In order to see that the third condition implies completeness of the module, we remark that $p\in L_{\B^+}(H_{\B^+})$ if and only if $p \tens Id_F$ preserves the domain of $\D_\epsilon$ and the commutator $[\D_\epsilon, p\tens Id_F]$ is adjointable.
+	Letting $q_k$ be the increasing family of symmetric projections onto $e_i,1\leq |i|\leq k$. Define $x_i=pe_i$ and the approximate unit $\chi_n=\sum_{i=1}^n \ket{x_i}\bra{x_i}$. 
+	We see that for all $y=px$ we have $\chi_n y=pq_npy=pq_n y$. As such we can calculate as below
+	\begin{align*}
+		p[\D_\epsilon,\chi_n]p=p[\D_\epsilon,pq_n]p=p[\D_\epsilon,p]q_np
+	\end{align*}
+	As $q_n$ converges strongly to the identity and the commutator is bounded, we see that $p[\D_\epsilon,\chi_n]p x\to p[\D_\epsilon,p]px=0$. 
+	\end{enumerate}
+\end{proof}
+This establishes the second leg of the tripod on which the construction of the Kasparov product rests, and we can now construct the third leg based on the method of localization.
+\begin{assumption}
+	From here $\E_\B$ is a projective operator module. We shall be working with the fixed Kasparov module $(\B,F_C,\D)$. 
+\end{assumption}
+\begin{definition}
+	Define the operator 
+	\begin{align*}
+		(1\tens_\nabla \D)(e\tens f)=\gamma(e)\tens \D(f)+\nabla_\D(e)f
+	\end{align*}
+	on elementary tensors. We shall consider minimal closure of $1\tens_\nabla \D$ on $\E\tens_\B \dom \D$.
+\end{definition}
+This operator shall turn out take the on the role of covariant derivative on the interior tensor product, where $\nabla_\D$ serves to symmetrize the operator. 
+	We may define the stabilized version of $1\tens_\nabla \D$ operator, which is more amenable to calculations. 
+\begin{definition}
+	Recall that $p=vv^*$ and define $\dom (\part) = v\dom (1\tens_\nabla \D)\osum (1-p)H_\B \optens_{B^+} F_C$ with the operator $\part$ defined as 
+	\begin{align*} 
+		\part&=v(1\tens_\nabla \D)v^* \\
+		\part(vy+(1-p)z)&=v(1\tens_\nabla \D)y
+	\end{align*}
+	We may thus denote it as $v(1\tens_\nabla \D)v^*$. 
+\end{definition}
+%\todo{why does v makes sense on the tensor product? Shorthand for $v^*\tens 1$?}
+This transformation preserves the geometric information of $1\tens_\nabla \D$, as evidenced by the proposition below. 
+\begin{lemma}\label{mesrennie313}
+	The operator $\part$ is self-adjoint and regular if and only if $1\tens_\nabla \D$ is self-adjoint and regular. 
+\end{lemma}
+\begin{proof}
+	A closed densely defined symmetric operator $T$ is self-adjoint and regular if and only $T\pm i:\dom T\to E$ have dense range. Assume that $(1\tens_\nabla \D)\pm i$ both have dense range. Picking $x=vy+(1-p)z\in \dom 1\tens_\nabla \D$ we get 
+	\begin{align*}
+		&(\part \pm i)x=v(1\tens_\nabla \D \pm i)\pm i(1-p)z \\
+		&(1\tens_\nabla \pm i)y=v^*(\part \pm i )x
+	\end{align*}
+	As $\ran v$ and $\ran (1-p)$ are orthogonal, it can be seen that $(\part \pm i)$ has dense range in $H_{B^+}\optens_{B^+} F_C$ if and only if $(1\tens_\nabla \D)\pm i$ has dense range in $(E_B \optens_B F_C$
+\end{proof}
+This reduces our problem to showing self-adjointness and regularity of $1\tens_\nabla \D$ to considering $\part$. As $B$ is represented essentially on $F_C$ we have the canonical isomorphism 
+\begin{align*}
+	H_{B^+}\optens_{B^+} F_C \cong \bigoplus_{i\in \Zred} F_C
+\end{align*}
+%given by mapping $e_i \tens x$ to the sequence with $x$ in the $i'th$ position. 
+Thus $\D_\epsilon$ is equivalent to $1\tens_d \epsilon \D$ where $\epsilon d$ is the trivial connection. We can now show that the operator $1\tens_\nabla \D$ is well-defined on the interior tensor product through the following lemma giving an explicit formula on elementary tensors. More importantly, we can evantualyl use the lemma to show that $\part$ is self-adjoint and regular by the continuity of the map $g$ defined therein. 
+\begin{lemma}\label{mesrennie314}
+	Let $(\B,F_C,\D)$ be the essential unbounded Kasparov module defining $\B$, and let $\E_\B\subset \E^\nabla_\B$ be a graded complete projective module with defining frame $(x_i)_{i\in \Zred}$. We may express $1\tens_\nabla \D$ on elementary tensors $e\tens f\in \E\tens_{\B^+} \dom \D$
+	\begin{align}
+		\gamma(e)\tens \D f+\nabla(e) f&=\sum_{i\in \Zred} x_i \tens \ip{x_i}{\gamma(e)}\D f+\gamma(x_i)\tens [\D,\ip{x_i}{e}]f  \\
+		&=\sum_{i\in \Zred} x_i \tens \ip{x_i}{\gamma(e)}\D f+\sum_{i,j \in \Zred} x_i\tens \ip{x_i}{\gamma(x_j)}[\D,\ip{x_j}{e}]f \label{317} \\ 
+		&=\sum_{i\in \Zred} x_i \tens \D\ip{\gamma(x_i)}{e}f
+	\end{align}
+	In particular, this entails that $1\tens_\nabla \D=v^* \part v=v^* \D_\epsilon v$ on $\E \tens_\B \dom \D$ and that $\part=p\D_\epsilon p$ on $v\E \tens_{\B^+} \dom \D$. 
+	The map 
+	\begin{align*}
+		&g:\E^{\nabla}_{\B}\optens_{\B^+}G(\D)\to G(1\tens_\nabla \D) \\
+		&e\tens \begin{pmatrix} f \\ \D f\end{pmatrix} \mapsto \begin{pmatrix} e\tens f  \\ (1\tens_\nabla \D)(e\tens f) \end{pmatrix}
+	\end{align*}
+	is a completely bounded operator with dense range. 
+	Thus $1\tens_\nabla \D$ is continuous in graph norm, allowing us to expand the result by continuity. 
+\end{lemma}
+\begin{proof}
+	Our first goal will be to show that the sum in \Cref{317} is convergent, so that $g$ is well-defined. 
+	The first term converges as $\chi_n$ is an approximate unit by assumption. To see the second term converges, let $z\in \E^\nabla_{\B}\optens_{\B^+} G(\D)$.  Let $\sum_{k\in \Zred} e_k\tens f_k \in \E^{\nabla}_{\B}\odot_{\B^+}G(\D)$, be a representation of $z$. Then consider the estimate below, where we repeatedly use the canonical approximate unit stemming from the defining frame. 
+	\begin{align}
+		&~\norm{\sum_{i,j,k \in \Zred} x_i\tens\ip{x_i}{\gamma(x_j)}[\D,\ip{x_j}{e_k}]f_k}^2_{\optens} \\
+		&\leq \norm{\sum_{i\in \Zred} \ket{x_i}\bra{x_i} }_{\K(E_B)}\norm{\pa{\sum_{j,k\in \Zred} \ip{x_i}{\gamma(x_j)}[\D,\ip{x_j}{e_k}]f_k}_{i\in \Zred} }_{E_B\osum E_B}^2 \label{completelyboundedeq}
+	\end{align}
+	We wish to estimate \Cref{completelyboundedeq}, to this end note that 
+	\begin{align*}
+		\ip{\sum_{j,k\in \Zred} \ip{x_i}{\gamma(x_j)}[\D,\ip{x_j}{e_k}]f_k}{\sum_{j,k\in \Zred} \ip{x_i}{\gamma(x_j)}[\D,\ip{x_j}{e_k}]f_k}&=\ip{(f_k)_{k\in \Zred}}{\pi_{\nabla}((e_k)_{k\in \Zred})\pi_{\nabla}((e_k)_{k\in \Zred})^*(f_k)_{k\in \Zred}}
+	\end{align*}
+	Thus, by complete boundedness of the representation $\pi_\nabla$ we can continue our estimates as
+	\begin{align*}
+	&\norm{\pa{\sum_{j,k\in \Zred} \ip{x_i}{\gamma(x_j)}[\D,\ip{x_j}{e_k}]f_k}_{i\in \Zred} }_{E_B\osum E_B}^2 \\
+		&\leq \norm{\sum_{k\in \Zred} \pi_{\nabla}(e_k)\pi_\nabla(e_k)^*}_{L(F_C\osum F_C)}\norm{\sum_{k\in \Zred } \ip{f_k}{f_k}}_{E_B} \\
+		&\leq \norm{\sum_{k\in \Zred} \pi_{\nabla}(e_k)\pi_\nabla(e_k)^*}_{L(F_C\osum F_C)}\norm{\sum_{k\in \Zred } \ip{\begin{pmatrix}f_k \\ \D f_k\end{pmatrix}}{\begin{pmatrix}f_k \\ \D f_k\end{pmatrix}} }_{E_B\osum E_B}
+	\end{align*}
+	which shows that \Cref{317} and the following sums are convergent. 
+	In order to show continuity of $g$, we still need to control $e\tens f \mapsto \gamma(e)\tens \D f$. We start by recalling the result, that $E\optens_B F$ is isometrically isomorphic to $E\tens_B F$ if $E,F$ are Hilbert modules, \cite{blechernew}. For this purpose, we have the following estimates, where again $e_k$ and $f_k$ are non-zero only for finitely many $k$.
+	\begin{align*}
+		\norm{\sum_{k\in \Zred} \gamma(e_k)\tens \D f_k}^2 \leq \norm{\sum_{k\in \Zred} \ket{\gamma(e_k)}\bra{\gamma(e_k)}}_{\K(E)}\norm{\sum_{k\in \Zred} \ip{\D f_k}{\D f_k}} \\
+		\leq \norm{\sum_{k\in \Zred} \pi_{\nabla}(e_k)\pi_\nabla(e_k)^*}\norm{\sum_{k\in \Zred } \ip{\begin{pmatrix}f_k \\ \D f_k\end{pmatrix}}{\begin{pmatrix}f_k \\ \D f_k\end{pmatrix}} }
+	\end{align*}
+	Drawing the above estimates together, we get the estimate:
+	\begin{align*}
+		\norm{g\pa{\sum_{k\in \Zred} e_k \tens \begin{pmatrix} f_k \\ \D f_k \end{pmatrix}}}_{G(1\tens_\nabla \D)} &\leq 2\norm{\sum_{k\in \Zred} \pi_{\nabla}(e_k)\pi_\nabla(e_k)^*}\norm{\sum_{k\in \Zred } \ip{\begin{pmatrix}f_k \\ \D f_k\end{pmatrix}}{\begin{pmatrix}f_k \\ \D f_k\end{pmatrix}} } \\
+		&\leq 2\norm{\sum_{k\in \Zred} e_ke_k^*}_{\E^\nabla_{\B^+}}\norm{f_k^*f_k}_{G(\D)}
+	\end{align*}
+	%Letting $z\in \E^{\nabla}_\B \odot G(\D)$, $z= \sum_{k\in \Zred} e_k\tens f_k$, by the above we have that $g(z)$ is bounded for every presentation of $z$, 
+	%thus $g$ is continuous in the Haagerup norm. 
+	%Given an element $z\in \E^\nabla_\B \optens_{\B^+} G(\D)$ presented as a finite sum
+	%\begin{align*}
+	%	z=\sum_{k\in \Zred} e_k \tens f_k 
+	%\end{align*}
+	recall that the Haagerup norm is defined as the infimum 
+	%\begin{align*}
+	%	\norm{z}^2=\inf\{ \norm{ \sum_{k\in \Zred} x_ix_i^*}_{\E^\nabla_\B}\norm{ \sum_{k\in \Zred} y_i^* y_i}_{G(\D)} \mid z=\sum_{k\in \Zred} x_i\tens f_i  \}
+	%\end{align*}
+	%Thus letting $z\in \E^\nabla_\B \optens_{\B^+} G(\D)$, 
+	we have shown for an arbitrary representation $\sum_{k\in \Zred} e_k \tens \begin{pmatrix} f_k \\ \D f_k \end{pmatrix}$ of $z$ that 
+	\begin{align*}
+		\norm{g\pa{\sum_{k\in \Zred} e_k \tens \begin{pmatrix} f_k \\ \D f_k \end{pmatrix}}}\leq 2\norm{\sum_{k\in \Zred} e_ke_k^*}_{\E^\nabla_{\B^+}}\norm{f_k^*f_k}_{G(\D)}
+	\end{align*}
+	Thus taking the infimum over representations of $z$, we get:
+	\begin{align*}
+		\norm{g(z)}&\leq 2\inf\pa{\norm{\sum_{k\in \Zred} e_ke_k^*}_{\E^\nabla_{\B^+}}\norm{f_k^*f_k}_{G(\D)} \mid z=\sum_{k\in \Zred} e_k \tens \begin{pmatrix} f_k \\ \D f_k \end{pmatrix}} \\
+		&\leq 2\norm{z}_{\optens}
+	\end{align*}
+	as desired. 
+\end{proof}
+As promised the lemma shows well-definedness of $1\tens_\nabla \D$ on the balanced tensor product, if we write out the representation explicitly:
+\begin{align*}
+	(1\tens_{\nabla} \D)(eb \tens f)&=\sum_{i\in \Zred} x_i \tens \D\pi(\ip{\gamma(x_i)}{eb})f \\
+	&=\sum_{i\in \Zred} x_i \tens \D\pi(\ip{\gamma(x_i)}{e}) \pi(b)f \\
+	&=(1\tens_{\nabla} \D)(e\tens \pi(b) f)
+\end{align*}
+The complete boundedness of $g$ will come in useful later, as the operator taking the graph of $\D$ to the graph of $1\tens_\nabla \D$ is now known to be continuous with respect to the operator space norm. 
+\begin{lemma}\label{mesrennie315}
+	Let $\E_\B$ be a projective operator module with a column finite frame $(x_i)_{i\in \Zred}$ and $R\in \conv\{\chi_n:n\in \N\}$. Then $R$ satisfies:
+	\begin{enumerate}
+	\item
+		$vRv^*:\dom(\D_\epsilon)\to \dom (\part)$.
+	\item
+		$vRv^*:\dom (\part)^*\to \dom (\D_\epsilon)$. 
+	\item
+		If $\E_\B$ is complete, $vRv^*: \dom (\part)^* \to \dom (\D_\epsilon) \cap \dom (\part)\subset \dom \part$ 
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+\begin{enumerate}
+\item
+	It suffices to consider $R=\chi_n$, as then the result follows by linearity. For the first part of the statement, we consider the family of adjointable operators $(H_B\optens_B F)^2\to (vE\optens_B F)^2$.
+	\begin{align*}
+		\pi_{\D}^p(\chi_k)=\begin{pmatrix} v\chi_k v^* & 0 \\ p[\D_\epsilon,v\chi_k v^*] & v\chi_k v^* \end{pmatrix}
+	\end{align*}
+	Letting $x=h\tens f \in H_{\B} \tens_{\B} \dom \D\subset \dom (\D_\epsilon)$ we get the following identity 
+	\begin{align*}
+		v\chi_k v^*(x)=\sum_{1\leq |i| \leq k}  v x_i \tens \ip{x_i}{v^*(h)}f=\sum_{1 \leq |i| \leq k} v x_i \tens \ip{vx_i}{h}f 
+	\end{align*}
+	As both $v(x_i)$ and $h$ lie in $H_{\B^+}$ we get that the inner product $\ip{vx_i}{h}$ takes values $\B$ as well, thereby allowing us to conclude that $\ip{v x_i}{h}f$ lies in the domain of $\D$. This shows that $v\chi_k v^*(x)$ lies in $v\E\tens_{\B} \dom \D\subset \dom (\part)$. Applying the explicit formula we have derived for $(1\tens_\nabla \D)(e\tens f)$ we arrive at the following expression:
+	\begin{align*}
+		\pi_\D^p(\chi_k)\begin{pmatrix} x \\ \D_\epsilon x \end{pmatrix}=\begin{pmatrix}v\chi_k v^* x \\ p(\D_\epsilon)v\chi_k v^* x \end{pmatrix} = \begin{pmatrix}v\chi_k v^* x \\  \part v\chi_k v^* x \end{pmatrix}
+	\end{align*}
+	This implies that $H_\B \tens_\B \dom \D$ contains the direct sum $\bigoplus_{i\in\Zred} \dom \D$ and as such is a core for $\D_\epsilon$. 
+	Thereby we have that every element in the family $\pi_{\D}^p(\chi_k)$ maps a dense subspace of $G(\D_\epsilon)$ to $G(\part)$, showing the first part of the lemma. 
+	\item
+	To show the second part of the lemma, consider $\pi_\D^p(\chi_k)^*$. By what we have just shown, this is a map $G(\part)^\perp \to G(\D_\epsilon)^\perp$. Defining the unitary $U$ as 
+	\begin{align*}
+		&U:(E_B \optens_{B^+} F_C)^2\to (E_B \optens_{B^+} F_C) \\
+		&(x,y)\mapsto (-y,x)
+	\end{align*}
+	we have the standard equalities $G(\part)^\perp=UG(\part^*)$ and $G(\D_\epsilon)^\perp=UG(\D_\epsilon)$. This allows us to compute the following for every $x\in \dom (\part)^*$. 
+	\begin{align*}
+		\pi_\D^p(\chi_k)^*\begin{pmatrix} -\part^* x \\ x \end{pmatrix}&=\begin{pmatrix} v\chi_k v^* & -[\D_\epsilon,v\chi_k v^*]p \\ 0 v\chi_k v^* \end{pmatrix}\begin{pmatrix}-\part^* x \\ x \end{pmatrix} \\
+		&\begin{pmatrix} -v\chi_k\part^* x -[\D_\epsilon,v\chi_k v^* ]x\\ v\chi_k v^* x \end{pmatrix}
+	\end{align*}
+	%\todo{why is chi adjoined in the article??-assume mistake}
+	Thus $v\chi_k v^*$ lies in the dmoain of $\D_\epsilon$ as long as $x$ is in the domain of $\part^*$. 
+	\item
+	To show that $vRv^*$ has the claimed properties in case that $\E_\B$ is complete, by Part (2) of the lemma it suffices to show that the range of $vRv^*$ is in $\dom (\part)$. It again suffices to consider $v\chi_n v^*$. By completeness of $\E_\B$ we may pick an approximate unit $(u_n)\subset \conv(\chi_n)$, and let $x\in \dom (\part)^*$. By Part (1) of the lemma, we have $v u_nv^*v\chi v^* x\in \dom (\part)$, and the following norm limit in $H_{\B^+} \optens F_C$. 
+	\begin{align*}
+		\lim_{n\to\infty} vu_n v^* v\chi_n  v^*x =v\chi_n v^* x
+	\end{align*}
+	Thus, by applying the second part of the lemma and this limit we get that the operator
+	\begin{align*}
+		p[\D_\epsilon,vu_kkv^*]p
+	\end{align*}
+	is well-defined and bounded on the space $v\E \tens_{\B^+} \dom \D$. Thus it extends by continuity to the entirety of $H_{\B+}\optens_{B^+} F_C$. The identity 
+	\begin{align*}
+		(\part v u_k v^*-vu_k v^* \D_\epsilon)p=p[\D_\epsilon,vu_k v^*]p \quad \for x\in \dom (\part) \cap \dom (\D_\epsilon) \cap (p H_{\B^+}\optens F_C)
+	\end{align*}
+	together with the continuity of $p[\D_\epsilon,vu_k v^*]p$ gives that $(\part v u_k v^*-vu_k v^* \D_\epsilon)p$ is bounded. 
+	As we also have the strict convergences
+	\begin{align*}
+		p[\D_\epsilon,vu_kv^*]p&\to 0 \\
+		vu_kv^* &\to p 
+	\end{align*}
+	we may deduce that the following limit exists
+	\begin{align*}
+		\lim_{k\to \infty} \part v u_k v^* v \chi_n v^* x&=\lim_{k\to \infty} vu_k v^*\D_\epsilon \chi_n v^*x+ \part v u_k v^* v \chi_n v^* x-vu_k v^*\D_\epsilon \chi_n v^*x \\
+		&=\lim_{k\to\infty} vu_k v^*\D_\epsilon \chi_n v^*x +p[\D_\epsilon,vu_kv^*]pv \chi_n v^* x
+	\end{align*}
+	By closedness of $\part$, we get that $v\chi_n v^*$ lies in $\dom (\part)$. 
+	\end{enumerate}
+\end{proof}
+This ends our study of connections and projective $\B$-modules as objects in themselves, as we are now sufficiently equipped to use them to show existence of the unbounded Kasparov product.  We proceed with showing that $(1\tens_\nabla \D)$ is a self-adjoint and regular operator and that $\K(\E^\nabla_\B)$ is a differentiable algebra. 

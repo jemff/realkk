@@ -1,0 +1,444 @@
+\subsection{Definitions and basic properties}
+In order to define unbounded $KK$-theory in the real setting, it is necessary for us to define graded real \Cstar and explore some of their representation theory. In this section we shall give such a basic exposition, for a more in-depth review of the theory of real \Cstar algebras, we refer to \cite{goodearl}. 
+\begin{definition}
+A real \Cstar-algebra $A$ is a Banach $^*$-algebra $A$ over $\R$ $^*$-isomorphic to a subset of $B(H)$ for a real Hilbert space $H$. 
+\end{definition}
+\begin{remark}
+	A \Cstar algebra or Hilbert space is real if it has $\R$ as scalar field. 
+\end{remark}
+\noindent As in the complex case, it can be shown that the concrete definition is equivalent to a purely algebraic definition:
+\begin{theorem}
+A real Banach $^*$-algebra is a real \Cstar algebra if and only if it satisfies: 
+\begin{enumerate}
+\item
+	$\norm{x^*x}=\norm{x}^2$
+\item
+	$\norm{x^*x}\leq \norm{x^*x+y^*y}$ for all $x$ and $y$ in $A$
+\item
+	$1+x^*x$ is invertible in $A^+$, the unitization of $A$,. 
+\end{enumerate}
+\end{theorem}
+For a proof, see \cite{goodearl}.
+\begin{remark}
+	The assumption that $1+x^*x$ is invertible is necessary and does not follow from the axioms. For instance we could consider the complex numbers as a real \Cstar-algebra with trivial involution, and thereby we would have $0<\norm{1+x^*x}=\norm{1+i^2}=0$. Henceforth all \Cstar-algebras considered will be real, unless stated otherwise. 
+\end{remark}
+The motivating geometric example for the construction of real \Cstar is viewing them as non-commutative generalizations of Atiyah's real spaces. 
+\begin{definition}[Atiyah's Real spaces]
+	A Real space is a pair $(X,\tau)$ consisting of a locally compact Hausdorff space $X$ with a continuous involution $\tau$. The set of continuous Real functions from $(X_1,\tau_1)$ to $(X_2,\tau_2)$ is defined as 
+	\begin{align*}
+		C_R(X_1,X_2)=\{f\in C(X_1,X_2) \mid f(\tau_1(x))=\tau_2(f(x))\}
+	\end{align*}
+	When considering morphisms sets between real spaces, we shall always suppress the $R$ and often suppress the explicit involutions.  
+\end{definition}
+\noindent Given a real space we can define a real \Cstar algebra.
+\begin{definition}[\Cstar version of Real spaces]
+	Let $(X,\tau)$ be a Real space. Define the algebra:
+	\begin{align*}
+		C_0(X,\tau)=\{f\in C(X,\C) | f(\tau(x))=\overline{f(x)}\}
+	\end{align*}
+\end{definition} 
+\begin{example}
+	\begin{enumerate}
+	\item 
+		Given a Real space, the algebra $C_0(X,\tau)$ is a real \Cstar-algebra, with $(f)^*(x)=\overline{f(x)}$. 
+	\item
+		The field $\R$ is itself a real \Cstar-algebra, equipped with the star $x^*=x$. The complex numbers are a real \Cstar algebra, with involution $z^*=\overline{z}$. The quarternions $\H$ are a real \Cstar algebra, with involution defined on generators as $i^*=-i,j^*-j,k^*=-k$ and $1^*=1$. 
+		
+		The algebras $M_n(\R$, $M_n(\C)$ and $M_n(\H)$ are all real \Cstar-algebras, with the $^*$-operation stemming from the entrywise-$^*$-operation composed with the transpose. 
+	\item
+		There is a real version of the multiplier algebra, which may be defined exactly as in the complex case, viewing $A$ as a Hilbert \Cstar-module over itself, i.e. $\ip{a}{a'}=a^*a$. Then we define the multiplier algebra of $A$ as the adjointables on $A$, $M(A)=L(A)$. 
+	\end{enumerate}
+\end{example}
+\noindent As in the complex case, we have a direct classification of the finite dimensional real \Cstar-algebras 
+\begin{theorem}
+	Every finite dimensional real \Cstar-algebra is a direct sum of matrix algebras over the quarternions, the reals and the complex numbers. 
+\end{theorem}
+Thus we naturally also have a notion of real AF and UHF algebras but with a slightly more complicated classification theory, \cite{giordano}. 
+\begin{definition}
+	Given a real \Cstar algebra $A$, define $A_\C=A\tens_\R \C$. This is a complex \Cstar algebra with $^*$-operation given by: 
+	\begin{align*}
+		(a+ib)^*=a^*-ib^*
+	\end{align*}
+	and norm 
+	\begin{align*}
+		\norm{a+ib}_{A_\C}^2=\norm{a^*a+b^*b}_A
+	\end{align*}
+\end{definition}
+The continuous functional calculus is an essential element in the toolkit of operator algebras, and we have a version of it for real \Cstar-algebras: 
+\begin{definition}
+	Suppose $A$ is a real \Cstar algebra. Define the spectrum of an element $a\in A$ to be the spectrum of $a$ in $A_\C$.
+\end{definition}
+We can define the state space and irreducible representations of real \Cstar algebras analogous to the complex case:
+\begin{definition}
+Let $A$ be a real \Cstar algebra. 
+\begin{enumerate}
+\item  A state on $A$ is a real positive linear functional $\rho:A\to \R$ with $\norm{\rho}=1$. A state which cannot be written as a convex combination of other states is a pure state. 
+\item 	A representation of $A$ \Cstar algebra is a $^*$-homomorphism $A\to B(H)$, where $H$ is a real Hilbert space. A representation is irreducible if $\pi(A)$ has no invariant subspaces except for $H$. 
+\item Let $\hat{A}$ denote the space of unitary equivalence classes of irreducible representations of $A$. 
+\item Define $\mathcal{I}(A)$ as the set of ideals of $A$. For $I\in \mathcal{I}$, define $U(I)=\{J\in \mathcal{I}| J\setminus I\neq \emptyset\}$. This is a subbasis for a topology on $\mathcal{I}$ and gives rise to a topology on the space of representations through the map $\pi\mapsto \ker \pi$. The subspace topology on $\hat{A}$ is the Jacobson topology. 
+\end{enumerate}
+\end{definition}
+\begin{remark}
+	Let $A$ be a real \Cstar algebra. By the $GNS$-construction every state corresponds to a representation of $A$. Likewise, the pure states correspond to irreducible representations. For a proof of this, see \cite{goodearl}. 
+\end{remark}
+One of the nice features of real \Cstar algebras is that we have additional structure on $\hat{A}$.
+\begin{lemma}
+	Let $\pi$ be an irreducible representation of a real \Cstar-algebra $A$ on a real Hilbert space $H$. Then the commutant of $\pi(A)$ is $\R,\C$ or $\H$. 
+\end{lemma}
+\begin{proof}
+	As $\pi(A)'$ is a real \Cstar-algebra, it suffices to show that it is a real division algebra since the only real division algebras are $\R,\C$ and $\H$, \cite{divisionalgebra}. 
+	Let $p\in \pi(A)'$ be a spectral projection of a self-adjoint element $x\in \pi(A)'$, this exists by \cite[Remark 20.18]{meise}. Then $pH$ and $(1-p)H$ are both invariant subspaces for $\pi(A)$. As $\pi$ was assumed irreducible, either $p=1$ or $1-p=1$. As all non-trivial spectral projections agree the spectrum of $x$ must be a one-point set, ie. an eigenvalue. Therefore $x$ is of the form $x=\lambda \cdot 1$, for $\lambda \in \R$. If $y\in \pi(A)'$, then $y^*y=\lambda \cdot 1$ for $\lambda \in \R$, and likewise for $yy^*$. The spectra of $yy^*$ and $y^*y$ coincide except possibly for the set $\{0\}$ it follows $yy^*=y^*y=\lambda \cdot 1$ and as such either $y=0$, or $y$ is invertible with inverse $y^{-1}=\norm{y}^{-2}y^*$. This implies that $\pi(A)'$ is a division algebra as desired, showing the theorem. 
+\end{proof}
+\begin{definition}
+	Let $\pi$ be an irreducible representation of a real \Cstar algebra $A$. 
+\begin{enumerate}
+\item
+	$\pi$ is of real type if $\pi(A)'\cong \R$, 
+\item
+	$\pi$ is of complex type if $\pi(A)'\cong \C$, 
+\item
+	$\pi$ is of quartenionic type if $\pi(A)'\cong \H$, 
+\end{enumerate}	
+\end{definition}
+\begin{definition}
+	A Real \Cstar-algebra is a pair $(A,\tau)$ where $A$ is a complex \Cstar-algebra and $\tau$ is a complex-linear involution such that:
+	\begin{align*}
+		\tau(ab)&=\tau(b)\tau(a) \\
+		\tau(a^*)&=\tau(a)^*
+	\end{align*}
+	Such a map is a $^*$-anti-automorphism. 
+\end{definition}
+\begin{remark}\label{equivalent}
+	The categories of real and Real \Cstar algebras are equivalent via. the following construction:
+	Given a real \Cstar algebra $A$ with complexification $A_\C$, define the anti-linear $^*$-automorphism: 
+	\begin{align*}
+		&\sigma:A_\C\to \A_\C \\
+		&\sigma(a+ib)=a-ib
+	\end{align*}
+	From this, define the $^*$-anti-automorphism $\tau$:
+	\begin{align*}
+		\tau(a+ib)&=(\sigma(a+ib))^*=a^*+ib^*
+	\end{align*}
+	Then it is easy to see that $(A_\C,\tau)$ defines a Real \Cstar algebra.
+	Conversely, given a Real \Cstar algebra $(A,\tau)$, define: 
+	\begin{align*}
+		&\sigma:A\to A \\
+		&\sigma(a)=(\tau(a))^* \\
+		&A_{real}=\{a\in A: \sigma(a)=a\}
+	\end{align*}
+	Then the algebra $A_{real}$ is a real \Cstar algebra, and the two constructions are inverses of each other. 
+	The construction shows that a Real \Cstar algebra $(A,\tau)$ is equivalent to $(A,\sigma)$ where $A$ is a complex \Cstar algebra and $\sigma$ is an anti-linear involution commuting with the adjoint. 
+\end{remark}
+
+\begin{definition}\label{realhilbertspace}
+	A Real Hilbert space is a pair $(H,\sigma)$, where $H$ is a complex Hilbert space and $\sigma$ is anti-linear involution on $H$. 
+\end{definition}
+\begin{remark}
+	The categories of real and Real Hilbert spaces are equivalent via. the following construction:
+	Given a real Hilbert space $H$, define $(H,\sigma)$ as $H\tens \C$ with involution $\sigma(\xi\tens z)=\xi \tens \overline{z}$. 
+	Conversely, given a Real Hilbert space $(H,\sigma)$ define $H_{real}=\{\xi \in H \mid \sigma(\xi)=\xi \}$.
+\end{remark}
+The definition of Real Hilbert spaces allows us to define the Real version of $B(H)$
+\begin{definition}\label{realhilbert}
+	Suppose $(H,\sigma)$ is a Real Hilbert space. Define $B(H)$ the $^*$-anti-automorphism $\theta$ on $B((H,\sigma))$ for $x\in B(H)$ as: 
+\begin{align*}
+	\theta(x)=\sigma(x^*)\sigma
+\end{align*}
+\end{definition}
+\begin{definition}
+	Suppose $(A,\tau)$ is a Real \Cstar algebra, and $\pi:A\to B(H)$ is a complex $^*$-representation of $A$ on a Real Hilbert space. Then $B(H)$ comes with a $^*$-anti-automorphism $\theta$, see \Cref{realhilbert}. 
+	If $\pi$ satisfies
+	\begin{align*}
+		&\pi(\tau(a))=\theta(\pi(a))
+	\end{align*}
+	$\pi$ is a Real representation. 
+\end{definition}
+\begin{definition}
+	Given a $^*$-algebra $A$ over $k$, define the set $A^{op}$ as the set $A$. We equip $A^{op}$ with the structure of a Real algebra. Let $a^{op}, b^{op}\in A^{op}$ and define the operations: 
+	\begin{align*}
+		&(ab)^{op}=b^{op}a^{op} \\
+		&\lambda a^{op}=(\lambda a)^{op} \\
+		&(a^{op})^*=(a^*)^{op} \\
+		&a^{op}+b^{op}=(a+b)^{op} \\
+		&\tau(a^{op})=(\tau(a))^{op}
+	\end{align*}
+\end{definition}
+We can see that a Real \Cstar algebra $(A,\tau)$ satisfies $A\cong A^{op}$ as complex algebras, with the isomorphism implemented by $\tau$. Given a representation of $(A,\tau)$ we  define a representation of the opposite algebra. 
+\begin{definition}\label{oppositerep}
+	Let $\pi$ be a representation of a Real \Cstar algebra $(A,\tau)$ on $(H,\sigma)$. Define $\pi^{op}:A^{op}\to B(H)^{op}$:
+	\begin{align*}
+		\pi^{op}(a^{op})=\pi(\tau(a))
+	\end{align*}
+\end{definition}
+An interesting property of Real \Cstar-algebras is that $\tau$ allows us to define an involution on the space of irreducible representations of a Real algebra. 
+\begin{proposition}\label{involution}
+	If $(A,\tau)$ is a Real \Cstar-algebra, $\tau$ induces an involution on $\hat{A}$. 
+\end{proposition}
+\begin{proof}
+	Let $\pi$ be an irreducible $^*$-representation of a Real algebra $(A,\tau)\to (H,\sigma)$. Define the map $\pi^{op}: A^{op} \to B(H)^{op}$ as in \Cref{oppositerep}. We have the $^*$-anti-automorphism $\theta$ on $B(H)$, $\theta:B(H)^{op}\to B(H)$ from \Cref{realhilbert}. This allows us to define a new representation $A\to B(H)$:
+	\begin{align*}
+		\theta_*(\pi)=\theta\pi^{op}(\tau))
+	\end{align*}
+	We wish to show the map $\theta_*$ is an involution on $\hat{A}$. To this end consider $\theta_*(\theta_*(\pi))$. Unravelling this expression we get:
+	\begin{align*}
+		\theta_*(\theta_*(\pi))&=\theta_*(\theta(\pi^{op}(\tau))) \\
+		&=\theta(\theta(\pi(\tau(\tau)))) \\
+		&=\pi
+	\end{align*}
+%	and the diagram below spelling out all the compositions:
+%	\begin{align*}
+%		\xymatrix{
+%			A\ar[r]^{\tau} & A^{\op} \ar[r]^{\tau} & A \ar[r]^{\pi} & B(H) \ar[r]^{\theta_H}& B(H)^{\op} \ar[r]^{\theta_H} & B(H)
+%		}
+%	\end{align*}
+%	Following the diagram gives us the identity, as $\tau$ and $\theta_H$ are both involutions. 
+	Hence $\theta_*$ is an involution on $\hat{A}$. 
+\end{proof}
+\begin{theorem}[Gelfand-Naimark]\label{gelfandnaimark}
+	The category of real commutative \Cstar-algebras with non-degenerate $^*$-homomorphisms as the morphisms is equivalent to the category of locally compact spaces with proper continuous maps as the morphisms. Given a commutative real \Cstar algebra $A$ we define the space $X$ of $\R$-linear characters of $A$, so $A \cong C_0(X,\tau)$ where $\tau$ is the involution on the character space of $A$, defined in \Cref{involution}.
+\end{theorem}
+\begin{remark}
+%	Let $A$ be a commutative \Cstar algebra, so $A\cong C_0(X,\tau)$.  $\theta_*$  the way one recovers the involution $\tau$ on a Real space. Defining $A=C_0(X,\tau)$, we get $(\hat{A},\theta_*)=(X,\tau)$. 
+	The space $X$ is homeomorphic to the space of $\C$-linear characters of $A_\C$. 
+\end{remark}
+These statements combine to give a real version of the continuous functional calculus. 
+\begin{proposition}
+	Assume $A$ is a real \Cstar algebra. Let $a\in A$ be a normal element in $A$. Then the algebra $C^*(\{x\})$ is a commutative algebra real \Cstar algebra, by \Cref{gelfandnaimark} $C^*(\{x\})\cong C_0(Spec(x),\tau$. Thus $f(x)\in C^*(\{x\})$ for $f \in C_0(Spec(x),\tau)$. 
+\end{proposition}
+For a proof of these results see \cite{goodearl}. 
+The three possible commutants of an irreducible representation is reflected in the involution on the irreducible representations, as encapsulated in the following theorem. 
+\begin{theorem}
+	Let $\pi$ be an irreducible representation of a real \Cstar algebra $A$ on a real Hilbert space $H$. Let $(A_\C,\tau)$ be the complexification of $A$ with the involution $\tau$ defined as in \Cref{equivalent}.
+	\begin{enumerate}
+	\item If $\pi$ is of real type, the Real representation $\pi_\C:A_\C\to B(H\tens \C)$ of $A_\C$ induced by $\pi$ is fixed under the involution on $\hat{A}_\C$ defined in \Cref{involution}. 
+	\item Suppose that $\pi(A)'\cong \C$. This gives $H$ the structure of a complex Hilbert space, $H$ acquires two different structures of a complex Hilbert space: One by multiplication and one by multiplication with the conjugate. 
+	
+	The representation $\pi$ is complex-linear with respect to both  of these structures. These structures give two representations $\pi_\C',\pi_\C''$ of $A_\C$ which are inequivalent and interchanged by the involution in \Cref{involution}. 
+	\item Assume that $\pi(A)'\cong \H$, and view $H$ as a quartenionic Hilbert space, $H^h$ through the action of $\pi(A)'$. The complexified representation $\pi_\C$ is fixed under the involution in \Cref{involution}.
+\end{enumerate}	
+We let $\sigma$ denote the complex conjugation in the proof of this theorem, and let $\theta$ be the $^*$-antiautomorphism on $B(H)$ as defined in \Cref{realhilbert}. 
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+\item 
+	Assume that $\pi$ is of real type, the commutant of $\pi$ is $\R$ and thus the commutant of the complexification $\pi_\C$ is $\C$. To see that $\pi_\C$ is fixed by the involution, consider the following calculation for $a\in A$ where $^t$ denotes the transpose:
+	\begin{align*}
+		\theta_*(\pi_\C)(a)=\tau(\pi_\C^{\op}(\theta(a)))=\tau(\pi_\C^{\op}(a^*))=\tau(\pi(a)^t)=(\pi(a)^t)^t
+	\end{align*}
+	This shows that $\pi_\C$ is fixed. 
+	\item
+		Consider the case where $\pi$ is of complex type, then it suffices to show that $\theta_*(\pi_\C)$ and $\pi_\C$ are inequivalent representations. We may thus assume for contradiction that they are equivalent. Viewing $\pi$ as an irreducible representation on a complex Hilbert space $H^c$, we may expand it to an irreducible complex representation of $A_\C$, which is equivalent to $\theta_*(\pi^c)$. If we have the element $a+ib\in A_\C$ then $\sigma(a+ib)=a-ib,\theta(a+ib)=a^*+ib^*$. Thus, by our assumption $\theta_*(\pi^c)(a+ib)=\tau(\pi_\C^{\op})(a^*+ib^*)=\overline{\pi(a)}+\overline{\pi(b)}$, where $\overline{\cdot}$ denotes the complex conjugation. 
+
+
+	We have a canonical identification of $H_\C\ \cong H^c \osum \overline{H^c}$, implying that the complexification of $\pi$ may be canonically identified with $\pi^c\osum \theta_*(\pi^c)$ by our previous calculations. For this to be equivalent to $\pi^c\osum \pi^c$, would require the commutant of its image to be isomorphic to $M_2(\C)$. However, the commutant of $\pi_\C$ must be isomorphic to $\pi(A)'\tens \C$, leading to the desired contradiction. 
+\item 
+	The last case we need to consider is the case where $\pi$ is of quartenionic type. In this case the commutant of $\pi_\C$ commutant is $\H\tens \C\cong M_2(\C)$, with the isomorphism given by mapping 
+	\begin{align*}
+	&i\tens i \mapsto e_{12}+e_{21} \\
+	&j\tens i \mapsto e_{11}-e_{22} \\
+	&k\tens i \mapsto -ie_{12} +ie_{21} 
+	\end{align*}
+	That $\pi_\C(A_\C)'\cong M_2(\C)$ implies that $\pi_\C: A\to H\tens \C$ is equivalent to $\tilde{\pi}_\C\osum \tilde{\pi}_\C :A\to V \osum V$, where $V$ is a complex Hilbert space and $\tilde{\pi}_\C$ is irreducible on $V$. %We may thus write $\pi_\C$ as the matrix:
+%	\begin{align*}
+%		\pi_\C=\begin{pmatrix} \tilde{\pi}_\C & 0 \\ 0 & \tilde{\pi}_\C \end{pmatrix}
+%	\end{align*}
+	This reduces our problem to showing that $\tilde{\pi}_\C \osum \tilde{\pi}_\C$ is fixed by the involution. To see this, start by noting that the involution is $\sigma \osum \sigma$. We note that the projections onto $e_{11}$ and $e_{22}$ corresponds to $\frac{1}{2}(1+i)$ and $\frac{1}{2}(1-i)$, under the identification $\C\cong \H \tens M_2(\C)$. Thus in a slight abuse of notation:
+	\begin{align*}
+		\pi_\C=\frac{1}{2}(1\tens 1+j\tens i)\tilde{\pi}_\C+\frac{1}{2}(1\tens 1-j\tens i)\tilde{\pi}_\C
+	\end{align*}
+	It is clear that $\sigma\osum \sigma$ interchanges these, showing that $\pi_\C$ is fixed under the involution up to unitary equivalence. 
+	\end{enumerate}  
+\end{proof}
+Before we proceed, we need to introduce the notion of a graded \Cstar algebra and the graded commutator as well as the graded tensor product. 
+\begin{definition}
+\begin{enumerate}
+\item Suppose that $\Gamma$ is a discrete group and $A$ is a $k$-algebra. The algebra $A$ is $\Gamma$-graded if there is a decomposition of $A$ into $k$-vector spaces $A^{(g)}$ such that:
+\begin{align*}
+	&A=\bigoplus_{g \in \Gamma} A^{(g)} \\
+	&A^{(g)} A^{(g')}\subset A^{(g g')}
+\end{align*}
+In the case where $\Gamma$ is $\Z_2$, the grading can equivalently be given by an automorphism $\gamma:A\to A$ such that $\gamma(A^{(0)})=A^{(0)}$, and $\gamma(A^{(1)}=-A^{(1)}$. From now on we will restrict ourselves to the case $\Gamma=\Z_2$.  
+%\item	Let $A$ be a \Cstar-algebra with a $\Z_2$ action $\gamma$. A grading on $A$ is a decomposition $A=A^{(0)}\osum A^{(1)}$, where $A^{(0)}$ is the eigenspace of $1$ and $A^{(1)}$ is the eigenspace of $-1$.  
+\item	Suppose $A$ is a graded \Cstar algebra. An element $x\in A^{(i)}$ is homogeneous, and every element in $A$ may be written as a finite sum of homogeneous elements. Given a homogeneous element $x$, we denote its degree as $\deg x$. 
+\item	The grading is called inner if the grading automorphism, is implemented by a self-adjoint unitary $g\in M(A)$ such that $\gamma(a)=gag^*=(-1)^n a$ for every $a\in A^{(n)}$. This operator is commonly known as the grading operator. In case the grading is not implemented by a self-adjoint unitary in $M(A)$, we shall say that the grading is outer. 
+\item 	 A $^*$-subalgebra is called a graded $^*$-subalgebra if it is invariant under the grading operator.
+\item	 An ungraded \Cstar-algebra $A$ can be viewed as a graded algebra by setting $A^{(1)}=0$.  
+\item 	 Let $B$ be a graded \Cstar algebra. A Hilbert $B$-module $E_B$ is graded if there is a decomposition of $E_B$ such that:
+	\begin{align*}
+		&E_B=E_B^{(0)}\osum E_B^{(1)} \\
+		&B^{(i)}E_B^{(j)}\subset E_B^{(j+i)} \\
+		&\ip{}{}_B:E_B^{(i)}\times E_B^{(j)}\to B^{(i+j)}
+	\end{align*}
+	As in the \Cstar-algebraic case, the grading can equivalently be given by an automorphism $\gamma:E_B\to E_B$ such that $\gamma(E_B^{(0)})=E_B^{(0)}$, and $\gamma(E_B^{(1)}=-E_B^{(1)}$. From now on we will restrict ourselves to the case $\Gamma=\Z_2$. 
+\item 	 Let $B$ be a graded \Cstar algebra and let $E_B,F_B$ be graded Hilbert modules. Define $L(E_B,F_B)$:
+	\begin{align*}
+		&L^{(i)}(E_B,F_B)=\bigoplus_{k,j \in \Z_2,~k+j=i} L(E_B^{(k)},F_B^{(j)}) \\
+		&L(E_B,F_B)=L^{(0)}(E_B,F_B)\osum L^{(1)}(E_B,F_B)
+	\end{align*}
+\end{enumerate}
+\end{definition}
+\begin{definition}
+	Given two graded \Cstar-algebras $A$ and $B$ a $^*$-homomorphism $\phi:A\to B$, $\phi$ is graded if $\phi(A^{(i)})\subset B^{(i)}$. 
+\end{definition}
+\begin{definition}
+	Let $x,y$ be homogeneous elements. We define the graded commutator as 
+	\begin{align*}
+		[x,y]=xy-(-1)^{\deg(x)\deg(y)}yx
+	\end{align*}
+\end{definition}
+\begin{proposition}
+The graded commutator satisfies the following relations on homogeneous elements. 
+\begin{enumerate}
+	\item
+		$[x,y]+(-1)^{\deg x\deg y}[y,x]=0$
+	\item
+		$[x,yz]=[x,y]z-(-1)^{\deg x \deg y}y[x,z]$
+	\item
+		$(-1)^{\deg x \deg z}[[x,y],z]+(-1)^{\deg x \deg y}[[y,z],x]+(-1)^{\deg y \deg z}[[z,x],y]=0$
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+We shall only show the second equality as the calculations become progressively longer and the nature of the relevant calculations is illustrated in this calculation. 
+%\begin{enumerate}
+%\item	
+%	Let $x,y$ be homogeneous elements. Then 
+%	\begin{align*}
+%		[x,y]+(-1)^{\deg x \deg y}[y,x]&=xy-(-1)^{\deg x \deg y}yx+((-1)^{\deg x \deg y}yx -(-1)^{\deg x \deg y+\deg x \deg y}xy) \\
+%		&=xy-(-1)^{\deg x \deg y+\deg x \deg y}xy \\
+%		&=0
+%	\end{align*}
+%\item	
+Let $x$, $y$ and $z$ be homogeneous elements, and remark that $yz\in A^{(\deg y+\deg z)}$. Thus we get
+\begin{align*}
+	xyz-(-1)^{\deg x (\deg y+\deg z)}yzx&=xyz-(-1)^{\deg x (\deg y+\deg z)}y((-1)^{\deg x\deg z} xz+[z,x]) \\
+	&=[x,y]z-(-1)^{\deg x (\deg y+\deg z)}y[x,z]
+\end{align*} 
+as desired. 
+%\end{enumerate}
+\end{proof}
+\begin{definition}
+	Given graded \Cstar-algebras $A$ and $B$, we may form their algebraic tensor product $A\odot B$. We equip it with the grading defined on homogeneous elements as: $\deg(x\tens y)=\deg(x)+\deg(y)$. We define the product on homogeneous elements by 
+	\begin{align*}
+		(a_1\tens b_1)(a_2\tens b_2)=(-1)^{\deg b_1 \deg a_2}(a_1a_2\tens b_1b_2)
+	\end{align*}
+	and we extend it by linearity to the entirety of the algebraic tensor product.
+	Suppose $\pi,\rho$ be graded faithful representations of $A$ and $B$ on $H$ and $K$ respectively, where $H$ and $K$ are graded Hilbert spaces. We define $\pi \tens \rho$ on $B(H\tens  K)$. 
+	Completing in the norm derived from this representation gives us the minimal graded tensor product of $A$ and $B$. The proof of the fact that this is well-defined is essentially the same as for ungraded \Cstar algebras, and may be found in \cite{kasparovhilbert}. 
+\end{definition}
+\textbf{All tensor products in this thesis are minimal.}
+\begin{definition}
+	Suppose that $A$ and $B$ are graded \Cstar algebras, and consider their tensor product $A\tens B$. Let $E_A$ and $E_B$ be graded Hilbert modules over $A$ and $B$. 
+	Consider the algebraic tensor product $E_A\odot E_B$, with the grading defined on homogeneous elements as: $\deg(x\tens y)=\deg(x)+\deg(y)$.
+	This is an $A\tens B$ module through the action of $a\tens b\in A\tens B$ on $x\tens y\in E_A\odot E_B$ as:
+	\begin{align*}
+		(x\tens y)(a\tens b)=(-1)^{\deg y \deg a} (xa\tens yb)
+	\end{align*}
+	We define the exterior tensor product $E_A\tens E_B$ as the completion of $E_A\odot E_B$ with respect to the inner product:
+	\begin{align*}
+		\ip{(x_1\tens x_2)}{(y_1\tens y_2)}=(-1)^{\deg x_2(\deg x_1+\deg x_2)}\ip{x_1}{y_1}\tens \ip{x_2}{y_2}
+	\end{align*}
+\end{definition}
+\begin{definition}
+	Let $A$ and $B$ be graded \Cstar-algebras, and let $E_A$ and $E_B$ be $A$ and $B$-Hilbert modules respectively. Assume that we have a representation $\pi: A\to L(E)$, and define the sesquilinear map: 
+	\begin{align*}
+		&\ip{\cdot}{\cdot}_{int}: E_A\odot E_B \to B \\
+		&\ip{x_1\tens y_1}{x_2\tens y_2}_{int}=\ip{y_1}{\pi(\ip{x_1}{x_2}_A)y_2}_B
+	\end{align*}
+	Define the nullspace of the semi-norm $\norm{\ip{\cdot}{\cdot}_{int}}$:
+	\begin{align*}
+		\mathcal{N}=\{z\in E_A\odot E_B : \ip{z}{z}_{int}=0\}
+	\end{align*}
+	We define the interior tensor product:
+	\begin{align*}
+		E_A\tens_{\pi} E_B=\overline{(E_A\odot E_B)/\mathcal{N}}^{\norm{\ip{}{}_{int}}}
+	\end{align*}
+	This is a Hilbert $B$-module with inner product $\ip{}{}_{int}$. We shall suppress the subscript ${}_{int}$ from the notation from now on. Often we will write $\tens_A$ instead of $\pi$ when the representation is unambigious.
+\end{definition}
+For a proof that these tensor-products are well-defined, we refer to \cite{lance95}. Throughout the thesis all tensor products will be graded, unless stated otherwise . 
+To bring back the concreteness of what we are working with, we have some examples of real \Cstar algebras: 
+\begin{example}
+\begin{enumerate}
+\item
+	We define the rotation algebras as $C(S^1,\R)\rtimes \Z$ with $\Z$ acting by rotation by $n\theta$. If $\Z$ is acting by rotation with an irrational angle, we get the real irrational algebra.% an analogous twisted crossed products with $\Z$ have attracted a substantial amount of attention in recent years as models for a materials acting as topological insulators. 
+\item	
+We may also consider a commutative torus algebra, namely $C(S^1,\R)\tens C(S^1,\tau_0)$, with $\tau_0$ the complex conjugation on the circle. One should notice that this is just of one three different choices we could have taken for a real algebra reflecting the torus, showing once again the wide range of choices afforded by choice of involution. 	
+	This is contrast to the complex case, where we get $C(S^1)\tens C(S^1)$ no matter what, leading to a different geometry as reflected in the $K$-theory of these algebras. %We will return to these algebras again later in the thesis.
+\item
+	Consider the space $\ell^2(\N,\R)$ and the operator $Se_k=e_{k+1}$. We define $\T=C^*(\{S\})$. This fits into an extension as in the complex case, see \cite[Chapter 1]{schroder}:
+	\begin{align*}
+	\xymatrix{
+		0\ar[r] & \K \ar[r] & \mathcal{T} \ar[r] & C(S_1,\tau_0) \ar[r] & 0
+	}
+	\end{align*}
+	as in the complex case. 
+\item
+	We construct higher-dimensional non-commutative analogues of the Toeplitz algebra which also fit into extensions. Let $S_1,\dots,S_n$ be a family of unilateral shifts with orthogonal ranges. As in the complex case this gives rise to the extension, see \cite[Chapter 1]{schroder}: 
+	\begin{align*}
+	\xymatrix{
+		0\ar[r] & \K(H) \ar[r] & C^*(\{S_1,\dots,S_n\}) \ar[r]  & O_n \ar[r] & 0
+		}
+	\end{align*}
+	This defines $O_n$, the $n$'th real Cuntz algebra. 
+\item
+	The prototypical example of graded real \Cstar-algebras is given by the Clifford algebras $Cl_{p,q}$, as in the appendix on Clifford algebras.
+\item
+	We define the real suspension and anti-suspension as the tensor product with:
+	\begin{align*}
+		&C_0(\R,\id) \\
+		&C_0(\R,-\id) 
+	\end{align*}
+\end{enumerate}
+\end{example}
+For $K$-theory the algebras encoding the suspension are also essential and provide good examples of how different involutions on the underlying topological space $X$ induce entirely different \Cstar-algebras. 
+For further examples, and an introduction to the construction of crossed products in the real case, we refer to \cite[Ch. 1]{schroder}. We end our brief exposition of the fundamental theory of real \Cstar algebras with a theorem which will allow us to switch seamlessly between the complex and the real case. For notation and results regarding unbounded operators on Hilbert modules, we refer to \cite[Chapter 9, Chapter 10]{lance95}.
+\begin{theorem}\label{complextoreal}
+	Let $B$ be real \Cstar-algebra, and let $E_B$ be a Hilbert $B$-module.
+\begin{enumerate}
+		\item
+			The operator $\D:\dom \D \to E_B$ is self-adjoint and regular if and only if $\D\tens 1$ is self-adjoint and regular as an operator $\dom \D \tens \C \to E_{B \tens \C}\cong E_{B}\tens \C$. 
+		\item Let $\D$ be self-adjoint and regular on $E_B$. Then the operator $(\D^2+1)^{-1}$ is compact if and only if $(\D+i)^{-1}$ and $(\D-i)^{-1}$ are compact.
+		\item The map sending $T\mapsto T\tens 1:$ is an isometry $L(E_B)\tens \C \to L(E_B \tens \C)$. 
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Remark that all tensor products in this proof are ungraded. 
+	\begin{enumerate}
+	\item
+		Start by noting that $E_B\tens_B B \cong E_B$, thus $E_B \tens \C \cong E_B \tens_B B \tens \C \cong E_{B\tens \C}$.  
+	
+		Assume that $\D$ is self-adjoint and regular as a map $\dom \D \to E_B$. Then consider the map $\D\tens 1:(\dom \D)\tens \C$. As we have assumed that the the mapping $1+\D^*\D$ is surjective, it follows that the mapping $1\tens 1+\D^* \D \tens 1$ is also surjective, giving regularity. To see self-adjointness, consider any element $x\in \dom ((\D\tens 1)^*)$. This element must satisfy that $\ip{x}{(\D \tens 1) y}$ is well-defined for all $y\in \dom \D \tens \C$. However, $x$ must be of the form $\xi_1\tens 1$+ $\xi_2\tens i$, and we may assume $y=\eta \tens 1$, for $\eta \in \dom \D$, as the domain is a linear space. Thus we have 
+		\begin{align*}
+			\ip{x}{(\D \tens 1 )y}=\ip{\xi_1\tens 1}{(\D\tens 1) \eta_1} -1\tens i\ip{\xi_2\tens 1}{(\D\tens 1)(\eta_1\tens 1)} 
+		\end{align*}
+		This gives an element of $B\osum iB$ and in order for this element to be well-defined, both terms must lie in $B$. Thus we get that $\xi_i\in \dom \D^*$, and by self-adjointness of $\D$ they must lie in $\dom \D$. 
+		
+		Conversely, assume that $\D\tens 1:\dom \D \tens \C \to E_B\tens \C$ is self-adjoint and regular. Start by assuming $\D\tens 1$ is self-adjoint, and consider $\D\tens 1$ as a map $E_B\osum iE_B \to E_B\osum iE_B$, ie $\D\tens 1=\D\osum \D$. Then self-adjointness implies that $(\D \osum \D)^*=\D \osum \D$. Therefore $\D^*=\D$, and thus $\D$ is self-adjoint. 
+		
+		For regularity, let $x\in E_B$, then there is an element $\xi\tens z \in E_{B}\tens \C$ such that $((\D^*\D +1)\tens 1) \xi\tens z=x\tens 1$. Then 
+		\begin{align*}
+			((\D^*\D +1)\tens 1) (\xi \tens \overline{z}+\xi \tens z)&=x\tens 1 \\
+			((\D^*\D+1) \tens 1) \xi' \tens 1= x\tens 1
+		\end{align*}
+		Thus $(\D^*\D+1)\xi'=x$, showing regularity.
+	\item
+		It is clear by the $C_0(\R)$-functional calculus for self-adjoint regular operators that if $(\D\tens 1\pm 1\tens i)^{-1}$ are compact, then $(\D^2\tens 1+1\tens 1)^{-1}=(\D\tens 1\pm 1\tens i)^{-1}(\D\tens 1\mp 1\tens i)^{-1}$ is compact. For the converse, assume that $(\D^2+1)^{-1}$ is compact. Consider the operator 
+		\begin{align*}
+			\D(\D^2+1)^{-1/2}
+		\end{align*}
+		This is bounded, as it is the bounded transform of a self-adjoint regular operator, see \cite[Chapter 9]{lance95}. 
+		By the functional calculus, $(\D^2+1)^{-1/2}$ is also compact, and $(\D-i)^{-1}=(i+\D)(\D^2+1)^{-1}$. Applying the $C_0(\R)$-functional for self-adjoint regular operators, we get:
+		\begin{align*}
+		&~(\D-i)^{-1} \\
+		&=\D(\D^2+1)^{-1}+i(\D^2+1)^{-1} \\
+		&~=\underbrace{\D(\D^2+1)^{-1/2}}_{bounded}\underbrace{(\D^2+1)^{-1/2}}_{compact}+i\underbrace{(\D^2+1)^{-1}}_{compact} \\
+		&=\underbrace{(\D(\D^2+1)^{-1/2}+i(\D^2+1)^{-1/2})}_{bounded}\underbrace{(\D^2+1)^{-1/2}}_{compact} 
+		\end{align*}
+		Thus $(\D-i)^{-1}$ is compact. Similarly, $(\D+i)^{-1}$ is compact. 
+	\item
+		Clear.
+	\end{enumerate}
+\end{proof}
+Henceforth we shall usually suppress the tensor product when considering complexifications and let it be implicit in the notation as to whether we are working with a complexified algebra or not. 
+ We now turn our attention to a brief exposition of the theory of real continuous trace algebras, which highlights some of the essential differences between real and complex \Cstar-algebras. 
+%Apart from condensed matter theory and the associated coarse geometric setup, one of the places where real \Cstar-algebras come into their own is in the realm of  geometry. That this should happen is maybe not that surprising given the reliance on elliptic operators and harmonic spinors in various essential constructions such as the hodge decomposition and the Atiyah-Singer index theorem. 
+%The concrete example we shall be looking at here which explores the interplay between algebraic geometry and real \Cstar-algebras is the class of \Cstar-algebras with continuous trace.

@@ -1,0 +1,368 @@
+\subsection{Localization and sums of self-adjoint operators}
+
+In this section we return to the local viewpoint of the section on continuous trace algebras, where we view Hilbert $C$-modules as bundles of Hilbert spaces over the state space of $C$, through the formalism of localizations. We start by using the formalism to show that the covariant version of $\D_2$ is actually self-adjoint and regular. Using this result and modifying the techniques of \cite{locglob} to the graded case, we show that the sum of weakly anti-commuting operators is locally self-adjoint, and thereby globally self-adjoint and regular. 
+
+The method which lets us study regular self-adjoint operators through local considerations is the results of \cite{pierre} and \cite{locglob}: An operator is self-adjoint and regular if and only if the operator on each Hilbert localized space is itself a self-adjoint operator. Though the result is stated in the complex case, it readily carries over to the real case by \Cref{complextoreal}.
+\begin{definition}
+	Given a state $\phi$ on $B$ we can construct the localization $E_B^\phi$ of $E_B$ with respect to this state via. the (pre)-inner product $\phi(\ip{x}{y})$, where we take the quotient by the nullifier of the inner product and complete as usual. 
+	Alternatively, given a cyclic representation $\pi$, we can consider $(\pi,H_\pi,\xi_pi)$ and define $E_B^\pi=E_B\tens_\pi H_\pi$. These two definitions are equivalent.  
+	Denote the embedding map $\iota_\phi$. 
+\end{definition}
+\begin{definition}
+	Given a regular self-adjoint operator $T$ on a Hilbert $B$-module $E_B$ as well as a representation $\pi$ of $B$ on the Hilbert space $H_\pi$ we define the localization $T_0^\pi$ on $\D(T)\tens_{\pi} H_\pi\subset E_B \tens_{\pi} H_\pi$ via. the formula $T_0^\pi(x\tens h)=Tx\tens h$. The closure of this operator is denoted $T^\pi$ and is called the localization of $T$ with respect to $\pi$.
+\end{definition}
+\begin{theorem}[The Local-Global Principle]
+	A closed densely defined operator $T$ is self-adjoint and regular if and only if all localizations are self-adjoint. 
+\end{theorem}
+As we are working in the setting of differential algebras rather than Hilbert modules, we need to show that the representation associated with the localization is a morphism in the category of spaces. 
+\begin{proposition}
+Given an unbounded Kasparov module and a state $\phi$ we get a completely contractive map $\pi_{\D^\phi}:\B\to \lip(\D^\phi)$ by localizing the map $\pi_{\D}$.
+\end{proposition}
+\begin{proof}
+	By definition, $\iota_\phi(\dom \D)$ is a core for $\D^\phi$. For every $b\in \B$ and $f\in \dom \D$ we have $\pi_\phi(b)\iota_\phi(f)=\iota_\phi(bf)\in \iota_\phi(\dom \D)$. Thereby $\pi_\phi(b)$ preserves the core $\iota_\phi(\D)$ for $\D^\phi$. For the commutator we calculate:
+	\begin{align*}
+		\norm{[\D^\phi,\pi_\phi(b)]\iota_\phi(f)}^2&=\norm{\iota_\phi([\D,b]f)} \\
+		&=\phi(\ip{[\D,b]f}{[\D,b]f})\leq \norm{[\D,b]}^2\phi(\ip{f}{f}) \\
+		&=\norm{[\D,b]}^2\norm{\iota_\phi(f)}^2
+	\end{align*}
+	Giving boundedness of the commutator on the core. Therefore $\pi_\phi([\D,b])$ is well-defined and equals $[\D^\phi,\pi_\phi(b)]$, so we write 
+	\begin{align*}
+		\pi_{\D^\phi}(b)=\pi_\phi(\pi_\D(b))
+	\end{align*}
+	giving complete contractivity of the map $\pi_\D(b)\mapsto \pi_{\D^\phi}(b)$, showing that it is a morphism in the category of operator spaces. We define $\B^\phi$ as the completion of $\B$ in the norm induced by $\pi_{\D^\phi}$ and as such we may also define the localized module $\E_{\B^\phi}$ over $\B^\phi$ through the mapping $H_{\B^+}\to H_{\B^{+,\phi}}$.
+\end{proof}
+We proceed to directly apply the results for localizations, showing that all regularity properties pass to localizations, thereby setting the stage for the proof of the self-adjointness and regularity of the covariant  product operator.
+\begin{lemma}\label{mesrennie317}
+	Let $\E_\B$ be a complete projective operator module for $(\B,F_C,\D)$ with column finite frame $(x_i)_{i\in \Zred}$. Then the localized module $\E_{\B}^\phi$ is a complete projective module for the localized Kasparov module and $(1\tens_\nabla \D^\phi)=(1\tens_\nabla \D)^{\phi}$. Thus we can infer:
+	\begin{enumerate}
+		\item
+			We have the mapping $v\pi_\phi(\chi_n) v^*: \dom(\part^\phi)^*\to \dom \part^\phi$.
+		\item
+			There is an approximate in $\conv(\chi_n)$ such that $p[\D_\epsilon^\phi, v\pi_\phi(u_n)v^*]p$ converges to $0$ in the $^*$-strong sense on the Hilbert space defined as $H_{B^+}\optens_{B^+} F^\phi$. 
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	We need to check that the defining frame of $\E_\B$ passes down and the accompanying approximate unit in the convex hull of the canonical approximate unit. The column finiteness of the localized frame is immediate from the previous proposition, since it shows that $\norm{\pi_{\D^\phi}(\ip{x_i}{e})_{i\in \Zred}}\leq \norm{\pi_\D(\ip{x_i}{e})_{i\in \Zred}}$. The sequence $p[\D_\epsilon,vu_nv^*]p$ is uniformly bounded and converges strictly 0, hence the localized sequence does so as well. This shows that $\E_{\B^\phi}$ is a complete projective module for $(\B^\phi,F^\phi,\D^\phi)$. 
+	Consider the operator $(1\tens_\nabla \D^\phi)$, which is defined on the core $(\E\tens_{\B^+} \dom \D^\phi)$, while the operator $(1\tens_\nabla \D)^\phi$ is defined on $\iota_\phi(\dom (1\tens_\nabla \D))$.
+	Thus we would like to determine a common core for $(1\tens_\nabla \D)^\phi$ and $1\tens_\nabla \D^\phi$. Our candidate is the space: $V=\iota_\phi(\E\tens_\B \dom \D)$. It is clear that this is a core for $(1\tens_\nabla \D)^\phi$, since $\E_\B\tens_\B \dom \D$ is a core for $1\tens_\nabla \D$. In order to show that is is also a core for $1\tens_\nabla \D^\phi$, we unravel the definition of the operator on $e\tens f_k \in \iota_{\phi}(\E_\B\tens_\B \dom \D)$, where $f_k$ is a sequence converging to $f\in \dom \D^\phi$ in graph norm. 
+	\begin{align*}
+		1\tens_\nabla \D^\phi (e\tens f_k)&=\gamma(e)\tens \D^\phi f_k+\nabla_{\D^\phi}(e)f_k \\
+		&=\gamma(e)\tens \D^\phi f_k+\sum_{i\in \Zred}  \gamma(x_i) \tens [\D^\phi,\ip{x_i}{e}]f_k 
+	\end{align*}
+	The first term will clearly converge to $\gamma(e) \tens \D^\phi f$, by definition of the graph norm. To show convergence of the second term, we apply the norm estimates stemming from the Haagerup norm to show that it is a Cauchy sequence. We have implicitly used that the localization map is contractive to perform these estimates. 
+	\begin{align*}
+		\norm{\sum_{i\in \Zred}  \gamma(x_i) \tens [\D^\phi,\ip{x_i}{e}](f_k-f_l)}_{\optens}&\leq \norm{\sum_{i\in \Zred} \ket{x_i}\bra{x_i}}_{\K(E_B)}\norm{[\D^\phi,\ip{x_i}{e}](f_k-f_l)} \\
+		&\leq \norm{[\D,\ip{x_i}{e}]}^2\norm{(f_k-f_l)}^2
+	\end{align*}
+	The norm of the first term is finite, as $e$ is assumed to lie in $\E_\B$. 
+	This tells us that we may approximate any element $y\in \E\optens_\B \dom \D^\phi$ by elements of $V$ in graph norm of $1\tens_\nabla \D^\phi$. This implies that the closure of $(1\tens_\nabla \D)^\phi$ over $V$ contains the defining domain of $1\tens_\nabla \D^\phi$, showing that $V$ is a common core for the  operators. Since they coincide on the core, we may infer that 
+	\begin{align*}
+		1\tens_\nabla \D^\phi=(1\tens_\nabla \D)^\phi
+	\end{align*}
+	as desired.  To see the first claim, simply apply \Cref{mesrennie315} to the defining frame of localized module $\E_{\B^\phi}$. 
+\end{proof}
+\begin{theorem}\label{mesrennie318}
+	Letting $\E_\B$ be a complete projective operator module for $(\B,F_C,\D)$. Then $(1\tens_\nabla \D)$ is self-adjoint and regular. 
+\end{theorem}
+\begin{proof}
+	We have reduced our problem to showing that for every state $\phi$ on $C$, the operator $\part^\phi$ is self-adjoint and regular on the Hilbert space $(E_B\tens_B F_C)^\phi\cong E_B\tens_B F_C^\phi$. Letting $(u_n)_{n\in \N}\subset \conv\{\chi_n: n\in \N \}$ be an approximate unit for the complete projective operator module associated to $(\B,F_C,\D)$, then by \Cref{mesrennie317}: 
+	\begin{align*}
+		&v\pi_\phi(u_n)v^*:\dom(\part^\phi)^*\to \dom \part^\phi \\
+		&p[\D^\phi_\epsilon,v\pi_\phi(u_n)v^*]p\to 0,\quad ^*\text{ strongly on }H_{\B^+}\optens_{B^+}F^\phi. 
+	\end{align*}
+	We may also apply \Cref{mesrennie314} to conclude that $\part^\phi x=p\D^\phi_\epsilon px$ on the core $H_{\B^+}\optens_{\B^+} \dom \D^\phi$ of $\part^\phi$. Drawing these two results together, let $x\in H_{\B^+}\optens_{\B^+} \dom \D^\phi$:
+	\begin{align*}
+		[\part^\phi,vu_kv^*]x &=\part^\phi vu_kv^*x-vu_kv^*\part^\phi x \\
+		&=p\D^\phi_\epsilon pvu_kv^* x-vu_kv^*p\D^\phi_\epsilon px \\
+		&=p[\D^\phi_\epsilon,vu_kv^*]px\to 0
+	\end{align*}
+	which converges to zero in norm. By the uniform boundedness of $p[\D^\phi_\epsilon,vu_kv^*]p$ the result may be expanded to the entirety of $H_{\B}\optens_{\B} F_C^\phi$. Since the closure of $[\part^\phi,vu_k v^*]$ is equal to the closure of $[(\part^\phi)^*,vu_kv^*]$, it may be inferred that the latter converges strictly to zero on $H_{\B^+}\optens_{\B^+} F_C$. As such, for $y\in \dom (\part^\phi)^*$, we get $vu_kv^* y\in \dom \part^\phi$ through application of \Cref{mesrennie317}, and $vu_kv^* y\to y$. We conclude that $\part^\phi vu_k v^* y$ is convergent to $\part^\phi y$ as below since
+	\begin{align*}
+		(\part^\phi)^*y&=\lim_{k\to\infty} vu_kv^* (\part^\phi)^*y=\lim_{k\to \infty} \part^\phi vu_k v^* y-[(\part^\phi)^*,vu_k v^*]y \\
+		&=\lim_{k\to \infty} \part^\phi vu_k v^* y
+	\end{align*}
+	Thus $\dom \part^\phi$ is a core for the operator $(\part^\phi)^*$. This lets us conclude that $\part^\phi$ is self-adjoint since it is closed and symmetric, and thus, by the Local-Global principle, it is self-adjoint and regular, and finally by \Cref{mesrennie313}, that $1\tens_\nabla \D$ is self-adjoint and regular. 
+\end{proof}
+
+\begin{definition}
+	The algebra of adjointable operators on $\E^\nabla$ is the idealiser of $\pi_\nabla(\K(\E^\nabla))$ inside the algebra $L_C((pH_{\B^+}\optens_{B^+} F)^2)$. We shall denote it by $L_\B(\E^\nabla)$. 
+\end{definition}
+To see that our definitions for differentiable modules interact in the same fashion as for Hilbert modules, we have the following proposition.
+\begin{proposition}\label{differentiablealgebra}
+	If $\E_\B$ is a complete projective module then $L_\B(\E^\nabla)$ is an operator $^*$-algebra, which is isometrically isomorphic to $M(\K(\E^\nabla))$. This algebra coincides with a closed subalgebra of the Lipschitz algebra of $(1\tens_\nabla \D)$, and as such $\K(\E^\nabla)$ is a differentiable algebra. 
+\end{proposition}
+\begin{proof}
+	The operator $1\tens_\nabla \D$ is self-adjoint and regular, so for finite rank $K$ we have the following equality
+	\begin{align*}
+		[1\tens_\nabla \D,vKv^*]=p[\D_\epsilon,vKv^*]p
+	\end{align*}
+	Let $T\in L_{\B}(\E^\nabla)$ then there is a sequence $T_n$ satisfying that $T_nK$ is finite rank for $K$ finite rank, and that $T_n K$ and $p[\D_\epsilon,vT_nKv^*]p$ are both convergent with $T_nK$ to $TK$. By definition of $\part$ we have the equality
+	\begin{align*}
+		p[\D_\epsilon,vT_nKv^*]p=[\part,vT_nKv^*]
+	\end{align*}
+	Giving that 
+	\begin{align*}
+		\part(vT_nKv^*x)=[\part,vT_nKv^*]+vT_nKv^*x 
+	\end{align*}
+	is convergent for every $x\in \dom \part$. Hence $TK$ preserves the domain of $\part$ for every $K$, and $vFin_B(\E_\B)v^*\dom \part$ is dense in $p\dom \part$ in graph norm. It follows that $T$ preserves the core of $\part$ and on this core the operator
+	\begin{align*}
+		[\part,vTv^*]vKv^*x=[\part, vTKv^*]x-v\gamma(T)v^*[\part,vKv^*]x
+	\end{align*}
+	is bounded. This implies that $vTv^*$ is in $\lip(\part)$, or equivalently in $T\in \lip(1\tens_\nabla \D)$ as desired. The remaining part may be shown as in \Cref{mesrennie117}.
+\end{proof}
+%\todo{import the rest that is needed from section 3, about 7 pages worth!}
+\begin{definition}
+	Let $E$ be a graded complex \Cstar module. Assume two odd self-adjoint regular operators $S$ and $T$ on $E$ satisfy 
+	\begin{enumerate}
+	\item
+		There is a core $X$ for $T$ such that $(S\pm i\lambda)^{-1}X\subset \dom T$. 
+	\item
+		We have the inclusions $T(S\pm i\lambda)^{-1}X\subset \dom S$. 
+	\item
+		The operator $[S,T](S\pm i\lambda)^{-1}$ is bounded on $X$. 
+	\end{enumerate}
+	for all $\lambda>0$. Then $S$ and $T$ weakly anti-commute.
+\end{definition}
+We have the following result 
+\begin{lemma}\label{boundedness}
+	If $S$ and $T$ weakly anticommute then $(S\pm \lambda i)^{-1}$ preserves the domain of $T$, and the commutator $[S,T](S\pm \lambda i)^{-1}$ is bounded on $\dom T$. Hence: 
+	\begin{align*}
+		&S((S-\lambda i)^{-1}\dom T)\subset \dom T \\ 
+		&T(\im(S-\lambda i)\dom T)\subset \dom s
+	\end{align*}
+	Thus the commutator is defined on $\im (S\pm \lambda i)^{-1}(T\pm ic)^{-1}$.  
+\end{lemma}
+\begin{proof}
+	We may expand the commutator: 
+	\begin{align*}
+		[T,(S+i\lambda)^{-1}]x=(S\mp \lambda i)^{-1}[S,T](S\pm i\lambda)^{-1}x
+	\end{align*}
+	This operator is bounded by definition which implies that $(S\pm i\lambda)^{-1}$ preserves the domain of $T$ by \cite[Proposition 2.1]{forsyth}. Given $x\in \dom T$ we may pick a sequence $(x_n)_{n\in \N}\subset X$ converging to $x$, satisfying $Tx_n\to Tx$ as $X$ is a core for $T$. We then calculate:
+	\begin{align*}
+		T(S-i\lambda)x_n=-(S+i\lambda)^{-1}Tx_n+(S+i\lambda)^{-1}[S,T](S-i\lambda)^{-1}x_n \\
+	\end{align*}
+	As the resolvent preserves the domain, we may take the limit of the above sequence to get $T(S-i\lambda)x=-(S+i\lambda)^{-1}Tx+(S+i\lambda)^{-1}[S,T](S-i\lambda)^{-1}x $.
+	As this sequence is convergent, the limit is $T(S-i\lambda)^{-1}x\in \dom S$. In order to see that we have the inclusion $S((S-i\lambda)^{-1}\dom T)\subset \dom T$ consider the equality 
+	\begin{align*}
+		S(S-i\lambda)^{-1}(T-i\mu)^{-1}=(T-i\mu)^{-1}+i\lambda(S-i\lambda)^{-1}(T-i\mu)^{-1}
+	\end{align*}
+\end{proof}
+%We have reached the point where we define the notion of an unbounded correspondence, which is the appropriate setting to put the construction of the unbounded Kasparov in. 
+We can draw all our work together into a unified framework into which we place the construction of the unbounded Kasparov product, namely the unbounded correspondence. 
+\begin{definition}
+	Given an unbounded Kasparov module $(\B,F_C,\D_2)$ with bounded approximate unit for $\B$, an $\A-\B$ correspondence for $(\B,F_C,\D_2)$ is a quadruple $(\A,\E_\B,\D_1,\nabla)$ such that:
+	\begin{enumerate}
+		\item
+			The module $\E_\B$ is a projective $\B$ operator module. 
+		\item
+			The algebra $\A$ is a $^*$-algebra satisfying $\A\subset L_{\B}(\E^\nabla_\B)\cap \lip(\D_1)$. 
+		\item
+			The operator $\D_1$ is self-adjoint regular operator satisfying that $(\D_1^2+1)^{-1/2}\in L_{\B}(\E^\nabla_\B)$ with $a(\D_1^2+1)^{-1/2}\in \K_\B(\E^\nabla_\B)$ for all $a\in \A$. 
+		\item
+			The operator $\nabla:\E^\nabla_\B\to E\optens_B \Omega^1_\D$ is a connection  such that $\nabla((\D_1^2+1)^{-1/2}\epsilon)\subset \dom (\D_1 \tens 1)$,and the operator $[\nabla, \D_1](\D_1^2+1)^{-1/2}:\E_\B^\nabla \to E_B\optens_{B^+} \Omega^1_{\D_2}$ is completely bounded. 
+	\end{enumerate}
+	such a correspondence is strongly complete if there exists an approximate unit for $A$ such that $[\D_1,u_n]\to 0$ and $[1\tens_\nabla \D_2,u_n\tens Id_{F_C}]\to 0$ in norm.
+\end{definition}
+To see that the notion of an unbounded correspondence is the correct one, we show that $D_1=\D_1\tens 1$ and $D_2=1\tens_\nabla D_2$  weakly anticommute. One should remark that weakly anticommuting is defined only on the complexifications, as the property is only required to prove self-adjointness and regularity of the sum operator. 
+\begin{lemma}\label{mesrennie42}
+	Let $(\A,\E_\B,\D_1,\nabla)$ be an $\A-\B$ correspondence. Then the self-adjoint regular operators $D_1=\D_1\tens 1$ and $D_2=1\tens_\nabla \D_2$ weakly anticommute, with core $X=\E_\B^\nabla \optens_{\B} \D_2$. 
+\end{lemma}
+\begin{proof}
+	By \Cref{mesrennie314} the map $g:\E_\B^\nabla\optens_{\B^+} G(\D_2)\to G(1\tens_\nabla \D_2)$ given as 
+	\begin{align*}
+		e\tens \begin{pmatrix} f \\ \D_2 f\end{pmatrix} \mapsto \begin{pmatrix} e\tens f  \\ 1\tens_\nabla \D_2(e\tens f) \end{pmatrix}
+	\end{align*}
+	has dense range. Thus $X=\E_\B^\nabla \tens_\B \dom \D_2$ is a core for $D_2$. As \begin{align*} (\D_1^2+1)^{-1/2}: \E_\B^\nabla \to \E_\B^\nabla, \end{align*} so will $(D_1\pm i)^{-1}$ and thereby we get the first part of the criterion for being weakly anticommuting. 
+	To check the second part, remark that by definition \begin{align*} D_1((D_2+i)^{-1}(D_2-i)^{-1})^{1/2}X\subset \dom D_2, \end{align*} and thus $D_1(D_2\pm i)^{-1} X\subset \dom D_2$. On $X$ we may calculate the graded commutator 
+	\begin{align*}
+		[D_1,(D_2\pm i)^{-1}]=(D_2\mp i)^{-1}[D_2,D_1](D_2\pm i)^{-1}
+	\end{align*}
+	which can be seen to be bounded from: 
+	\begin{align*}
+		[D_2,D_1](e\tens f)&=(D_1\tens 1)(\gamma(e)\tens \D_2 f+\nabla(e)f)+\gamma(D_1e)\tens \D_2 f+\gamma(D_1e)\tens f+\nabla(D_2 e)\tens f\\
+		&=[\nabla,D_2](e)f
+	\end{align*}
+	By definition $[\nabla,D_1](D_1\pm i)^{-1}$ is bounded, finishing the claim. 
+\end{proof}
+We can now show local compactness of the resolvents. 
+\begin{lemma}\label{mesrennie43}
+	Assume we are in the setup of \Cref{mesrennie42}, then the operators $(D_2^2+1)^{-1/2}K$, and $K(D_2^2+1)^{-1/2}$ are compact for $K\in \K(E_B)$. 
+\end{lemma}
+\begin{proof}
+	For every $e\in \E$ the following series is norm-convergent.  
+	\begin{align*}
+		\sum_{i \in \Zred}[\D_{2,\epsilon},\ip{x_i}{e}]^*[\D_{2,\epsilon},\ip{x_i}{e}]
+	\end{align*}
+	Thus we may conclude that the operator given as $D_2\ket{e}-\ket{\gamma(e)}\D_2$ acting on $f$ as:
+	\begin{align*}
+		\sum_{i\in \Zred} x_i \tens \D_2 \ip{x_i}{e}-\gamma(e)\tens \D_2 f&=\sum_{i\in \Zred} x_i\tens (\D_{2,\epsilon}\ip{x_i}{e}-\ip{x_i}{\gamma(e)}\D_{2,\epsilon})f \\
+		&=\sum_{i\in\Zred} x_i \tens[\D_{2,\epsilon},\ip{x_i}{e}]f
+	\end{align*}
+	is bounded. 
+	Let $(u_n)_{n\in \N}$ be an approximate unit for $B$ and consider the operator $\ket{e}(\D_2^2+1)^{-1/2}:F_C\to E_B\optens_B F_C$. We have the equality:
+	\begin{align*}
+		\ket{e}(\D_2^2+1)^{-1/2}&=\lim_{n\to\infty} \ket{e u_n}(\D_2^2+1)^{-1/2} \\
+		&=\lim_{n\to \infty}\ket{e}u_n(\D_2^2+1)^{-1/2}
+	\end{align*}
+	Giving that our operator is the norm limit of compact operators, and thus is compact by the assumption of locally compact resolvent of $\D_2$. To expand this to all compacts, consider the calculation below
+	\begin{align*}
+		&((1\tens_\nabla \D_2)\pm i)^{-1} \ket{e_1}\bra{e_2} \\
+		&=\ket{\gamma(e_1)}(\D_2)\pm i)^{-1} \bra{e_2} \\
+		&+((1\tens_\nabla \D_2)\pm i)^{-1}(\ket{e_1}\D_2-(1\tens_\nabla \D_2)\ket{\gamma(e_1)}\pm i\ket{e_1-\gamma(e_1)})(\D_2\pm i)^{-1} \ket{e_2}
+	\end{align*}
+Thus the operator $(1\tens_\nabla \D_2 \pm i)^{-1}K$ is compact for every $K\in \K(E)\tens 1$, so we have shown the desired by \Cref{complextoreal}. 
+\end{proof}
+After this brief aside demonstrating the consequences of the existence of an unbounded correspondence for whether two unbounded self-adjoint operators weakly anti-commute, we proceed by showing the applications of weak anti-commutativity. In particular, we shall show that if two self-adjoint regular operators weakly anti-commute, their sum is self-adjoint and regular. 
+\begin{lemma}\label{strongconvsa}
+	Let $W$ be a self-adjoint regular operator on $E$. Let $(f_n)_{n\in\N}$ be a uniformly bounded sequence of functions, converging uniformly on compact subsets of $\R$ to $f\in C_0(\R)$. 
+	Then $f_n(W)$ converges strongly to $f(W)$. 
+\end{lemma}
+\begin{proof}
+	Let $x\in \D(W)$. Define $\phi(t)=(t+i)^{-1}$, and $y=(W+i)x$. This gives the identity $x=\phi(W)y$, as the regularity of $W$ implies that the function is well-defined. As $\phi$ vanishes at infinity, $f_n\phi\to f$ uniformly, not just on compact subsets. Thus
+	\begin{align*}
+		f_n(W)x=((f_n\phi)(W))y\to f(W)x
+	\end{align*}
+	Therefore $f_n(W)$ converges strongly to $f(W)$ on a dense subset of $E$. As the sequence is uniformly bounded, we get strong convergence globally. 
+\end{proof}
+Define the family of operators $Y_\mu=[S,T](S-i\mu)^{-1}$, for $\mu \in \R$. This family is adjointable as the domain of $Y_\mu$ includes the dense submodule $(S-i)^{-1}(E)$. Thus we get
+\begin{align*}
+	Y_\mu^*\xi=-(S+i\mu)^{-1}[S,T]\xi
+\end{align*}
+for every $\xi\in \dom([S,T])$. 
+\begin{lemma}\label{convergestozero1}
+	The sequence of operators 
+	\begin{align*}
+		R_n=-\frac{i}{n}\pa{\frac{-i}{n}S+1}^{-1}[S,T]\pa{\frac{i}{n}S-1}^{-1}
+	\end{align*}
+	converges strongly to the zero operator. Furthermore, $R_n$ is adjointable and the adjoint converges to the zero operator as well.
+\end{lemma}
+\begin{proof}
+	Write $R_n$ in the form
+	\begin{align*}
+		R_n=\pa{\frac{i}{n}S+1}^{-1}Y_{-1}(S-i)(S-in)^{-1} 
+	\end{align*}
+	Every factor is adjointable, so $R_n$ is adjointable. By \Cref{strongconvsa} $(S-i)(S-in)^{-1}$ converges strongly to 0. Further, $\pa{\frac{i}{n}S+1}^{-1}X_{-1}$ is a uniformly bounded sequence. This proves the desired, as the proof for the adjoint proceeds in an analogous fashion. 
+\end{proof}
+In order to control the sum of $S$ and $T$ it is necessary to control their commutators. 
+\begin{lemma}\label{estimatelemma1}
+	Let $S$ and $T$ be self-adjoint regular weakly anti-commuting operators, then there exists a $C>0$ such that:
+	\begin{align*}
+		\ip{[S,T]\xi}{\xi}\leq \frac{1}{2}\ip{S\xi}{S\xi}+C\ip{\xi}{\xi}
+	\end{align*}
+\end{lemma}
+\begin{proof}
+	Taking $S$ and $T$'s self-adjointness into account and the assumption that they weakly anticommute, we see that the form $\ip{[S,T]\xi}{\xi}$ is self-adjoint for every $\xi \in \dom([S,T])$. Then by 
+	\begin{align*}
+		2\ip{[S,T]\xi}{\xi}&=-(\ip{[S,T]\mu\xi}{\mu^{-1}\xi}+\ip{\mu^{-1}\xi}{[S,T]\mu\xi} \\
+		&\leq \mu^2 \ip{[S,T]\xi}{[S,T]\xi}+\mu^{-2}\ip{\xi}{\xi} \\
+		&\leq \mu^2 ||[S,T](S+\mu i)^{-1}||^2\ip{(S+\mu i)\xi}{(S+\mu i)\xi}-\mu^{-2}\ip{\xi}{\xi} \\
+		&\leq \mu^2||X_{-1}||^2 \ip{S\xi}{S\xi}+(\mu^2(||X_{-1}+\mu^{-2}||)\ip{\xi}{\xi}
+	\end{align*}
+	we see that choosing $\mu=\frac{1}{\norm{Y_{-1}}}$ shows the desired.
+\end{proof}
+After having achieved control over the commutator of self-adjoint regular weakly anti-commuting operators, we can show we can control the graph norm of the sum via. the sum of the graph norms. 
+\begin{lemma}\label{estimatelemma2}
+	Let $S$ and $T$ be self-adjoint regular weakly anti-commuting operators. There is a constant $C>0$ such that for every $\xi \in \dom(S)\cap \dom(T)$. 
+	\begin{align*}
+		\ip{(S+T)\xi}{(S+T)\xi}\geq \frac{1}{2}||S\xi||^2+||T\xi||^2-C||\xi||^2
+	\end{align*}
+\end{lemma}
+\begin{proof}
+	We start by showing the inequality on $\dom([S,T])$. Here we can apply \Cref{estimatelemma1} to get: 
+	\begin{align*}
+		\ip{(S+T)\xi}{(S+T)\xi}&=\ip{S\xi}{S\xi}+\ip{T\xi}{T\xi}+\ip{[S,T]\xi}{\xi} \\
+		&\geq \frac{1}{2} ||S\xi||^2+||T\xi||^2-C||\xi||^2
+	\end{align*}
+	Consider $\xi\in \dom(S)\cap \dom(T)$. Define the sequence
+	\begin{align*}
+		\xi_n=\pa{\frac{i}{n}S+1}^{-1}\xi \in \dom([S,T])
+	\end{align*}
+	We have the convergence $\xi_n\to \xi$ and $S\xi_n \to S\xi$ by \Cref{strongconvsa}. Therefore the only thing left to show is that $T\xi_n\to T\xi$. We calculate:
+	\begin{align*}
+		T\xi_n&=T\pa{\frac{i}{n}S+1}^{-1}\xi \\
+		&=\pa{\frac{i}{n}S+1}^{-1}T\xi+\frac{i}{n}\pa{\frac{i}{n}S+1}^{-1}[S,T]\pa{\frac{i}{n}S-1}^{-1}\xi \\
+		&=\pa{\frac{i}{n}S+1}^{-1}T\xi+R_n\xi
+	\end{align*}
+	By the result in \Cref{convergestozero1} this implies that $T\xi_n\to T\xi$ as desired. 
+\end{proof}
+We can now show the result that the sum of weakly anticommuting self-adjoint regular operators is again self-adjoint. 
+\begin{theorem}\label{sumselfadjoint}
+	Assume that the self-adjoint regular operators $S$ and $T$ weakly anti-commute. Then the operator $S+T$ with $\dom(S+T)=\dom(S)\cap \dom(T)$ is self-adjoint. Further, $S+T$ has core $\im ((S\pm i)^{-1}\dom T)=\im((S\pm \lambda i)^{-1}(T\pm i)^{-1})$. 
+\end{theorem}
+\begin{proof}
+	We shall proceed by first showing that $S+T$ is closed and symmetric, using this to show self-adjointness. 
+	By \Cref{estimatelemma2} we get that the convergence of a sequence in the graph norm of $S+T$ is equivalent to the sequence converging in the graph norms stemming from both operators. Therefore closedness of $S$ and $T$ gives closedness of $S+T$. In order to show that $(S+T)^*=S+T$, we need only consider one inclusion since symmetry is immediate, namely
+	\begin{align*}
+		\dom((S+T)^*)\subset \dom(S)\cap \dom(T)
+	\end{align*}
+	To do this, consider an element $\xi \in \D((S+T)^*)$. Consider the sequence
+	\begin{align*}
+		\xi_n=\pa{-\frac{i}{n}S+1}^{-1}\xi
+	\end{align*}
+	which will lie in $\dom(S)$, and is norm-convergent to $\xi$. As all operators concerned are closed, we need only show that $\xi_n \in \dom(S)\cap \dom(T)$ and $(S+T)^*\xi_n=(S+T)\xi_n$ is convergent.
+	
+	To see $\xi_n\in \dom(S)\cap \dom(T)$, let $\eta\in \dom(T)\cap \dom(S)$. Then we can perform the following calculations
+	\begin{align*}
+		\ip{\xi_n}{T\eta}&=\ip{\pa{\frac{-i}{n}S+1}^{-1}\xi}{T\eta} \\
+		&=\ip{\xi}{T\pa{\frac{i}{n}S+1}^{-1}\eta} +\ip{\xi}{\frac{i}{n}\pa{\frac{i}{n}S+1}^{-1}[S,T]\pa{\frac{i}{n}S-1}^{-1}\eta} \\ 
+		&=\ip{\xi}{(S+T)\pa{\frac{i}{n}S+1}^{-1}\eta}+\ip{\xi}{S\pa{\frac{i}{n}S+1}^{-1}\eta}+\ip{R_n^*\xi}{\eta} \\
+		&=\ip{\pa{\frac{i}{n}S+1}^{-1}(S+T)^*\xi}{\eta}+\ip{S\xi_n}{\eta}+\ip{R_n^*\xi}{\eta}
+	\end{align*}
+	By self-adjointness of $T$ we may now conclude $\xi\in \dom(T)$, as well as 
+	\begin{align*}
+		T\xi_n=\pa{-\frac{i}{n}S+1}^{-1}(S+T)^*\xi-S\xi_n+R_n^*\xi
+	\end{align*}
+	Now we need only show that $(S+T)\xi_n$ converges in $E$. By the expression for $T\xi_n$ we can see that
+	\begin{align*}
+		(S+T)\xi_n=\pa{\frac{-i}{n}S+1}^{-1}(S+T)\xi+iR_n^*\xi
+	\end{align*}
+	which converges in $E$ as $R_n^*$ converges strongly to 0. Thus $((S+T)^*\xi_n)_{n\in \N}$ converges, and we have shown the desired result on $\dom(S+T)$ and also that the domain has the claimed core. 
+\end{proof}
+We now take a brief detour back to localizations, in order to show that the localization procedure preserves weak anticommutativity and sums. We first state a lemma without proof.
+\begin{lemma}\label{locanticom}
+	Let $S$ and $T$ be self-adjoint regular weakly anti-commuting operators. For any state $\phi$ the operators $S^\phi$ and $T^\phi$ weakly anti-commute, with core $\E^\phi=\iota_\phi(\dom(T))$. 
+\end{lemma}
+\begin{comment}
+\begin{proof}
+	The result follows by the since $\pi_{\omega}$ is completely contractive and a homomorphism. Thereby the localization of a shared core is again a shared core, as well as preserving domain inclusions. 
+\end{proof}
+\end{comment}
+The only remaining hurdle is showing that the process of localization is finitely additive. 
+\begin{lemma}\label{sumloc}
+	The localization of a sum is equal to the sum of the localizations. That is, 
+	\begin{align*}
+		S^\phi+T^\phi=(S+T)^\phi
+	\end{align*}
+	for any state $\phi$. 
+\end{lemma}
+\begin{proof}
+	By definition we have $\D(S^\phi+T^\phi)=\D(S^\phi)\cap \D(T^\phi)$. The inclusion $(S+T)^\phi\subset S^\phi+T^\phi$  is immediate as $(S+T)_0^\phi\subset S_0^\phi+T_0^\phi$, and $S^\phi+T^\phi$ is closed. To show the other inclusion, we start by showing that 
+\begin{align*}
+	(S^\phi+i\mu)^{-1}(\D(T^\phi))\subset \D((S+T)^\phi)
+\end{align*}
+	Pick $\xi \in \D(T^\phi)$. Then there is a sequence $\eta_n\subset \dom(T)$ such that $\iota_\phi(\eta_n)$ converges to $\xi$ and $\iota_{\phi}(T\eta_n)$ converges to $T^\phi(\xi)$. Applying our assumption that $S$ and $T$ weakly anticommute we get the following
+	\begin{align*}
+		(S^\phi+i\mu)^{-1}(\iota_\phi(\eta_n))=\iota_\phi((S+i\mu)^{-1}\eta_n)\in \iota_\phi(\dom(S)\cap \dom(T))\subset \D((S+iT)^\phi)
+	\end{align*}
+	By continuity we may infer that $(S^\phi+i\mu)(\iota_\phi(\eta_n))$ converges to $(S^\phi+i\mu)^{-1}\xi$. Thus it suffices to show that $(S+T)^\phi(S^\phi+i\mu)^{-1}(\eta_n)$ converges in the norm of $E$, which may be done with an argument analogous to the one in \Cref{sumselfadjoint}. To finalize the proof of the inclusion, let $\xi\in \D(S^\phi+T^\phi)$. Define the sequence $\xi_n=\pa{\frac{i}{n}S^\phi+1}^{-1}\xi$. As in \Cref{estimatelemma2} we have that $\xi_n$ converges to $\xi$, and $(S^\phi+T^\phi)\xi_n$ converges to $(S^\phi+T^\phi)\xi$ in $E^\phi$. This shows the desired, as $\xi_n\in \D((S+T)^{\phi})$. 
+\end{proof}
+Drawing all our work together, we have finally reached the point where we can show that the sum of regular self-adjoint normal operators is once again self-adjoint, thereby the last piece of the puzzle showing the existence of the unbounded Kasparov product. 
+\begin{theorem}\label{locglob71}
+	Let $S$ and $T$ be weakly anticommuting self-adjoint regular operators. Then the sum operator 
+	\begin{align*}
+		Z=S+T
+	\end{align*}
+is self-adjoint and regular.
+\end{theorem} 	
+\begin{proof}
+	Let $\phi$ be a state on $B$. By the Local-Global principle it suffices to show that $Z^\phi$ is self-adjoint. By \Cref{sumloc} we get 
+	\begin{align*}
+		Z^\phi=S^\phi+T^\phi
+	\end{align*}
+	Thus $(Z^\phi)^*=(S^\phi+T^\phi)^*$. By \Cref{locanticom} $S^\phi$ and $T^\phi$ weakly anti-commute and by \Cref{sumselfadjoint} we get that $S^\phi+T^\phi$ is again self-adjoint. Thus 
+	\begin{align*}
+		(Z^\phi)^*=(S^\phi+T^\phi)^*=(S+T)^\phi=S^\phi+T^\phi
+	\end{align*}
+	which is exactly $Z^\phi$, as desired. 
+\end{proof}
+\todo{der er noget rod med nogle kommutatorer hist og her, tilfoej metatekst}

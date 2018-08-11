@@ -1,0 +1,104 @@
+\subsection{The Kasparov Product}
+We may now show that we have constructed an unbounded version of the Kasparov product, applicable in both real and complex cases. 
+We start by stating a result by Kucerovsky, \cite[Theorem 13]{kucerovsky}. 
+\begin{theorem}[Kucerovsky's criterion]\label{kucerovskycrit}
+	Assume that we have unbounded Kasparov modules $x=(E_B,\pi_1,\D_1)\in \Psi(A,B)$  and $y=(E_C,\pi_2,\D_2)\in \Psi(B,C)$. 			Let $W\subset \pi(\A)E_B$ be a dense subset. For every $e\in W$ define the operator:
+	\begin{align*}
+		&T_e:E_B\to E_B\tens_B E_C \\
+		&f\mapsto e\tens f
+	\end{align*}
+	The module $z=(E_B\tens_B E_C,\pi_1\tens 1,D)\in \Psi(B,C)$ represents the Kasparov product of $x$ and $y$ if the following conditions are satisfied:
+	\begin{enumerate}
+		\item
+			For $e\in W$ the commutator
+			\begin{align*}
+			\begin{bmatrix}
+				\begin{pmatrix} D & 0 \\ 0 & \D_2 \end{pmatrix}, \begin{pmatrix} 0 & T_e \\ T_e^* & 0\end{pmatrix}	
+			\end{bmatrix}
+			\end{align*}
+			 extends to a bounded operator. 
+		\item
+			$\dom(D)\subset \dom(D_1\tens 1)$. 
+		\item
+			There exists $C\in \R$ such that
+			\begin{align*}
+				\ip{(\D_1\tens 1) x}{D x}+\ip{D x}{(\D_1\tens 1)x}\geq C\ip{x}{x}
+			\end{align*}
+			for every $x\in \dom(D)$.
+\end{enumerate}
+\end{theorem}
+%As a first application of the unbounded interior Kasparov product, we start by reading off the Bott cycles relating the suspension and Clifford algebras from \cite{kasparov}. 
+Bringing together the results we have shown on connections, localization and differential algebras we can show that we have constructed the unbounded Kasparov module representing the product of two composable cycles. The proof is a mixture of the proof given in \cite{unboundkasp} and \cite{mesrennie}, where we have chosen to forego the spectral approach of \cite{mesrennie} and instead work with the localizations of \cite{unboundkasp} in order to make the results more self-contained. 
+\begin{theorem}
+	Let $(\B,F_C,\D_2)$ be an unbounded Kasparov $B-C$ module and let $(\A,\E_\B,\D_1,\nabla)$ be an $\A-\B$ correspondence for $(\B,F_C,\D_2)$. Then the module $(\A,(E_B\optens_{B^+} F_C,\D_1\tens 1+1\tens_\nabla \D_2)$ is an an unbounded Kasparov module representing the product of $(\A,E_B,\D_1)$ and $(\B,F_C,\D_1)$. 
+\end{theorem}
+\begin{proof}
+	The proof is broken up into two stages. We start by showing that we have an unbounded Kasparov module, and then we check the requirements for Kucerovsky's criterion. 
+	By \Cref{mesrennie318} the operators $\D_1\tens 1$ and $(1\tens_\nabla \D_2)$ are both self-adjoint and regular. Appealing to \Cref{mesrennie42} we get that they weakly anti-commute, and by \Cref{locglob71} we thus get that the sum is self-adjoint and regular. 
+	
+	In order to see that our operator has locally compact resolvent, we follow the method of \cite{unboundkasp}. 
+	%By \Cref{differentiablealgebra} $\K(\E_\B^\nabla)$ is a differentiable algebra, so there exists an increasing commutative approximate unit $(u_n)_{n\in \N}$ for $K(\E_\B^\nabla)$. 
+	Let $(u_n)_{n\in \N}$ be an approximate unit for $\K(E_B)$. 
+	
+	Consider the commutative diagram of operator modules, where $\iota_*$ denotes the inclusion operator, as implemented by multiplication with the resolvent.  
+	\begin{align*}
+		\xymatrix{
+			\dom(\D_1\tens 1 +1\tens_{\nabla} \D_2) \ar[r]^{\iota_1} \ar[rd]^{\iota} \ar[d]^{\iota_3} & \dom(1\tens_{\nabla} \D_2) \ar[d]^{\iota_2} \\
+			\dom(\D_1\tens 1) \ar[r]^{\iota_4} & (E_{B}\optens_B F_C)
+		}
+	\end{align*}
+	We need to show that $\pi(a)\circ \iota: \dom(\D_1\tens 1 +1\tens_{\nabla} \D_2)$ is compact, where $\pi(a)$ acts by multiplication on the first component of the tensor product. 
+	By commutativity of the diagram we get 
+	\begin{align*}
+		(u_n \tens 1)\circ \pi(a)\circ \iota=(u_n\tens 1)\circ \pi(a) \circ \iota_2\circ \iota_1
+	\end{align*}
+	The operator $(u_m\tens 1)\circ \pi(a) \circ \iota_1\circ \iota_2$ is compact by \Cref{mesrennie43}, implying that
+	\begin{align*}
+	(u_m \tens 1)\circ \pi(a)\circ \iota:\E^\nabla_\B \optens_{\B^+} \dom \D_2 \to E_B\optens_{B^+} F_C 
+	\end{align*}
+	is compact for all $n$. 
+	Going back to the diagram, we have the identity 
+	\begin{align*}
+		&(u_m\tens 1)\circ \pi(a)\circ \iota=(u_m\tens 1)\circ \pi(a) \circ \iota_4\circ \iota_3.
+	\end{align*}
+	when viewed as operators 
+	\begin{align*}
+		\E^\nabla_\B\optens_{\B^+} \dom \D_2\to E_B\optens_{B^+} F_C
+	\end{align*}
+	As we are working over a correspondence, we have $(\pi(a)\circ \iota_4)=\pi(a)\circ (\D_1^2\tens 1+1)^{-1/2}=K\tens 1$ where $K\in \K(\E^\nabla_\B)\subset \K(E_B)$. 
+	Hence the sequence $((u_m\tens 1)\circ \pi(a)\circ \iota_4)_{m\in \N}\subset L(\E^\nabla_\B \optens_{\B^+} \dom \D_2,E_B\optens_{B^+} F_C)$ converges to the bounded operator $(\pi(a)\circ \iota_4)\in L(\dom(\D_1\tens 1+1\tens_\nabla \D_2),E_B\tens_B F_C)$ in operator norm. This shows that $\pi(a)\circ \iota_4$ is compact, hence $\pi(a)\circ \iota$ is compact.    
+	Consequently, 
+	\begin{align*}
+		(\A,E_B\tens_B F_C, \D_1\tens 1+1\tens_\nabla \D_2)
+	\end{align*}
+	is an unbounded Kasparov $A-C$ module.
+	
+	In order to see that it is the product of the two modules as claimed, we need to invoke Kucerovsky's criterion, see \Cref{kucerovskycrit}. 
+	
+	Define $W=\dom (1\tens_{\nabla} \D_2)$, and define the operators $T_e$, and $T_e^*$ as in \Cref{kucerovskycrit}. Define the operator $Q$,
+	\begin{align*}
+		Q=\comm{\begin{pmatrix} \D_1\tens 1+ 1\tens_\nabla \D_2 & 0 \\ 0 & \D_2 \end{pmatrix}, \begin{pmatrix} 0 & T_e\\ T_e^* & 0\end{pmatrix}}
+	\end{align*}
+	the boundedness of which we need to check.  
+	Calculating, for $(e'\tens f',f)\in \dom (\D_1\tens +1 +1\tens_\nabla \D_2)\osum \dom(\D_1)$:
+	\begin{align*}
+		Q\begin{pmatrix} e'\tens f' \\ f \end{pmatrix}&=\begin{pmatrix} \D_1e\tens f+(-1)^{\part e} \nabla_{\D_2}(e) f \\  \ip{e}{\D_1 e'}f+[\D_2,\ip{e}{e'}]f+(-1)^{\part(e')}\ip{e}{\nabla_{\D_2}(e')}f\end{pmatrix} \\
+		&=\begin{pmatrix} \D_1e\tens f +(-1)^{\part e} \nabla(e)f \\ \ip{\D_1e}{e'}f+\ip{\nabla(e)}{e'}f\end{pmatrix}.
+	\end{align*}
+	For fixed $e \in W$ we see that $Q$ extends to a bounded operator as desired. 
+	
+	The remaining item we need to check is the semi-boundedness condition. 
+	Define $s=\D_1\tens 1,t=1\tens_\nabla \D_2$. We consider $s$ and $t$ on their common core $V=(s+\lambda i)^{-1}\dom(t)\ran(s+\lambda i)^{-1}(t+\lambda i)^{-1}$, see \Cref{boundedness}. Here we can rewrite the commutator in Kucerovsky's criterion from a quadratic form to an operator expression, recalling that $[s,s]=2s^2$:
+	\begin{align*}
+		\ip{[ \D_1\tens 1+ 1\tens_\nabla \D_2,\D_1\tens 1]x}{x}=2\ip{sx}{sx}+\ip{[s,t]x}{x}\geq -\norm{[s,t]}\ip{x}{x}
+	\end{align*}
+	To establish semi-boundedness from below of $2\ip{sx}{sx}+\ip{[s,t]x}{x}$, remark that $2\ip{sx}{sx}\geq 0$ and by \Cref{boundedness} the commutator $[s,t]$ is bounded on $V$. Thus:
+	\begin{align*}
+		2\ip{sx}{sx}+\ip{[s,t]x}{x}\geq -\norm{[s,t]}\ip{x}{x} \quad \for x \in V
+	\end{align*}
+	By \Cref{sumselfadjoint} $V$ is a core for $s+t$, allowing us to conclude the semi-boundedness on the entirety of $\dom s+t$. 
+	Thus our module represents the Kasparov product as claimed.
+\end{proof}
+One may then inspect the proof of the lifting theorems in \cite{mesrennie} for the Kasparov product, and see that these all readily go through in the case with no caveats or modifications necessary, and as such any Kasparov product can, in theory at least, be calculated in the unbounded theory. As remarked throughout the litterature, \cite{mesland},\cite{kaad},\cite{jensmorita},\cite{suijlekom}, a great loss of geometric data occurs when passing to $KK$-theory as it cannot see differential structures. 
+As such it would be beneficial to develop a theory which encapsulates the geometric data, and this is is exactly what is attempted in \cite{jensmorita}. It is however an open problem to develop an appropriate product for this theory, which also works for non-complete manifolds, eg. the half-open interval. This theory is also different in flavor from ordinary unbounded KK-theory, as the usual cycles are replaced with their generalizations, called modular cycles, thereby precluding usage of Kucerovsky's criterion to show that we recover the Kasparov product and leading to the necessity of much greater technical sophistication to show that we reocver the usual product. 
+Along with the further work in developing an unbounded version of $KK$-theory encapsulating geometric data, it would also be interesting to see if one could use the methods of unbounded $KK$-theory to find concrete representatives of $K$-homology classes in the cases where we know we have Poincare duality in $KK$-theory. Doing this would in particular be interesting in the real case, as the cycles might be found to have some physical significance as encoding the geometry of the non-commutative space in question. Showing Poincare duality in the real case is, however, a hard problem as will be discussed in the next section. 
