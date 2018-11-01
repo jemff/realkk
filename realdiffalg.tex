@@ -1,19 +1,21 @@
 The development of unbounded KK-theory is foreshadowed in Kasparov's original paper \cite{kasparov} where all Bott elements are bounded transforms of naturally defined unbounded cycles. The study of unbounded $KK$-theory begins with the paper by Baaj and Julg, \cite{baajjulg} where they define unbounded $KK$-cycles:
 \begin{definition}[Unbounded $KK$-cycles]
-	We define the set $\Psi(A,B)$ of unbounded Kasparov $A-B$ cycles as the set of quadruples $(E,\pi,\A,\D)$ where $E$ is a graded Hilbert $B$-module and $\A$ is a dense subalgebra, $\pi:A\to L(E)$ is a $^*$-homomorphism, and $\D$ is a degree one unbounded self-adjoint regular densely defined operator on $E$ satisfying that 
-	\begin{align*}
-		&(1+\D^2)^{-1}\in \{ T\in L(E):\pi(A)T,T\pi(A)\subset K(E)\} \\
-		&\pi(\A)\dom(\D)\subset \dom(\D) 
-	\end{align*}
-	and for all $a\in \A$, the operator $[\D,\pi(a)]$ extends uniquely to an operator in $L(E)$. 
+	Let $A$ and $B$ be real or complex \Cstar-algebras.
+	Define the set $\Psi(A,B)$ of unbounded Kasparov $A-B$ cycles as the set of quadruples $(E,\pi,\A,\D)$ where $E$ is a graded Hilbert $B$-module and $\A$ is a dense subalgebra of $A$, $\pi:A\to L(E)$ is a $^*$-homomorphism, and $\D$ is a degree one unbounded self-adjoint regular densely defined operator on $E$, satisfying the conditions: 
+	\begin{enumerate}
+		\item $(1+\D^2)^{-1}$ is locally compact, in the sense that $\pi(a)(1+\D^2)^{-1}$ and $(1+\D^2)^{-1}\pi(a)$ are compact for all $a\in A$ 
+		\item The domain of $\D$ is preserved under the action of $\A$, ie. for every $a\in \A$ and $\xi \in \dom(\D)$, $\pi(a)\xi$ is in $\dom(\D)$. 
+		\item For all $a\in \A$, the operator $[\D,\pi(a)]$ extends uniquely to an operator in $L(E)$. 
+	\end{enumerate}
 \end{definition}
+As an example, consider the standard differentation operator on $L^2(\R)$, and $\A$ as $C_0^\infty(\R)$.  
 We recognize the cycles defining the real $K$-homology of $\R$ as unbounded Kasparov cycles.
 \begin{remark}
 	The commutators and gradings on $A$ and $E_B$ are related: 
 	\begin{align*}
 		&[\D,\pi(a)]=\D\pi(a)-\pi(\gamma(a))\D \\
 		&[\D,\pi(a)]^*=-[\D,\pi(\gamma_A(a^*))] \\
-		&[\pi(\gamma_A(a))]=\gamma_{E_B}\pi(a)\gamma_{E_B}
+		&\pi(\gamma_A(a))=\gamma_{E_B}\pi(a)\gamma_{E_B}
 	\end{align*}
 \end{remark}
 The utility of unbounded Kasparov modules was immediate, as it allowed \cite{baajjulg} to write the product operator in the exterior Kasparov product simply as 
@@ -32,7 +34,7 @@ As it will turn out the natural setting for the unbounded Kasparov product is th
 \item
 	An operator $^*$-algebra is an operator algebra $\A\subset B(H)$ with a completely bounded involution $^*:\A\to \A$. This involution will in general not coincide with the involution on $B$.
 \item	
-	An operator space $X$ is a closed subspace of a \Cstar algebra.
+	An operator space $X$ is a closed subspace of a \Cstar-algebra.
 \item 
 	Let $\A$ be an operator algebra, and $X$ be an operator space. If there is a continuous (left or right)-action $\A\times X\to X$, $X$ is a (left or right)-$\A$-module. 
 \item
@@ -41,11 +43,11 @@ As it will turn out the natural setting for the unbounded Kasparov product is th
 	\begin{align*}
 		\sup_{n\in \N} \sup_{\norm{a}_n\leq 1}\norm{\phi_n(a)}_{n}<\infty
 	\end{align*}
-	Then $\phi$ is said to be completely bounded, with 
+	Then $\phi$ is completely bounded, with 
 	\begin{align*} 
 		\norm{\phi}_{cb}=	\sup_{n\in \N} \sup_{\norm{a}_n\leq 1}\norm{\phi_n(a)}_{n}. 
 	\end{align*} 
-	Likewise, $\phi$ is completely isometric if $\phi_n$ is an isometry for all $n$, and likewise for contractiveness. 
+	Likewise, $\phi$ is completely isometric if $\phi_n$ is an isometry for all $n$, and completely contractive if $\phi_n$ is a contraction for all $n$. 
 \end{enumerate}
 \end{definition}
 
@@ -66,28 +68,28 @@ Given an unbounded Kasparov module $(\A,E_B,\D)$ with grading $\gamma$ define th
 	&\pi_{\D}:\A\to L((E_B)\osum E_B) \\
 	&a\mapsto \begin{pmatrix} \pi(a) & 0 \\ [\D,\pi(a)] & \pi(\gamma(a)) \end{pmatrix}
 \end{align*} 
-With the $^*$-operation given by $\pi_{\D}(a)^*=\pi(\gamma(a))$.  We shall always assume $\A_\D$ to be equipped with the topology coming from $\norm{\pi_\D(a)}_{L(E_B\osum E_B)}$. 
+with the $^*$-operation given by $\pi_{\D}(a)^*=\pi(\gamma(a))$. Remark that this operator extends to a bounded operator for every $a$, as $[\D,\pi(a)]$ extends to a bounded operator. We shall always assume $\A_\D$ to be equipped with the topology coming from $\norm{\pi_\D(a)}_{L(E_B\osum E_B)}$. 
 \end{definition}
 \begin{assumption}
-	The representation $\pi$ will be assumed to be faithful throughout the thesis, as else we would have to consider the the representation 
+	The representation $\pi$ will be assumed to be faithful throughout the thesis, as else we could consider the representation 
 	\begin{align*}
 		a\mapsto a\osum \pi_\D(a) \in A\osum L_B(E_B\osum E_B)
 	\end{align*}
 	which does not change the results, but clutters the calculations. 
 \end{assumption}
-As motivation for the definition of the Lipschitz representation, remark that if $a\in C_0^1(\R)$ and $\D$ is the derivative on $\R$, $[\pi(a),\D]=a'$. In general, one should think of the commutators with $\D$ as derivatives with respect to $\D$. 
-An important generalization of this is the full Lipschitz algebra associated to a closed symmetric regular operator on a \Cstar module $E_B$, as well as the notion of a differentiable algebra. 
+As motivation for the definition of the Lipschitz representation, remark that if $a\in C_0^1(\R)$ and $\D$ is the derivative on $\R$, $[\pi(a),\D]=a'$. In general, one should think of the commutators with $\D$ as derivatives with respect to $\D$. An important generalization of the Lipschitz algebra is the general notion of a differentiable algebra, which we will define later. 
+%An important generalization of this is the full Lipschitz algebra associated to a closed symmetric regular operator on a \Cstar module $E_B$, as well as the notion of a differentiable algebra. 
 \begin{definition}
 We define the Lipschitz algebra associated to a self-adjoint regular operator $\D$:
 \begin{align*}
 	\lip(\D)=\{T\in L(E_B) \mid T\dom(\D^*)\subset \dom(\D), [\D^*,T]\in L(E_B)\}
 \end{align*}
 \end{definition}
-We can use this to define the general framework of differentiable algebras, which are algebras where the operators behave like differentiable functions. 
+We can use this to define the general framework of differentiable algebras, which are algebras acting where the operators behave like differentiable functions. 
 \begin{definition}
 We define a differentiable algebra $\A$ as a separable operator $^*$-subalgebra of $\lip(\D)$ closed in the topology stemming from $\pi_{\D}$. Projecting onto the first coordinate of $\pi_{\D}(\A)$, the \Cstar closure of $\A$ algebra coincides with the closure of $\A$ as a subalgebra of $L(E_B)$, thereby giving a subalgebra of $A$. 
 \end{definition}
-We need to define a tensor product on the category of operator spaces, so we may proceed with our constructions in the setting of operator spaces rather than Hilbert \Cstar modules. 
+We need to define a tensor product on the category of operator spaces,  as we are working in the setting of operator spaces rather than Hilbert \Cstar-modules. 
 \begin{definition}
 	Given two operator spaces $X,Y$ we may define their algebraic tensor product $X\odot Y$. Define the Haagerup norm for $z\in M_n(X\odot Y)$
 	\begin{align*}
@@ -118,24 +120,30 @@ Likewise, we would like to define the notion of inner product operator modules.
 	We do not require $\E$ to be complete in the inner product $\ip{}{}_{\E}$, and in general the topology induced from the $\B$-valued inner product will differ from the norm topology on $\E$. 
 \end{remark}
 
-The operator-algebraic analogue of having an exhausting net of subspaces in a locally compact Hausdorff space is the following 
+The differentiable-algebraic analogue of having a differentiable increasing net converging to the identity is: 
 \begin{definition}
 	Let $\A$ be an operator algebra, then a bounded approximate unit for $\A$ is a net $(u_{\lambda})_{\lambda\in I}$ such that $\sup_{\lambda \in I}\norm{u_{\lambda}}<\infty$ and $\lim_{\lambda\in I}\norm{u_\lambda a-a }=\lim_{\lambda \in I}\norm{au_{\lambda}-a}=0$. We say that it is commutative if $u_{\lambda}u_{\mu}=u_{\mu}u_{\lambda}$. The approximate unit is said to be sequential if the index set is the natural numbers with the usual ordering. 
 \end{definition}
 As we are working over operator algebras and operator spaces, we slightly need to expand the notion of a representation so we may analyze $\A$ via. its representation theory as for \Cstar-algebras. 
 \begin{definition}
-	A completely bounded (cb) representation of an operator algebra $\A$ is a completely bounded homomorphism $\pi:\A\to B(H)$. An representation is non-degenerate if $\pi(A)H$ is dense in $H$. 
+	Let $H$ be a real graded Hilbert space. A completely bounded (cb) representation of an operator algebra $\A$ is a completely bounded homomorphism $\pi:\A\to B(H)$. A representation is non-degenerate if $\pi(A)H$ is dense in $H$. 
 \end{definition}
-Bounded approximate units of an operator algebra converge strongly to idempotents under completely bounded representations. 
+One would expect that approximate units of an operator algebra converge strongly to idempotents under completely bounded representations, and showing this result is our next goal. 
 \begin{lemma}
-	Let $\pi:A\to B(H)$ be a completely bounded representation. Then
+	Let $\pi:\A\to B(H)$ be a completely bounded representation. Then
 	\begin{align*}
-		H=\overline{\pi(\A)H}\osum (\pi(\A)H)^\perp=\overline{\pi(A)^*H}\osum (\pi(\A)^* H)^\perp
+		H=\overline{\pi(\A)H}\osum (\pi(\A)H)^\perp=\overline{\pi(\A)^*H}\osum (\pi(\A)^* H)^\perp
 	\end{align*}
-	Defining $\Nil(\pi(\A))=\{h\in H: \pi(a)h=0, \quad \forall a\in A\}$, it satisfies $\Nil(\pi(\A))=\overline{(\pi(\A)^*)}^{\perp}$. 
+	Defining $\Nil(\pi(\A))=\{h\in H: \pi(a)h=0, \quad \forall a\in A\}$, there is the equality $\Nil(\pi(\A))=\overline{(\pi(\A)^*)}^{\perp}$. 
 \end{lemma}
 \begin{proof}
-	Let $a\in \A$ and $\xi,\eta\in H$, then the decomposition of $H$ follows from the identity: $\ip{\pi(a)\xi}{\eta}=\ip{\xi}{\pi(a)^*\eta}$. 
+	Let $a\in \A$ and $\xi,\eta\in H$. Consider the identity: 
+	\begin{align*}
+		\ip{\pi(a)\xi}{\eta}=\ip{\xi}{\pi(a)^*\eta}
+	\end{align*}
+	Thus if $\xi \in (\pi(\A)^*H)^\perp$, $\pi(a)\xi=0$ for every $a$. This in turn implies that $\xi\nin \overline{\pi(\A)H}$, hence $\xi \in \overline{\pi(\A)H}$. Hence $(\pi(\A)^*H)=\pi(\A)H$. This shows the first identity. 
+	%then the decomposition of $H$ follows from the identity: $\ip{\pi(a)\xi}{\eta}=\ip{\xi}{\pi(a)^*\eta}$. 
+	
 	For the identity on $\Nil(\pi(A))$, let $h\in \Nil(\pi(\A)),v\in H$ and $a\in \A$. Then 
 	\begin{align*}
 		\ip{h}{\pi(a)^*v}=\ip{\pi(a)h}{v}=0
@@ -161,15 +169,15 @@ With this minor remark out of the way, we can show the claimed strong convergenc
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	Define the projection $q:H\to \overline{\pi(\A)H}$ and the projection $p_*:H\to \overline{\pi(\A)^*H}$. We may define the self-adjoint operator $t=p+(1-p_*)$. We wish to show that this is injective with dense image. To see that it is injective, consider $px=(p_*-1)x$, which implies that $px\in \overline{\pi(\A)H}\cap \overline{\pi(\A)H}^\perp=\{0\}$. Thus $px=0$, and thereby we get we get that $x=(1-p)x=p_*x$, thereby that $x\in \Nil(\pi(\A)^*)\cap \overline{\pi(\A)^*H}=\{0\}$. By self-adjointness we have that $\overline{((p+(1-p_*)))H}=\ker(p+(1-p_*))^\perp=H$, giving that it has dense image. 
+	Define the projection $q:H\to \overline{\pi(\A)H}$ and the projection $p_*:H\to \overline{\pi(\A)^*H}$. We may define the self-adjoint operator $t=p+(1-p_*)$. We wish to show that $t$ is injective with dense image. To see that it is injective, let $x\in ker(t)$. Then $px=(p_*-1)x$, which implies that $px\in \overline{\pi(\A)H}\cap \overline{\pi(\A)H}^\perp=\{0\}$. Thus $px=0$, and thereby we get we get that $x=(1-p)x=p_*x$, and $x\in \Nil(\pi(\A)^*)\cap \overline{\pi(\A)^*H}=\{0\}$. By self-adjointness $\overline{((p+(1-p_*)))H}=\ker(p+(1-p_*))^\perp=H$, giving that $t$ has dense image. 
 	
-	Thus we have that $\overline{\pi(\A)H}+\Nil\pi(\A)$ is dense. Pick an arbitrary $\xi\in H$ and $\epsilon>0$. Then we have $\eta_0\in \overline{\pi(\A)H}$ and $\eta_1\in \Nil\pi(\A)$ such that $\norm{\xi-(\eta_0+\eta_1)}\leq \epsilon/4C$ for $C=\sup_{\lambda \in I}\norm{\pi(u_{\lambda})}$. Pick $\lambda\in I$ such that for all $\mu>\lambda$ we have that $\norm{\pi(u_\lambda-u_\mu)\eta_0}<\epsilon/2$. Then we may perform the following estimate to show that $\pi(u_\lambda)$ is strongly Cauchy. 
+	Thus $\overline{\pi(\A)H}+\Nil\pi(\A)$ is dense. Pick an arbitrary $\xi\in H$ and $\epsilon>0$. Then there exist $\eta_0\in \overline{\pi(\A)H}$ and $\eta_1\in \Nil\pi(\A)$ such that $\norm{\xi-(\eta_0+\eta_1)}\leq \epsilon/4C$ for $C=\sup_{\lambda \in I}\norm{\pi(u_{\lambda})}$. Pick $\lambda\in I$ such that for all $\mu>\lambda$, $\norm{\pi(u_\lambda-u_\mu)\eta_0}<\epsilon/2$. Then we may perform the following estimate to show that $\pi(u_\lambda)$ is strongly Cauchy. 
 	\begin{align*}
 		&\norm{\pi(u_{\lambda}-u_\mu)\xi} \\
 		&\leq \norm{\pi(u_\lambda-u_\mu)(\eta_0+\eta_1)}+\norm{\pi(u_\lambda-u_\mu)(\xi-(\eta_0+\eta_1))} \\
 		&\leq \norm{\pi(u_\lambda-u_\mu)\eta_0}+\norm{\pi(u_\lambda-u_\mu)}\norm{\xi-(\eta_0+\eta_1)}\leq \frac{\epsilon}{2}+\frac{\epsilon}{2}
 	\end{align*}
-	Therefore we may define the limit $q$ of $\pi(u_\lambda)$ as the strong topology is complete on bounded sets. We see that $q$ commutes with the representation, and that $q$ is an idempotent from the construction. As it is an idempotent it has closed range. Thus $\im(q)=\overline{\pi(\A)H}$. If we consider $(1-q)$, we see that $(1-q)\pi(a)=0$, thus $\im(1-q)=\Nil(\pi(\A))$.
+	Therefore we may define the limit $q$ of $\pi(u_\lambda)$ on $\pi(\A)H$ as the strong topology is complete on bounded sets. We see that $q$ commutes with the representation, and that $q$ is an idempotent from the construction. As it is an idempotent it has closed range. Thus $\im(q)=\overline{\pi(\A)H}$. If we consider $(1-q)$, we see that $(1-q)\pi(a)=0$, thus $\im(1-q)=\Nil(\pi(\A))$.
 	To see that the norm of $q$ is bounded as claimed, consider the following 
 	\begin{align*}
 		\norm{q}=\sup_{h,\norm{h}=1}\norm{\lim_{\lambda}\pi(u_\lambda)h}\leq \norm{\pi}\sup\norm{u_\lambda}. 
@@ -177,58 +185,9 @@ With this minor remark out of the way, we can show the claimed strong convergenc
 \end{proof}
 If we wish to drop the assumption of our approximate unit being bounded, it is necessary to find a different method of proof. Fundamentally, we are only working on non-commutative analogues of complete manifolds, as expanded upon in \cite[Section 2]{mesrennie} and in order to generalize to non-complete manifolds with symmetric operators, we need an entirely new framework as introduced in for example \cite{kaad}. 
 As a geometric corollary of the previous propositions, we get that $H\cong \overline{\pi(\A)H}+\overline{\pi(\A)^*H}$. 
-The following lemma for Kasparov modules shows the fundamental relationship between $\D$ being self-adjoint and there being a bounded approximate unit for $\A$. 
-\begin{theorem}\label{mesrennie19}
-	Let $(\A,E_B,\D)$ be a Kasparov module, where we only require that $\D$ is symmetric, such that $\overline{\pi(\A)E_B}$ is a complemented sub-module and $p$ the corresponding projection. Assume that $(\D u_ne)$ converges for all $e\in \dom(\D^*)$ and $p\in \lip(\D^*)$ and that the operator $[\D^*,p]$ is the strict limit of the sequence $([\D^*,u_n])_{n\in \N}$. 
-	\begin{enumerate}
-	\item
-		Then $p[\D^*,u_n]p\to 0$ in the strict topology,  
-	\item
-		$p$ is the strict limit of $u_n$.  
-	\item
-		If $\A E_B$ is dense in $E_B$, $\D$ is self-adjoint. 
-	\end{enumerate}
-\end{theorem}
-\begin{proof}
-	By assumption, $\overline{\pi(A)E_B}$ is complemented so we may consider the projection $p$ onto this submodule. Let $e\in \overline{\pi(A)E_B}$, then $u_ne\to e$ as for $ae\in \pi(A)E_B$ we have $ae-u_nae=(a-u_na)e\to 0$, so by continuity we have the same on all of $\overline{\pi(A)E_B}$
-
-	We have $pa=ap=a$, so $(1-p)a=a(1-p)=0$, implying 
-	\begin{align*}
-		\lim_{n\to \infty} u_n e=\lim_{n\in \N} u_n pe+u_n(1-p)e=\lim_{n\in \N} u_n pe=pe
-	\end{align*}
-	giving first part of the statement. As $(u_n)_{n\in \N}$ is a bounded approximate for $\A$, the sequence of operators $[\D^*,u_n]$ is uniformly bounded. Letting $a\in \A$ and $e\in \dom(\D)^*$ we get the identity 
-	\begin{align*}
-		[\D^*,u_n]ae=[\D^*,u_na]e-u_n[\D^*,a]e
-	\end{align*}
-	As $ae=pae=ape$, multiplying from the left by $p$ we get
-	\begin{align*}
-		p[\D^*,u_n]pae=p[\D^*,u_na]pe-pu_n[\D^*,a]pe
-	\end{align*}
-	This will converge to zero, as each term on the right hand side converges to $p[\D,a]pe$. As $\pi$ is assumed to be essential on $pE_B$, linear combinations of terms of the form $ae$ are dense in $pE_B$, it follows that $p[\D,u_n]p$ converges pointwise to zero. We have assumed that we have a symmetric Kasparov module, along with $(u_n)_{n\in \N}$ being even, so we may infer that $(p[\D^*,u_n]p)^*=-p[\D^*,u_n^*]p$. Thereby $(u_n^*)_{n\in \N}$ also becomes a bounded approximate unit for $\A$. Replacing $u_n$ with $u_n^*$ throughou the previous argument then gives that $p[\D,u_n^*]p$ also converges strictly to zero. 
-	To show the second point we first show that $p$ maps $\dom(\D)^*$ to $\dom(\D)$ and then use this to show that $[\D^*,u_n]$ converges to $[\D^*,p]$ on $\dom(\D)^*$. 
-	
-	We have assumed that the following sequence is convergent
-	\begin{align*}
-		\pi_\D(u_n)\begin{pmatrix} e \\ \D^* e \end{pmatrix}=\begin{pmatrix} u_n e\\  \D u_n e\end{pmatrix}
-	\end{align*}
-	By the first part of the theorem $p$ is the strict limit of $u_n$, so 
-	\begin{align*}
-		\lim_{n\to \infty} u_n\begin{pmatrix} e \\ \D^* e \end{pmatrix}=\begin{pmatrix} pe\\  x \end{pmatrix}
-	\end{align*}
-	By closedness of $\D$, $pe\in \dom(\D)$ and $x=\lim_{n\in \N} \D u_n e=\D pe$. This shows that $p\dom(\D)^*\subset \dom(\D)$, so for every $e \in \dom(\D)^*$ we get the identities 
-	\begin{align*}
-		[\D^*,u_n]e&=[\D^*,u_n]pe+[\D^*,u_n](1-p)e \\
-		&=\D u_npe-u_n \D pe+\D u_n(1-p)e-u_n \D^* (1-p)e \\
-		&=\D u_n e-u_n \D pe -u_n \D^*(1-p)e 
-	\end{align*}
-	which converges to $\D pe-p\D pe -p \D^* (1-p)e=[\D^*,p]e$. As $[\D^*,u_n]$ is bounded, the convergence is strict on all of $E_B$ and thereby the operator $[\D^*,p]$ is bounded on $\dom(\D)^*$. 
-	
-	To show the final part of the theorem, note that $[\D^*,u_n]\to 0$ since in this case $p=1$. For every $e\in \dom(\D)^*$ we get $\D^*u_n e=[\D^*,u_n]e+u_n\D^*e\to \D^*e$. As $u_ne\to e$ and $u_n e\in \dom(\D)$, it follows that $e$ lies in the graph-norm completion of $\D$. Since $e$ was arbitrary in $\dom(\D)^*$, it follows that $\dom(\D)^*\subset \dom(\D)$, giving self-adjointness. 
-	
-\end{proof}
 We gather up a plethora of results illustrating the geometric control imposed by the presence of a bounded approximate unit in the following theorems. 
 \begin{theorem}\label{mesrennie112}
-	Let $\A$ be an operator algebra with a bounded approximate unit and an essential cb. representation $\pi:\A\to B(H)$. Then the norm on $M_n(\A)$ is equivalent to the norm $\norm{\cdot}_{op,n}$, $\norm{a}_{op,n}=\sup_{\norm {b}_n\leq 1}\norm{ab}_n$ where $\norm{\cdot}_n$ is the matrix norm. 
+	Let $\A$ be an operator algebra with a bounded approximate unit and an essential cb. representation $\pi:\A\to B(H)$. The norm on $M_n(\A)$ is equivalent to the norm $\norm{\cdot}_{op,n}$, $\norm{a}_{op,n}=\sup_{\norm {b}_n\leq 1}\norm{ab}_n$ where $\norm{\cdot}_n$ is the matrix norm. 
 \end{theorem}
 \begin{proof}
 	We start by noting that $(u_\lambda)_{\lambda\in \Lambda}$ gives rise to bounded approximate units $1_n \cdot u_\lambda$ on $M_n(\A)$, and as such we may simply run the argument for $u_\lambda$.
@@ -252,14 +211,20 @@ An operator $T:\A\to \A$ is cb. if and only $\norm{T}_{op}<\infty$. Thus, by \Cr
 \begin{theorem}\label{mesrennie114}
 \begin{enumerate}
 	\item Let $\A$ be an operator algebra with a bounded approximate unit and an essential cb. representation $\pi:\A\to B(H)$. The cb. representation extends to a representation of the multiplier algebra of $\A$, such that $\pi(1)=1$. 
-	\item If we further assume that $\pi$ is a cb-isomorphic representation, then as for \Cstar-algebras we get the strict closure of $\A$, ie. the multiplier algebra of $\A$ is cb-isomorphic to the idealiser of $\pi(\A)$. Furthermore, every element in $M(\A)$ is the strict limit of a bounded net in $\A$. Finally, closed ideals of $\A$ descend to closed ideals of $M(\A)$. 
+	\item 
+	With the further assumtion that $\pi$ is a cb. isormorphism in addition to being a cb. representation:
+	\begin{enumerate}
+		\item The strict closure of $\A$, ie. the multiplier algebra of $\A$ is cb-isomorphic to the idealiser of $\pi(\A)$.
+		\item Every element in $M(\A)$ is the strict limit of a bounded net in $\A$.
+		\item Closed ideals of $\A$ descend to closed ideals of $M(\A)$.
+	\end{enumerate}
 	\item Assume that $\pi:\A\to B(H)$ is a cb. representation of an operator with bounded approximate unit. Then $\pi$ extends to a representation $M(\A)\to B(H)$ such that $\pi(1)$ is an idempotent and $\overline{\pi(\A)H}=\pi(1)H$ and $(1-\pi(1))H=\Nil(\pi(\A))$. 
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
 	\begin{enumerate}
 	\item
-		We have assumed that $H=\overline{\pi(\A)H}$, so for all $h\in H$ we have that $u_\lambda h$ converges to $h$. Picking $b\in M(\A)$ and utilizing that $M(\A)$ is the strict closure of $\A$, we get $\sup_{\lambda}\norm{bu_\lambda}<\infty$ and that $(bu_\lambda a)_{\lambda\in \Lambda}$ is norm-Cauchy in $\A$ for all $a\in \A$. Defining 
+		We have assumed that $H=\overline{\pi(\A)H}$, so for all $h\in H$ $u_\lambda h$ converges to $h$. Picking $b\in M(\A)$ and utilizing that $M(\A)$ is the strict closure of $\A$, we get $\sup_{\lambda}\norm{bu_\lambda}<\infty$ and that $(bu_\lambda a)_{\lambda\in \Lambda}$ is norm-Cauchy in $\A$ for all $a\in \A$. Defining 
 		\begin{align*}
 			\pi(b)\pi(a)h=\lim_{\lambda \in \Lambda} \pi(bu_\lambda a)h
 		\end{align*}
@@ -281,7 +246,7 @@ An operator $T:\A\to \A$ is cb. if and only $\norm{T}_{op}<\infty$. Thus, by \Cr
 			&\norm{\pi(a)T\pi(u_\lambda)-\pi(a)T}\to 0
 		\end{align*}
 		As $\pi$ is assumed to be a cb. isomorphism and essential, it follows that $T=\pi(b)$ for some $b\in M(\A)$. To see that $T$ is the strict limit of a bounded net, we simply apply \Cref{mesrennie112}. To see that if $J\subset \A$ is a closed ideal in $\A$, it will also be a closed ideal in $M(\A)$, consider $T\in  M(\A)$ and $b\in J$. The net $u_\lambda Tb$ will converge to $Tb$ in norm, however $u_\lambda T\in \A$ so the net actually lies in $J$. As $J$ is closed $Tb\in J$ and likewise for $bT$. 
-	\item/
+	\item
 		We have the cb. isomorphism $H\cong qH\osum (1-q)H$ where $q$ is given as in \Cref{mesrennie17}. Since $\pi$ is essential on $qH$ and $0$ on $(1-q)H$, by the first part of the theorem we get a representation $\pi:M(\A)\to B(qH)$ which is zero $(1-q)H$, thereby giving the desired representation. By construction, $\pi(1)=q$, showing the desired.
 	\end{enumerate}
 \end{proof}
@@ -291,7 +256,7 @@ In case $\A$ is a differentiable algebra, we can characterize the multiplier alg
 	\begin{align*}
 		\tilde{M}(\A)=\{T\in M(A) : T\dom(\D)\subset \dom(\D),T\A,\A T\subset \A,[\D,T]\in L(E_B)\}
 	\end{align*}
-	Where the isomorphism preserves spectra.
+	Further, the spectrum of an operator is preserved under this mapping. 
 \end{proposition}
 \begin{proof}
 	The algebra $\tilde{M}$ is clearly a subalgebra of $M(A)$ and included in the idealizer of $\pi_\D(\A)$ in $L_B(E\osum E)$. To see the other inclusion, start by considering
@@ -303,17 +268,17 @@ In case $\A$ is a differentiable algebra, we can characterize the multiplier alg
 	As $\A$ is essential, we see that $T_{11}$ must preserve the domain of $\D$. We can infer that $T_{21}$ must satisfy the equation \begin{align*} T_{21}a+\gamma(T)[\D,a]=[\D,T_{11}a]\end{align*} By essentiality we again infer that $T_{21}=[\D,T_{11}]$, and as such is bounded. This shows that the algebra $\tilde{M}(\A)$ we have defined also contains the idealizer of $\pi_{\D}(\A)$ as desired, giving the desired equality. 
 	\newline
 	For the second part of the theorem, note that $\overline{AE_B}=E_B$ so $\pi_\D(1)=1$ through \Cref{mesrennie114}. Recycling the arguments of the first and second parts of \Cref{mesrennie114} then gives that $M(\A)$ maps to $L_B(E_B)$ and that the idealizer of $\pi_\D(\A)$ equals $\pi_\D(M(\A))$. By our equivalent characterizations of the norm on $M(\A)$ in \Cref{mesrennie112} we get the desired cb-isomorphism. 
-	The spectral invariance follows from a result of Mesland, given in the complex case by the equivalence of complex and real spectra it follows through in the real case, \cite[Theorem B.3]{mesland}. 
+	The spectral invariance follows from a result of Mesland, \cite[Theorem B.3]{mesland}, which follows through in the real case as the spectra are identical. 
 \end{proof}
 \begin{definition}
 	Let $\D:\dom(\D)\to E_B$ be a self-adjoint and regular, and $\A\subset \lip (\D)$ be a differentiable algebra with bounded approximate unit, with $\A$ a dense subset of the \Cstar-algebra $A$. If the representation of $A$ is essential we define the unitization of $\A$, $\A^+ \subset M(\A)$ as the algebra generated by $\A$ and $\pi_\D(1)$.
 \end{definition}
-One can show in that the unitization exists in general, \cite{meyer}.  
+One can show that the unitization exists in general, this is done in \cite{meyer}.  
 \begin{assumption}
 	From now on we shall assume that all representations appearing in Kasparov modules are essential. 
 \end{assumption}
 \begin{remark}
-	That the representations featured in the Kasparov modules is essential is not unreasonable, as one may show that any Kasparov module is equivalent to one where the representation is essential,\cite{kasparov}.
+	That the representations featured in the Kasparov modules is essential is not unreasonable, as one may show that any Kasparov module is equivalent to one where the representation is essential,\cite{kasparov}. 
 \end{remark}
 \begin{definition}
 	Let $\A$ be a differentiable algebra with a dense right ideal $\dom c$. A linear operator $c:\dom c\to \A$ is an unbounded multiplier if $c(ab)=(ca)b$ for $b,c\in \dom c$. If in addition $c$ satisfies:
@@ -331,10 +296,12 @@ One can show in that the unitization exists in general, \cite{meyer}.
 
 %\todo{We need to show first that $c^2$ is well-defined}
 \begin{lemma}
-	Let $c$ be an unbounded multiplier, then the operator $(c^2+\lambda)$ is invertible for all positive $\lambda$, likewise if $c$ is positive then $c+\lambda$ is invertible. 
+	Let $c:\dom c\to \A$ be an unbounded multiplier, then the operator $(c^2-\lambda):\dom c \to \A$ is bijective for all positive $\lambda$, and $(c^2-\lambda)^{-1}\in M(\A)$. If $c$ is positive then $c-\lambda$ is bijective, and $(c-\lambda)^{-1}\in M(\A)$ for all positive $\lambda$.
 \end{lemma}
 \begin{proof}
-	The operator $(c^2+1)^{-1}$ is bounded, and thus the operator $(c^2+\lambda)(c^2+1)^{-1}$ is invertible in $M(A)$, giving that $c^2+\lambda$ is bijective on $A$. Thus we may conclude by \Cref{mesrennie117} that $(c^2+\lambda)(c^2+1)^{-1}$ is invertible in $M(\A)$, giving that $c+\lambda:\dom c\to \A$ is bijective in $\A$ as well. We see that the positive case is proved in an entirely analogous manner. 
+	The operator $(c^2+1)^{-1}$ is bounded, hence $c^2-1$ is bijective in the $C^*$-closure $A$ of $\A$. This lets us conclude that the operator $g=(c^2-\lambda)(c^2-1)^{-1}$ is invertible in $M(A)$, giving that $c^2-\lambda$ is bijective on $\A$. Thus by the spectral invariance of \Cref{mesrennie117} we conclude that $(c^2-\lambda)(c^2-1)^{-1}$ is invertible in $M(\A)$, thus $c^2-\lambda$ is invertible giving that $c^2-\lambda:\dom c\to \A$ is bijective in $\A$ as well.
+	The operator $g$ satisfies the equation $g^{-1}=(c^2-1)^{-1}(c^2-\lambda)=1-(\lambda -1)(c^2-\lambda)^{-1}$ in $M(A)$. As $1$ and $g^{-1}$ are both in $M(\A)$, $(c^2-\lambda)^{-1}\in M(\A)$. 
+	The positive case is proved in an entirely analogous manner. 
 \end{proof}
 It turns out the existence of a bounded approximate unit is enough to ensure a symmetric multiplier is also closed. 
 \begin{lemma}
@@ -347,9 +314,9 @@ It turns out the existence of a bounded approximate unit is enough to ensure a s
 	\end{align*}
 	Thus $\norm{b^*}_{op}=0$, implying $\norm{b^*}=0$ as desired. 
 \end{proof}
-It follows that if $(c^2+1)^{-1}$ is densely defined and bounded, then then the closure of $c$ is a self-adjoint unbounded multiplier with domain $(c^2+1)^{-1}\A$. We define the notion of a complete multiplier as follows 
+It follows that if $(c^2+1)^{-1}$ is densely defined and bounded, the closure of $c$ is a self-adjoint unbounded multiplier with domain $(c^2+1)^{-1}\A$. We define a complete multiplier as: 
 \begin{definition}
-	Let $(\A,E_B,\D)$ be an unbounded Kasparov module and $c$ self-adjoint multiplier of $\A$. Then we shall say that $c$ is complete if 
+	Let $(\A,E_B,\D)$ be an unbounded Kasparov module and $c$ self-adjoint multiplier of $\A$, $c$ is complete if 
 \begin{enumerate}
 \item 
 	$	(c^2+1)^{-1}\in \A$ 
@@ -361,6 +328,8 @@ It follows that if $(c^2+1)^{-1}$ is densely defined and bounded, then then the 
 \end{definition}
 These sets are natural to consider when working with unbounded operators, as they are the natural domains for $c\D$ and $\D c$.
 We can now prove the essential theorem to expanding the expanded technical theorem of \cite{mesrennie} to the real setting, relating approximate units, positive self-adjoint multipliers and and the differential operator $\D$. This is one of the results where the proof requires the most modification to fit into the real setting. 
+Before we proceed with the proof, we recall the result of \cite[Theorem 4.24]{mesland} that an operator subalgebra of the Lipschitz algebra is closed under the holomorphic functional calculus. This result allows us to use the holomorphic functional calculus freely, implicitly passing back and forth between the $C^*$-closure $A$ of $\A$ and $\A$ itself. 
+
 \begin{theorem}
 	Let $\D:\dom(\D)\to E_B$ be a self-adjoint and regular operator, and $\A\subset \lip(\D)$ such that $AE_B=E_B$. Then the following are equivalent
 	\begin{enumerate}
@@ -451,7 +420,7 @@ We can now prove the essential theorem to expanding the expanded technical theor
 		\end{align*}
 		which converges to $[\D,(c^2+1)^{-1/2}]$ as desired. As such $\pi_\D(u_n(c^2+1)^{-1/2})$ converges to $\pi_\D((c^2+1)^{-1/2})$. As all $u_n(c^2+1)^{-1/2}$ lie in $\A$, we may infer that $(c^2+1)^{-1/2}\in \A$. 
 	\item[$2\Rightarrow 1$]
-		To see the claim, consider $f_n(x)=\exp(-x/n)$. Then we may write 
+		To see the claim, consider $f_n(x)=\exp(-x/n)$. Then, using the standard identities for derivatives of operator-valued functions, we get the equalities
 		\begin{align*}
 			[\D,f_n(c)]y&=\int_0^1 \part_s (\exp(-c(1-s)/n)\D \exp(-cs/n)y)ds \\
 			&=-\frac{1}{n}\int_0^1 \exp(-c(1-s)/n)[\D,c]\exp(-cs/n)yds 

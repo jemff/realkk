@@ -26,29 +26,37 @@ In order to reduce the unwieldy collection of cycles to a group, we define an eq
 		K_{p,q}K^{r,s}O(A,B)=KKO(A\tensh Cl_{p,q},B\tensh Cl_{r,s})
 	\end{align*}
 \end{definition}
-For details and proofs, see \cite{kasparov}, where the the equivalence between formal and topological Bott periodicity is explored. 
+For details and proofs, see \cite{kasparov}, where the the equivalence between formal and topological Bott periodicity is explored.
 We summarize some of the properties of operator $KKO$ theory in the theorem below, for a proof see \cite{kasparov} or \cite{schroder}.
 \begin{theorem}
 \begin{enumerate}
 \item
-	Operator $KO_{*}$-theory is a covariant $8$-periodic functor from the category of real graded \Cstar algebras to the category of abelian groups. The functor $KO$ takes short exact sequences of real graded \Cstar-algebras to a 24-term cyclic exact sequence. 
-\item	Operator $KO^{*}$-homology is an $8$-periodic contravariant functor from the category of real \Cstar algebras to the category of abelian groups. If we have a short exact sequence with a completely positive splitting, $KO^{*}$ applied to the sequence gives rise to a 24-term cyclic exact sequence. 
-	\item These two are combined in the stable bifunctor $KKO$, where $KKO(A,\R)\cong KO^{0}(A)$ and $KKO(\R,A)\cong KO_0(A)$. The functor satisfies:
+	Operator $KO_{*}$-theory is a stable covariant $8$-periodic functor from the category of real graded \Cstar algebras to the category of abelian groups. The functor $KO_*$ takes short exact sequences of real graded \Cstar-algebras to a 24-term cyclic exact sequence of abelian groups. 
+\item	Operator $KO^{*}$-homology is a stable $8$-periodic contravariant functor from the category of real \Cstar algebras to the category of abelian groups. If we have a short exact sequence with a completely positive splitting, $KO^{*}$ applied to the sequence gives rise to a 24-term cyclic exact sequence. 
+	\item The functors $KO_*$ and $KO^*$ are combined in the stable bifunctor $KKO$, where $KKO(A,\R)\cong KO^{0}(A)$ and $KKO(\R,A)\cong KO_0(A)$. We summarize some of the most important properties of $K^*K_*O$ relating to formal Bott periodicity
 	\begin{align*}
 		&KO_n(A)\cong KO_0(A\tens Cl_{0,n}) \\
 		&KO(A)\cong KKO(\R,A) \\
 		&KKO(\R,Cl_{p,q} \tens A) \cong KKO(Cl_{q,p},A) 
 	\end{align*}
 	\end{enumerate}
-	as well as Bott periodicity for suspensions. 
-\end{theorem}
+	The functor $K^*K_*O$ also satisfies topological Bott-periodicity, ie. it is 8-periodic under taking suspensions. 
+\end{theorem} 
+\begin{lemma} \label{KTMapping}
+	Let $A$ be a real \Cstar algebra then the isomorphism between $K_0(A)$ and $KO(\R,A)$ is given by:
+	$[p] \mapsto [(\pi_\R,pA^n,0)]$ for $[p]\in KO_0(A)$. 
+\end{lemma}
+\begin{proof}
+	We start by showing the mapping is well-defined. Let $p\sim_h q$ be unitarily equivalent projections in $\K \tens A$, with the equivalence implemented by some unitary $U$. Then $U(pA^n)U^*=qA^m$, so the mapping is well-defined. To see the mapping is injective, assume that $[(\pi,pA^n,0)]$ is a trivial cycle, implying that $0-Id_{pA^n}=0$, so $p=0$. Given an arbitrary cycle $[(\pi,E,F)]$ with $F$ self-adjoint, consider $[(\pi,\ker(F),0)]$ and $[(\pi,\ker(F)^\perp,F)]$. These are both well-defined as the range of $F$ is closed, it being Fredholm, and by \cite[Theorem 3.2]{lance}, $\ker(F)$ is a complemented submodule. To show surjectivity, it suffices to show that the second cycle is degenerate. This follows from a swindle argument as $F$ is a linear isomorphism in the second cycle, and all commutants with $\pi$ are zero.  
+	Additivity is clear, showing the desired. 
+\end{proof}
 We use the periodicity of $KKO$-theory to derive the following standard results on operator $KO$-theory of the reals, \cite[Section 1]{schroder}. 
 \begin{example}
 	The $K$-theory of the reals is: 
 	\begin{align*}
 		&KO_*(\R)=\left \{\begin{array}{c c} 0 & \Z  \\ 1 & \Z_2 \\ 2 & \Z_2 \\  4 & \Z\end{array} \right .
 	\end{align*}
-	By formal Bott periodicity in $KKO$-theory, we get \begin{align*}KO^n(\R)\cong KKO(Cl_{0,n}\tens \R,\R)\cong KO_{-n}(\R), \end{align*} allowing us to derive the following table:
+	By formal Bott periodicity in $KKO$-theory,  \begin{align*}KO^n(\R)\cong KKO(Cl_{0,n}\tens \R,\R)\cong KO_{-n}(\R), \end{align*} allowing us to derive the following table:
 	\begin{align*}
 		&KO_*(\R)=\left \{ \begin{array}{c c} KO_0 & \Z  \\ KO_{-1} & \Z_2 \\ KO_{-2} & \Z_2 \\ KO_{-4} & \Z \end{array} \right .
 	\end{align*}
@@ -86,17 +94,17 @@ We may immediately use these results to calculate the $K$-theory of the algebra 
 	Thus the 24-periodic exact sequence in $K$-theory reduces to the split short exact sequence 
 	\begin{align*}
 	\xymatrix{
-		0 \ar[r] & KO_{n+1}(\R) \ar[r] KO(C(S^1,\id)) \ar[r] & KO_n(\R) \ar[r] & 0
+		0 \ar[r] & KO_{n+1}(\R) \ar[r] & KO(C(S^1,\id)) \ar[r] & KO_n(\R) \ar[r] & 0
 		}
 	\end{align*}
-	giving the desired table. 
-	Start by considering the split short exact sequence, with the split being given by the map $a\mapsto a\tens 1$.
+	giving the desired table. To show the second part of the lemma, consider the split short exact sequence
 	\begin{align*}
 	\xymatrix{
 		0\ar[r] & A\tens C_0(i\R) \ar[r] & A\tens C(S^1,\tau) \ar[r] & A \ar[r] & 0
 		}
 	\end{align*}
-	thus the 24-periodic long-exact sequence reduces to the split short exact sequence
+	with the split being given by the map $a\mapsto a\tens 1$.
+	We can infer that the 24-periodic long-exact sequence reduces to the split short exact sequence
 	\begin{align*}
 		\xymatrix{
 			0\ar[r] & KO_{n-1}(A) \ar[r] & KO_n(A\tens C(S^1,\tau)) \ar[r] & KO_n(A) \ar[r] & 0
@@ -106,12 +114,12 @@ We may immediately use these results to calculate the $K$-theory of the algebra 
 \end{proof}
 The benefit of real $K$-theory over complex $K$-theory is exhibited in these two cases, where we can see a much finer structure on the $K$-theory of the real circle.
 
-In recent years real $K$-theory has been applied in the realm of topological insulators in order to, once again, explain global behaviors by the presence of these torsion classes. This has also explictly used the construction of the unbounded Kasparov product, \cite{bourne}, \todo{do} in a form which we shall recreate at a later point in the thesis. 
+In recent years real $K$-theory has been applied in the realm of topological insulators in order to, once again, explain global behaviors by the presence of these torsion classes. This has also explictly used the construction of the unbounded Kasparov product, \cite{bourne}, in a form which we shall recreate at a later point in the thesis. 
 \subsection{$K$-homology of $\R$}
 The standard picture of $KK$-theory works very well in purely algebraic context, but in practice the operators that encode the geometry, commutative or otherwise, of a given space are naturally defined as unbounded regular operators. To remedy this shortcoming, it is often preferable to work with unbounded $KK$-theory which is defined from suitable unbounded Kasparov cycles. 
 We start by working in the bounded case, and then argue that for suitable operators unbounded operators, the bounded results essentially also hold.  
 \begin{definition}
-	Let $H$ be a real Hilbert space with the structure of a $Cl_{0,k}$-module, and let $F(H,H)$ denote the odd Fredholm operators on $H$. Define $F_k\subset F(H,H)$ as the subset of $F(H,H)$ which are $Cl_{0,k}$-linear and self-adjoint. 
+	Let $H$ be a real Hilbert space with the structure of a $Cl_{0,k}$-module, and let $F(H,H)$ denote the odd Fredholm operators on $H$. Define $F_k$ as those elements of $F(H,H)$ which are $Cl_{0,k}$-linear and self-adjoint. 
 \end{definition}
 We define the Clifford index of operators lying in $F_k$, referring to \Cref{abstheorem} for the notation on $\hat{A}_k$ and $\hat{\M}_k$. 
 \begin{definition}
@@ -145,9 +153,9 @@ We wish to show that the index map is well-defined as a map from $K$-homology, s
 \end{proof}
 We refer to the following reuslt: \cite[Page 217]{spingeom}.
 \begin{proposition}\label{unboundkernel}
-	Given self-adjoint elliptic $Cl_{0,k}$-linear (pseudo)-differential operator $\D$, $[\ker(\D)]\in \hat{A}_k=[\ker(\D/(1+\D^2)^{-1/2})]$.
+	Given self-adjoint elliptic $Cl_{0,k}$-linear (pseudo)-differential operator $\D$, the class $[\ker(\D)]$ in $\hat{A}_k$ equals $[\ker(\D/(1+\D^2)^{-1/2})]$.
 \end{proposition}
-To construct cycles representing the generators of the real $K$-homology groups, it suffices to construct unbounded elliptic operators with the appropriate kernels. 
+To construct cycles representing the generators of the real $K$-homology groups presenting the flavor of the theory, it suffices to construct unbounded elliptic operators with kernels corresponding to the generators of the groups $\hat{A}_k$. Alternatively, we could use the construction in \Cref{KTMapping}.
 \begin{theorem}
 	The following cycles are generators of the non-trivial real $K$-homology groups of the reals. 
 	\begin{enumerate}
@@ -248,13 +256,10 @@ Additivity is clear, hence can infer that $\ind_n: KO^n\to \hat{A}_n$ is homomor
 		(Cl_{0,4},(\ell^2(\N)\osum \ell^2(\N))\tens_\R (\H\osum \H),\D)
 	\end{align*}
 	generates $KO^{-4}(\R)$. 
-
 \end{enumerate}
 \end{proof}
-The above calculations can be seen to be a general case of the $KO^{*}$-generalization of the analytic index of Clifford-linear operators from spin geometry. 
-\begin{definition}
-	Let $x\in KO^n(A)$ and $y\in KO_m(A)$. Then we may take the Kasparov product $x\tens y$ thereby ending in $KKO(Cl_{0,n},Cl_{0,m})\cong KKO(Cl_{n,m},\R)$. Here we may take the Clifford index of the resulting product product operator as a $Cl_{n,m}$-linear Fredholm operator.
-\end{definition}
+The above calculations can be seen to be a specific case of the $KO^{*}$-generalization of the analytic index of Clifford-linear operators from spin geometry. 
 \begin{remark}
-	The result above gives a pairing between $KO^*$ and $KO_*$-theory: Let $(A\tens Cl_{*,0},F,H)$ be an element of $KO^*(A)$ and let $p\in KO_0(A)$. Then the operator $\pi(p)\tens 1_{Cl_{0,*}}(F\tens 1_n)\pi(p)\tens 1_{Cl_{0,*}}$ is a self-adjoint $Cl_{0,*}$-linear Fredholm operator on $\pi(p) H^n$. We will express this pairing concretely, and show that it is expressed by the Kasparov product in the section on unbounded real KK-theory. 
+	Let $x\in KO^n(A)$ and $y\in KO_m(A)$. Then we may take the Kasparov product $x\tens y$, to get an element in $KKO(Cl_{0,n},Cl_{0,m})\cong KKO(Cl_{n,m},\R)$. This element is uniquely determined up to operator homotopy by its Clifford index.
 \end{remark}
+We will give a concrete formula for the calculation of this product in a later section, by applying the unbounded Kasparov product. 

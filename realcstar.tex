@@ -13,14 +13,12 @@ A real Banach $^*$-algebra is a real \Cstar algebra if and only if it satisfies:
 \item
 	$\norm{x^*x}=\norm{x}^2$
 \item
-	$\norm{x^*x}\leq \norm{x^*x+y^*y}$ for all $x$ and $y$ in $A$
-\item
 	$1+x^*x$ is invertible in $A^+$, the unitization of $A$,. 
 \end{enumerate}
 \end{theorem}
 For a proof, see \cite{goodearl}.
 \begin{remark}
-	The assumption that $1+x^*x$ is invertible is necessary and does not follow from the axioms. For instance we could consider the complex numbers as a real \Cstar-algebra with trivial involution, and thereby we would have $0<\norm{1+x^*x}=\norm{1+i^2}=0$. Henceforth all \Cstar-algebras considered will be real, unless stated otherwise. 
+	The assumption that $1+x^*x$ is invertible is necessary and does not follow from the other axioms. For instance we could consider the complex numbers as a real \Cstar-algebra with trivial involution, and thereby we would have $0<\norm{1+x^*x}=\norm{1+i^2}=0$. Henceforth all \Cstar-algebras considered will be real, unless stated otherwise. 
 \end{remark}
 The motivating geometric example for the construction of real \Cstar is viewing them as non-commutative generalizations of Atiyah's real spaces. 
 \begin{definition}[Atiyah's Real spaces]
@@ -257,10 +255,10 @@ Before we proceed, we need to introduce the notion of a graded \Cstar algebra an
 	&A=\bigoplus_{g \in \Gamma} A^{(g)} \\
 	&A^{(g)} A^{(g')}\subset A^{(g g')}
 \end{align*}
-In the case where $\Gamma$ is $\Z_2$, the grading can equivalently be given by an automorphism $\gamma:A\to A$ such that $\gamma(A^{(0)})=A^{(0)}$, and $\gamma(A^{(1)}=-A^{(1)}$. From now on we will restrict ourselves to the case $\Gamma=\Z_2$.  
+In the case where $\Gamma$ is $\Z_2$, the grading can equivalently be given by an automorphism $\gamma:A\to A$ such that $\gamma(A^{(0)})=A^{(0)}$, and $\gamma(A^{(1)})=-A^{(1)}$. From now on we will restrict ourselves to the case $\Gamma=\Z_2$.  
 %\item	Let $A$ be a \Cstar-algebra with a $\Z_2$ action $\gamma$. A grading on $A$ is a decomposition $A=A^{(0)}\osum A^{(1)}$, where $A^{(0)}$ is the eigenspace of $1$ and $A^{(1)}$ is the eigenspace of $-1$.  
 \item	Suppose $A$ is a graded \Cstar algebra. An element $x\in A^{(i)}$ is homogeneous, and every element in $A$ may be written as a finite sum of homogeneous elements. Given a homogeneous element $x$, we denote its degree as $\deg x$. 
-\item	The grading is called inner if the grading automorphism, is implemented by a self-adjoint unitary $g\in M(A)$ such that $\gamma(a)=gag^*=(-1)^n a$ for every $a\in A^{(n)}$. This operator is commonly known as the grading operator. In case the grading is not implemented by a self-adjoint unitary in $M(A)$, we shall say that the grading is outer. 
+\item	The grading is called inner if the grading automorphism, is implemented by a self-adjoint unitary $g\in M(A)$ such that $\gamma(a)=gag^*=(-1)^n a$ for every $a\in A^{(n)}$. This operator is known as the grading operator. In case the grading is not implemented by a self-adjoint unitary in $M(A)$, we shall say that the grading is outer. 
 \item 	 A $^*$-subalgebra is called a graded $^*$-subalgebra if it is invariant under the grading operator.
 \item	 An ungraded \Cstar-algebra $A$ can be viewed as a graded algebra by setting $A^{(1)}=0$.  
 \item 	 Let $B$ be a graded \Cstar algebra. A Hilbert $B$-module $E_B$ is graded if there is a decomposition of $E_B$ such that:
@@ -269,7 +267,7 @@ In the case where $\Gamma$ is $\Z_2$, the grading can equivalently be given by a
 		&B^{(i)}E_B^{(j)}\subset E_B^{(j+i)} \\
 		&\ip{}{}_B:E_B^{(i)}\times E_B^{(j)}\to B^{(i+j)}
 	\end{align*}
-	As in the \Cstar-algebraic case, the grading can equivalently be given by an automorphism $\gamma:E_B\to E_B$ such that $\gamma(E_B^{(0)})=E_B^{(0)}$, and $\gamma(E_B^{(1)}=-E_B^{(1)}$. From now on we will restrict ourselves to the case $\Gamma=\Z_2$. 
+	As in the \Cstar-algebraic case, the grading can equivalently be given by an automorphism $\gamma:E_B\to E_B$ such that $\gamma(E_B^{(0)})=E_B^{(0)}$, and $\gamma(E_B^{(1)})=-E_B^{(1)}$. From now on we will restrict ourselves to the case $\Gamma=\Z_2$. 
 \item 	 Let $B$ be a graded \Cstar algebra and let $E_B,F_B$ be graded Hilbert modules. Define $L(E_B,F_B)$:
 	\begin{align*}
 		&L^{(i)}(E_B,F_B)=\bigoplus_{k,j \in \Z_2,~k+j=i} L(E_B^{(k)},F_B^{(j)}) \\
